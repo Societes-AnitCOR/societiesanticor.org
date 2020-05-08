@@ -28,47 +28,7 @@ class AppFixtures extends Fixture
         $user->setRoles(['ROLE_ADMIN', 'ROLE_USER']);
 
         $em->persist($user);
-
-        $branchNames = [
-            'Agriculture',
-            'Agroalimentaire - Alimentation',
-            'Animaux',
-            'Architecture - Aménagement intérieur',
-            'Artisanat - Métiers d\'art',
-            'Banque - Finance - Assurance',
-            'Bâtiment - Travaux publics',
-            'Biologie - Chimie',
-            'Commerce - Immobilier',
-            'Communication - Information',
-            'Culture - Spectacle',
-            'Défense - Sécurité - Secours',
-            'Droit',
-            'Edition - Imprimerie - Livre',
-            'Informatique - électronique',
-            'Enseignement - Formation',
-            'Environnement - Nature - Nettoyage',
-            'Gestion - Audit - Ressources humaines',
-            'Hôtellerie - Restauration - Tourisme',
-            'Humanitaire',
-            'Industrie - Matériaux',
-            'Lettres - Sciences humaines',
-            'Mécanique - Maintenance',
-            'Numérique - Multimédia - Audiovisuel',
-            'Santé',
-            'Sciences - Maths - Physique',
-            'Secrétariat - Accueil',
-            'Social - Services à la personne',
-            'Soins - Esthétique - Coiffure',
-            'Sport et animation',
-            'Transport - Logistique',
-            'Autres secteurs'
-        ];
-
-        foreach ($branchNames as $branchName){
-            $branch = new Branch();
-            $branch->setName($branchName);
-            $em->persist($branch);
-        }
+        
         $em->flush();
         
     }
