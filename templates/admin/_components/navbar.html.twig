@@ -1,0 +1,116 @@
+<div class="containbody col-sm-12">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse">
+        <div class="col-sm-2 nav-left">
+            <div class="navbar nav_title" style="border: 0;">
+                <a href="{{ path('admin')}}" class="site_title">
+                    <i class="fa fa-home"></i>
+                    <span>{{ 'title.title-bo' | trans}}</span>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+        </nav>
+        <ul class="nav navbar-nav navbar-right">
+            <li role="presentation" class="dropdown">
+                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green">6</span>
+                </a>
+                {# recupérer le dernier message #}
+                <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                        <a>
+                            <span class="imagebox"><img src="images/img.jpg" alt="Profile Image"></span>
+                            <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                            <div class="">
+
+                          <span class="imagebox">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <div class="text-center">
+                            <a>
+                                <strong>Voir tous les messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="">
+                <a href="javascript:;" class="dropdown user-profile"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') and app.user == user %}
+                        {# photo de ladmin user #}
+                            <img src="{{ asset('../assets/img/boy.png') }}" alt="">
+                            {#  <img src="{{ asset(app.user.trombi.webpath) }}" alt="photo de profil" class="img-list-bo">#}
+                    {% endif %}
+                    {{ app.user.username }}
+                    <span class=" fa fa-angle-down"></span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <ul>
+                        {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                            <li class="dropdown-item"><a href="{{ path('fos_user_registration_register') }}">
+                                    {{ 'common.bouton.register' |trans }}
+                                </a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="{{ path('fos_user_security_login') }}">
+                                    {{ 'common.bouton.login' |trans }}
+                                </a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="{{ path('fos_user_resetting_request') }}">
+                                    {{ 'common.bouton.password' |trans }}
+                                </a>
+                            </li>
+                        {% else %}
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <li class="dropdown-item">
+                                    <a href="{{ path('admin')}}">
+                                        {{ 'back-office.name'|trans }}
+                                    </a>
+                                </li>
+                            {% endif %}
+                            <li class="dropdown-item">
+                                <a href="{{ path('landing')}}">
+                                    {{ 'title.website' | trans}}
+                                </a>
+                            </li>
+                            <li class="dropdown-item">
+                                {#
+                                <a href="{{ path('mes-informations-personnelles_index',
+                                { 'user' : app.user.username, 'userId' : app.user.id })}}">
+                                    {{ 'common.bouton.my-acount' |trans }}
+                                </a>
+                                #}
+                            </li>
+                            <li class="dropdown-item">
+                                {# <a href="{{ path('fos_user_security_logout') }}">
+                                     {{ 'common.bouton.logout' |trans }}
+                                 </a>#}
+                            </li>
+                        {% endif %}
+                    </ul>
+            </li>
+        </ul>
+    </div><!--/.nav-collapse -->
+</div>

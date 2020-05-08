@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Nous Contacter  {% endblock %}
+
+{% block body %}
+<div id="backgroundCover">
+
+<div class="container">
+
+<div class="card">
+    <div class="card-body">
+        {% for messages in app.flashes %}
+            {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endfor %}
+        
+        <h1> Formulaire de contact </h1>
+            <h1 class="display-4">Nous Contacter</h1>
+            <p class="lead">Contactez nous</p>
+            <hr class="my-4">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+</div>
+    
+</div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Editer le contenu{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('../assets/components/summernote/css/summernote.css') }}" rel="stylesheet">
+    <style>
+        .note-editable, .note-editor{
+            min-height: 160px;
+        }
+        .note-popover .popover-content, .panel-heading.note-toolbar {
+            padding: 0 0 8px 5px;
+        }
+        .pull-right.control-label.control-label{
+            padding: 0 10px 0 0px;
+        }
+    </style>
+{% endblock stylesheets %}
+{% block body %}
+<div id="menu-left" class="col-sm-2 col-xs-12">
+    {{ render(controller('App\\Controller\\Admin\\AdminController::menu') )}}
+</div>
+<div class="col-sm-10 well" id="background-admin" style="margin-bottom:0;">
+    <h1>Editer le contenu</h1>
+</div>
+<div class="col-sm-10 well" id="background-admin" style="margin-bottom:0;">
+    {{ include('admin/content/_form.html.twig', {'button_label': 'Update'}) }}
+    <a href="{{ path('content_index') }}" class="btn btn-default">revenir à la liste</a>
+    <hr/>
+    {{ include('admin/content/_delete_form.html.twig') }}
+</div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('../assets/components/summernote/js/summernote.js')}}"></script>
+    <script>
+        $(".summernote").summernote();
+    </script>
+{% endblock %}

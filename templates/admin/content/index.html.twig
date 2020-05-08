@@ -1,0 +1,51 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Liste des contenus pour la homepage - texte de présentation{% endblock %}
+{% block body %}
+    <div id="menu-left" class="col-sm-2 col-xs-12">
+        {{ render(controller('App\\Controller\\Admin\\AdminController::menu') )}}
+    </div>
+    <div class="col-sm-10 well" id="background-admin" style="margin-bottom:0;">
+        <h1>Liste des contenus pour la homepage - texte de présentation</h1>
+        <a href="{{ path('content_new') }}" class="pull-right btn btn-primary">Créer</a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>1er Paragraphe</th>
+                <th>2eme Paragraphe</th>
+                <th>3eme Paragraphe</th>
+                <th>type de contenu</th>
+                <th>Visible ou non?</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for content in contents %}
+                <tr>
+                    <td>{{ content.title }}</td>
+                    <td>{{ content.firsttext | raw }}</td>
+                    <td>{{ content.secondtext | raw}}</td>
+                    <td>{{ content.othertext | raw}}</td>
+                    <td>{{ content.contentType ? 'Yes' : 'No' }}</td>
+                    <td>{% if content.active == true %} OUI {% else %} Non {% endif %}</td>
+                    <td>
+                        <a href="{{ path('content_show', {'id': content.id}) }}"
+                           class="btn btn-primary pull-left" style=" padding: 1px 4px;">
+                            <span class="fas fa-eye"></span>
+                        </a>
+                        <a href="{{ path('content_edit', {'id': content.id}) }}"
+                           class="btn btn-success pull-left" style=" padding: 1px 4px;">
+                            <span class="fas fa-edit"></span>
+                        </a>
+                        {{ include('admin/content/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">Aucun résultats</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

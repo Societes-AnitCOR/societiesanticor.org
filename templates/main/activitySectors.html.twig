@@ -1,0 +1,288 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Les différents secteurs d'activités {% endblock %}
+
+{% block body %}
+
+<div class="container-lg mt-5" >
+
+    <div class="display-4 mb-2"> 14 secteurs d'activités </div>
+    <div class="lead mb-5">
+        qui aident à lutter contre la pénurie de matériel
+        <img src="{{ asset('build/images/activites.png') }}" style="width: 70%;margin: 1% 15%;"><br><br>
+    </div>
+
+    <div class="jumbotron">
+        <h1 class="display-4">En savoir plus!</h1>
+        <p class="lead">Découvrez des exemples de comment ces secteurs d'activités ont pu aider à lutter contre la pénurie de matériel.</p>
+    </div>
+
+    <div class="accordion" id="accordionSectors">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Applications
+                </button>
+            </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionSectors">
+            <div class="card-body">
+                Plusieurs site internets d’initiative citoyenne permettent la mise en relation de professionnels avec des personnes ayant du stock ou des moyens de production - ce qui peut en outre nécessiter le concours de personnes qui disposent de matiere premieres a fournir :
+                <ul>
+                    <li><a href="https://www.covid3d.fr/">https://www.covid3d.fr/</a></li>
+                    <li><a href="https://sosequipements.fr/">https://sosequipements.fr/</a></li>
+                    <li><a href="https://fabricommuns.org/">https://fabricommuns.org/</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Bricolage
+                </button>
+            </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSectors">
+            <div class="card-body">
+                Le groupe Kingfisher, via ses deux enseignes françaises, Castorama et Brico Dépôt,
+                fait don de plusieurs milliers d’équipements médicaux à destination du personnel soignant de l’AP-HP (Assistance publique - Hôpitaux de Paris)
+                et des réseaux d’Ehpad des groupes SOS Séniors et Korian
+                <a href="https://www.lsa-conso.fr/coronavirus-castorama-et-brico-depot-font-don-de-milliers-d-equipements-pour-le-personnel-soignant,344670">en savoir plus</a>.
+            </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Cantines
+                </button>
+            </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSectors">
+            <div class="card-body">
+                Des restaurants scolaires livrent des hôpitaux en surblouses, masques, et gants
+                <a href="https://www.ouest-france.fr/sante/virus/coronavirus/confinement/maine-et-loire-les-cantines-des-colleges-offrent-gants-masques-et-surblouses-aux-hopitaux-fce7beb8-7362-11ea-bf99-a67a930a11b3">en savoir plus</a>.
+            </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFour">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Carrosserie
+                </button>
+            </h2>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSectors">
+            <div class="card-body">
+                La carrosserie Artières, située en Aveyron, se propose de mettre son stock de plexiglas à la disposition des commerçants locaux pour d’éventuels aménagements de protections des personnels et/ou des marchandises
+                <a href="https://www.emploilr.com/actualites/covid-19-proteger-les-salaries-exposes-avec-du-plexiglas-des-entrepreneurs-regionaux-se-mobilisent-et-innovent_5646.php">en savoir plus</a>.
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingFive">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Filière agricole
+                </button>
+            </h2>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSectors">
+            <div class="card-body">
+                <li>
+                    <b>La coopérative des Vignerons de Tutiac</b> met à disposition un stock de 300 sur-blouses et de 500 masques anti-poussières à l’hôpital de Blay
+                    <a href="https://www.sudouest.fr/2020/03/26/coronavirus-en-haute-gironde-les-vignerons-du-tutiac-participent-a-l-effort-collectif-7364990-2865.php">en savoir plus</a>.
+                </li>
+                <li>
+                    <b>L'entreprise Terres du Sud/Gamm Vert</b>, spécialisée dans les produits agricole fait un don de voile hivernage à des couturières amatrices pour leur permettre de confectionner
+                    des surblouses pour les soignants et les associations qui sont au contact des plus fragiles (Petites Soeurs de Pauvres...)
+                    <a href="https://www.petitbleu.fr/2020/04/10/des-surblouses-a-partir-de-voiles-dhivernage-agricole,8841365.php">en savoir plus</a>.
+                </li>
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingSix">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    Equipements sportifs
+                </button>
+            </h2>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionSectors">
+            <div class="card-body">
+                Les masques Easybreath de <b>Décathlon</b> ont été utilisés et transformés par la Société italienne <b>Isinnova</b> - équipe hétérogène d'ingénieurs, de concepteurs et d'experts - pour permettre à des patients atteints du covid d'être branchés à des respirateurs
+                <a href="https://www.isinnova.it/easy-covid-19-fr/">en savoir plus</a>.<br>
+                Cette solution a été reprise en Belgique tandis qu’en France Décathlon a fait dons de ses stocks en masques Easybreath a des hôpitaux
+                <a href="https://www.francebleu.fr/infos/sante-sciences/face-au-manque-de-respirateurs-decathlon-offre-ses-masques-de-plongee-aux-hopitaux-1585632034">en savoir plus</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingSeven">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                    Logistique
+                </button>
+            </h2>
+            </div>
+            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionSectors">
+            <div class="card-body">
+                La division France du fabricant allemand de matériel de manutention Still
+                met à disposition des établissements médicaux 1200 chariots, dont des transpalettes électriques,
+                des tracteurs ou encore des chariots élévateurs.
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingEight">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                    Makers
+                </button>
+            </h2>
+            </div>
+            <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionSectors">
+            <div class="card-body">
+                Des centaines de makers se mobilisent pour fabriquer des équipements de protection et de soins pour les professionnels en première ligne
+                <ul>
+                    <li><a href="https://covid-initiatives.org/map-ext"> Découvrir la carte des makers en France </a></li>
+                    <li><a href="https://covid-initiatives.org/kifekoi/table"> Découvrir qui fabrique quoi, où et pour qui ? </a></li>
+                    <li><a href="http://www.fablab.fr/coronavirus/"> Découvrir le Réseau Français des Fablabs </a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingNine">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                    Menuiserie
+                </button>
+            </h2>
+            </div>
+            <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionSectors">
+            <div class="card-body">
+                La menuiserie Cardonnet propose bénévolement aux professionnels de santé et aux commerçants de sa commune (Saint-Mathieu-de-Tréviers – Hérault)
+                de leur fournir et d’installer un « Paravirus »,
+                plexiglass vertical glissé dans un support en bois
+                <a href="https://www.emploilr.com/actualites/covid-19-proteger-les-salaries-exposes-avec-du-plexiglas-des-entrepreneurs-regionaux-se-mobilisent-et-innovent_5646.php">en savoir plus</a>.
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingTen">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                    Packaging
+                </button>
+            </h2>
+            </div>
+            <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionSectors">
+            <div class="card-body">
+                PRP création continue de produire des flacons de gel hydroalcoolique.
+                L’entreprise d’Oyonnax a déjà approvisionné l'usine Dior de Saint-Jean-de-Braye qui fabrique gratuitement des solutions antibactériennes pour les hôpitaux
+                <a href="https://www.emballagesmagazine.com/hygiene-beaute/face-au-covid-19-prp-creation-poursuit-la-fabrication-de-flacons-de-gel-hydroalcoolique.55385">en savoir plus</a>.
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingEleven">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                    Pharmaceutique
+                </button>
+            </h2>
+            </div>
+            <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordionSectors">
+            <div class="card-body">
+                Le groupe pharmaceutique tarnais <b>Pierre Fabre</b> reconfigure une ligne de production de son usine de Soual (Tarn)
+                habituellement réservée au shampoing pour lancer la production et le conditionnement de gel hydroalcoolique à destination des pharmacies d'officine
+                <a href="https://www.usinenouvelle.com/article/covid-19-pierre-fabre-lance-la-production-de-gel-hydro-alcoolique-sur-son-site-de-soual.N945231">en savoir plus</a>.
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingTwelve">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                    Plomberie
+                </button>
+            </h2>
+            </div>
+            <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordionSectors">
+            <div class="card-body">
+                Un <b>artisan plombier de Saint-Estève</b> a réalisé des protections en plexiglas à destination des pharmaciens.
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingThirteen">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                    Textile
+                </button>
+            </h2>
+            </div>
+            <div id="collapseThirteen" class="collapse" aria-labelledby="headingThirteen" data-parent="#accordionSectors">
+            <div class="card-body">
+                Le <b>"Groupement CSF"</b>, constitué sous la direction du Comité Stratégique de la Filière (CSF) Mode et Luxe, tente de coordonner tous les ateliers,
+                les fournisseurs matières et fournitures pour <b>fabriquer</b> ces modèles de masques et
+                le modèle de surblouse validé dans les plus grands volumes possible en fluidifiant les informations et les échanges direct entre eux
+                <a href="https://www.csfmodeluxe-masques.com/">en savoir plus</a>.
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingFourteen">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+                    Signalétique
+                </button>
+            </h2>
+            </div>
+            <div id="collapseFourteen" class="collapse" aria-labelledby="headingFourteen" data-parent="#accordionSectors">
+            <div class="card-body">
+                <b>DT Signs</b>, basé à Dourges, au sud de Lille, spécialisé dans les enseignes et la signalétique,
+                vient de mettre au point en urgence un paravent en Plexiglas à poser sur le comptoir d'un pharmacien et qui protège du contact
+                <a href="https://www.lesechos.fr/pme-regions/hauts-de-france/covid-19-dt-signs-lance-le-paravent-transparent-pour-comptoir-1186938">en savoir plus</a>.
+            </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingFifteen">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFifteen" aria-expanded="false" aria-controls="collapseFifteen">
+                    Et vous ?
+                </button>
+            </h2>
+            </div>
+            <div id="collapseFifteen" class="collapse" aria-labelledby="headingFifteen" data-parent="#accordionSectors">
+            <div class="card-body">
+                <a href="{{ path('company_register') }}">Je participe</a>.
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+  {{parent()}}
+{% endblock %}

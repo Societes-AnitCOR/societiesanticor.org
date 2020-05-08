@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="{{ path('landing') }}">
+        <img id="brand-logo" src="{{ asset('../assets/img/logo.png') }}" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item {{ app.request.get('_route') == 'companies' ? 'active' }}">
+                <a class="nav-link" href="{{ path('companies') }}"> Entreprises engagées </a>
+            </li>
+            <li class="nav-item dropdown {{ app.request.get('_route')  matches '/^help_*/' ? 'active'  }}">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Tout le monde peut aider
+                </a>
+            </li>
+        </ul>
+       <ul class="navbar-nav  mt-2 mt-md-0">
+           {% if app.user %}
+               <li class="nav-item">
+                   <a class="nav-link {{ app.request.get('_route') == 'companyPage' ? 'active' }}"
+                      href="{{ path('companyPage') }}"> Espace entreprise
+                   </a>
+               </li>
+               <li class="nav-item mx-3 my-1">
+                   <a class="btn btn-sm btn-outline-danger" href="{{ path('app_logout') }}"> Deconnexion </a>
+               </li>
+           {% else %}
+               <li class="nav-item mx-3 my-1">
+                   <a class="btn btn-sm btn-outline-primary" href="{{ path('app_login') }}"> Connexion </a>
+               </li>
+           {% endif %}
+       </ul>
+    </div>
+</nav>

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des entreprises engagées{% endblock %}
+
+{% block body %}
+<div id="backgroundCompanies">
+<div class="container">
+    <div class="row companiesList">
+        {% for company in companies %}
+            {% if company.activated == true %}
+            <a href="{{ path('companyPageView', {name: company.name}) }}">
+            <div class="card companyCard" style="width: 20rem;">
+                {% if company.logo is not null %}
+                    <div class="backgroundCard card-img-top" style="background-image:url({{ asset('uploads/logos/'~company.logo) }})">
+                {% else %}
+                    <div class="backgroundCard card-img-top">
+                {% endif %}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ company.name }}</h5>
+                    <p class="card-text"> {{ company.description|length > 100 ? company.description|slice(0, 100) ~ '...' : company.description  }}</p>
+                    <span class="badge badge-primary">{{ company.branch.name }}</span>
+                    <span class="badge badge-secondary">{{ company.sector }}</span>
+                </div>
+            </div>
+            </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+<div class="row">
+    <h1> Demandes de contact </h1>
+</div>
+<div class="row">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col"> Email </th>
+            <th scope="col"> Message </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <th scope="row"> {{ contact.mail }} </th>
+                <td> {{ contact.description }} </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification du profil{% endblock %}
+
+{% block body %}
+
+<div class="container-lg">
+    <div class="row">
+        <div class="col-sm-12">
+    {% if is_granted('ROLE_COMPANY') %}
+   
+        <div class="jumbotron" style="margin-top: 10px;">
+            <h3>Espace Entreprise</h3>
+            <h4>Mise à jour des informations concernant votre structure (informations publiques)</h4>
+            {{ form_start(form) }}
+
+            <hr class="my-4">
+            <p class="lead">Structure</p>
+            
+            {{ form_row(form.name) }}
+            {{ form_row(form.branch) }}
+            {{ form_row(form.branchDetail) }}
+            {{ form_row(form.logo) }}
+
+            <hr class="my-4">
+            <p class="lead">Localisation et secteur d’intervention</p>
+            <i> Cette section permet aux autres entreprises et initiatives qui se mobilisent
+             dans la région où vous vous situez ou intervenez de vous identifier plus rapidement. </i>
+
+            {{ form_row(form.postalCode) }}
+            {{ form_row(form.city) }}
+            {{ form_row(form.country) }}
+            {{ form_row(form.sector) }}
+            {{ form_row(form.address) }}
+
+            <hr class="my-4">
+            <p class="lead">Votre contribution</p>
+
+            {{ form_row(form.description) }}
+
+            <hr class="my-4">
+            <p class="lead">Contact</p>
+            <i> Cette section vous permet de choisir le mode de communication que vous privilégiez. </i>
+
+            {{ form_row(form.telephone) }}
+            {{ form_row(form.emailContact) }}
+            {{ form_row(form.complementaryInformations) }}
+
+            <hr class="my-4">
+
+            {{ form_row(form.add) }}
+
+            {{ form_end(form) }}
+
+    {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

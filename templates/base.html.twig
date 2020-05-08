@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SOCIETE AntiCOR - {% block title %} {% endblock %}</title>
+    {% block stylesheets %}
+        <link href="{{ asset('../assets/css/components/bootstrap.css') }}" rel="stylesheet">
+        <link href="{{ asset('../assets/css/app.css') }}" rel="stylesheet" />
+    {% endblock %}
+</head>
+<body>
+<header>
+    {# @odo : render controller make loose the routes attributes in the request...
+    {{ render(controller('App\\Controller\\MainController:getNavbar') )}} #}
+    {% include '_components/navbar.html.twig' %}
+</header>
+<main role="main" class="flex-shrink-0" >
+    {% block body %}{% endblock %}
+</main>
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('../assets/js/backoffice/bootstrap.min.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ asset('../assets/js/fontAwesomes.js')}}"></script>
+{% endblock %}
+<footer class="footer mt-auto py-3 footer-light bg-dark">
+    <div class="container text-center">
+        <span class="text-muted">
+            <a class="text-muted" href="mailto:team@societes-anticor.fr">
+                Nous contacter
+            </a>
+        </span>
+    </div>
+</footer>
+</body>
+</html>

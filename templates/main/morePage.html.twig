@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} En savoir plus {% endblock %}
+
+{% block body %}
+
+<div class="container-lg mt-5" >
+
+    <div class="display-4 mb-2"> F.A.Q </div>
+    <div class="lead mb-5"> 
+        Ici nous répondons à vos questions.
+    </div>
+
+    <div class="accordion" id="accordionMore">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    A qui s’adresse ce site ?
+                </button>
+            </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionMore">
+            <div class="card-body">
+                <b>A toutes les sociétés</b> qui souhaitent <b>rendre visible</b> leur mobilisation ou leur volonté d’agir auprès des acteurs mobilisés 
+                sur le terrain afin de <b>faciliter les rapprochements locaux</b> et <b>renforcer l’action</b>.<br><br>
+                En d’autres termes aux <b>entrepreneurs de tous horizons</b> avec la volonté d’aider, <b>sans distinction de taille ou de secteur d'activité</b>.<br><br>
+                Car une entreprise, ce n’est pas seulement une entité économique, c’est une énergie d’hommes et femmes, un engagement, 
+                un savoir-faire et une expérience, un réseau, des ressources créatives, organisationnelles, logistiques, matérielles ou financières.<br><br>
+                Evidemment pourtant le contexte implique de ne rejeter aucune forme de solidarité pour un prétexte sémantique. 
+                Aussi, le site d’adresse assurément aussi aux <b>coopératives, syndicats, institutions, Etablissements, associations, ONG, et collectifs</b>.
+            </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Quels sont les publics qui pourraient bénéficier de mon aide ?
+                </button>
+            </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMore">
+            <div class="card-body">
+                Tous les acteurs déjà mobilisés face à la crise : professionnels en première ligne, institutions, associations, entreprises, initiatives solidaires.<br><br>
+                Le but est de rendre votre engagement visible afin de soutenir ces acteurs en fonction de votre secteur d'activité et région d’intervention, voire dans certains cas amplifier ou “professionnaliser” leur action.<br><br>
+                Une seule initiative demande déjà une <b>multiplicité d’acteurs et de ressources</b>.<br><br>
+                <p>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseMore" aria-expanded="false" aria-controls="collapseMore">
+                        Voir un exemple
+                    </button>
+                    </p>
+                    <div class="collapse" id="collapseMore">
+                    <div class="card card-body">
+                        <p>Un collectif d'<b>initiative citoyenne et solidaire</b> ayant développé dans l’urgence une plateforme <b>pour venir en aide aux soignants</b> et faire face à la crise pourra être amené à vouloir contacter :</p>
+                        <ul>
+                            <li>des <b>vignerons</b> pour un don de surblouses</li>
+                            <li>des <b>cantines</b> pour un don de gants et charlottes</li>
+                            <li>des <b>carrossiers</b> pour un don de plexiglas (utile pour les installations de protection dans les pharmacies) </li>
+                            <li>de <b>sociétés de stérilisation</b> pour une expertise sur la décontamination du matériel</li>
+                            <li>de <b>sociétés orientées bien-être</b> pour le soutien psychologique des soignants</li>
+                            <li>des <b>magasins de vélos</b> pour permettre au soignants de se rendre à l'hôpital</li>
+                            <li>des <b>restaurateurs</b> pour préparer des plateaux repas à délivrer aux soignants</li>
+                            <li>des <b>sociétés de transports et logistique</b> pour assurer toutes les problématiques de livraison aux soignants</li>
+                            <li>des <b>professionnels du numérique et design</b> pour le déploiement, le référencement et l'identité visuelle de la plateforme</li>
+                            <li>des <b>juristes ou avocats</b> pour les conseiller sur les textes juridiques d’utilisation des données sur la plateforme</li>
+                            <li>un <b>réseau</b> pour la communication et le partage de la plateforme auprès des publics concernés</li>
+                        </ul>
+                    </div>
+                </div>
+                Or, dans un contexte de fragilisation de l'activité économique, ces ressources peuvent manquer sans même que vous sachiez à quel point elles peuvent être utiles et faire la différence.<br><br>
+                De plus, face à la crise, <b>les besoins et les publics touchés sont multiples</b>, autant que les initiatives solidaires qui luttent à leurs côtés. <a href="{{ path('help_more_than_ten_support') }}"> Découvrir différents types de besoins et d'initiatives</a>.
+            </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Quel type d’aide ma société pourrait-elle fournir ?
+                </button>
+            </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionMore">
+            <div class="card-body">
+                Votre entreprise peut valoriser son <b>expertise</b>, son <b>réseau</b> et ses <b>ressources matérielles</b>, <b>logistiques</b> ou <b>financières</b> au soutien de ceux qui sont déjà mobilisés face à la crise.<br><br>
+                Par exemple, vous pouvez appuyer leur démarche <b>en mettant à disposition du matériel</b>, qu’il s’agissent d'<b>équipement</b> à disposition des publics vulnérables et professionnels exposés ou de <b>matières premières</b> à destination des makers et fabricants déjà activement mobilisés.<br><br>
+                Vous pouvez également apporter à ces collectifs des ressources organisationnelles et logistiques, notamment en termes de <b>livraison</b>.<br><br>
+                Votre expertise et votre réseau peuvent également leur permettre d’amplifier voire “professionnaliser” leur action.
+                <b>Partenariat, mentoring, accreditation, validation ou homologation, échanges d’expertise</b> : les voies pour aider sont multiples.
+            </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFour">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
+                aria-expanded="false" aria-controls="collapseFour">
+                    Je doute que mon secteur d'activité puisse fournir une aide dans le cadre de la crise - même si je serai très heureux de pouvoir aider.
+                </button>
+            </h2>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionMore">
+            <div class="card-body">
+                Le but est en premier lieu de rendre visible votre <b>volonté d’aider</b> auprès d’un public déjà mobilisé car ce public-là
+                est le plus apte à connaître ses propres besoins et sait comment vos ressources pourraient l’aider dans l’exercice de ses missions
+                solidaires même si vous ne le savez pas encore.<br><br>
+                Ainsi, vous doutiez-vous que tous les secteurs d'activités représentés dans cette photo ont déjà contribué à lutter contre
+                 la pénurie de matériel face à la crise (équipements de protection et/ou de soins) ?
+                <img src="{{ asset('build/images/activites.png') }}" style="width: 70%;margin: 1% 15%;">
+                <br>
+                <br>
+                <a href="{{ path('help_all_activities_are_necessary') }}"> Découvrir les contributions de ces secteurs d'activité </a><br><br>
+                Face à la crise <b>les besoins et les formes de solidarités évoluent tous les jours</b> et il n’est pas toujours possible d’anticiper ce qui
+                 sera utile demain. Découvrez des exemples d'initiatives solidaires dans plus de 10 secteurs différents qui pourraient vous concerner et que
+                 <a href="{{ path('help_more_than_ten_support') }}">
+                   vous pourriez soutenir
+                 </a>.<br><br>
+                <a href="{{ path('company_register') }}">Construisons dès maintenant le réseau des sociétés aidantes</a>.
+            </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent()}}
+{% endblock %}

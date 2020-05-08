@@ -1,0 +1,8 @@
+<form class="pull-left" method="post" action="{{ path('content_delete', {'id': content.id}) }}"
+      onsubmit="return confirm('Etes vous sur de vouloir supprimer cet item ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ content.id) }}">
+    <button class="btn btn-danger" style=" padding: 1px 4px;">
+        <span class="fas fa-trash"></span>
+    </button>
+</form>

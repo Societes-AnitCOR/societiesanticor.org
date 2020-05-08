@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ company.name }}{% endblock %}
+
+{% block body %}
+
+<div class="container-lg mt-5" style="margin-bottom: 50px;">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <!--left col-->
+
+            {% if company.logo is not null %}
+                <div class="backgroundCard text-center" style="background-image:url({{ asset('uploads/logos/'~company.logo) }})"></div>
+            {% else %}
+                <div class="backgroundCard text-center"></div>
+            {% endif %}
+
+            <div class="">
+                <div class="card  my-3">
+                    <div class="card-body">
+                        <a href="tel:{{ company.telephone }}"><span class="fas fa-phone-square"></span> : 
+                            <span>{{ company.telephone }}</span>                        
+                        </a><br>
+                        <a href="mailto:{{ company.emailContact }}">
+                            <span class="fas fa-envelope"></span> : 
+                            <span>{{ company.emailContact }}</span></a><br>
+                    </div>
+                </div>
+
+                <div class="card  my-3">
+                    <div class="card-header">Secteur d'intervention </div>
+                    <div class="card-body">
+                        <span>{{ company.sector }}</span>
+                    </div>
+
+                </div>
+                <div class="card  my-3">
+                        <div class="card-header">Adresse</div>
+                        <div class="card-body">
+                            <span>{{ company.address }}</span>
+                        </div>
+                </div>
+                <div class="card  my-3">
+                        <div class="card-header">Code Postal</div>
+                        <div class="card-body">
+                            <span>{{ company.postalCode }}</span>
+                        </div>
+                </div>
+                <div class="card  my-3">
+                        <div class="card-header">Ville</div>
+                        <div class="card-body">
+                            <span>{{ company.city }}</span>
+                        </div>
+                </div>
+                <div class="card  my-3">
+                        <div class="card-header">Pays</div>
+                        <div class="card-body">
+                            <span>{{ company.country }}</span>
+                        </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!--/ Right Col-->
+        <div class="col-sm-8">
+            <div>
+                <h1 class="display-4">{{ company.name }}</h1>
+                <p class="lead"><span>{{ company.branch.name }}</span></p>
+            </div>
+
+            <div>
+                <div class="">
+                    <div class="">
+
+                        <div class=" companyInfos">
+                            <span class="h6">Détail de l'entreprise </span>
+                                <p>{{ company.branchDetail }}</p>
+                            <span class="h6">Stratégie d'engagement</span>
+                                <p>{{ company.description }}</p>
+                            <span class="h6">Informations complémentaires</span>
+                                <p>{{ company.complementaryInformations }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

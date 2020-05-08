@@ -1,0 +1,49 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Panneau administrateur{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+{% endblock stylesheets %}
+{% block body %}
+    <div id="menu-left" class="col-sm-2 col-xs-12">
+        {{ render(controller('App\\Controller\\Admin\\AdminController::menu') )}}
+    </div>
+    <div class="col-sm-10 well" id="background-admin" style="margin-bottom:0;">
+        <h1> Liste des entreprises référencées </h1>
+        <div class="row">
+            <a href="{{ path('companiesExport') }}" class="btn btn-warning" download="export.xlsx"> Exporter la liste </a>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col"> Dénomination </th>
+                    <th scope="col"> Email </th>
+                    <th scope="col"> Téléphone </th>
+                    <th scope="col"> Localisation </th>
+                    <th scope="col"> Publiée/cachée </th>
+                    <th scope="col"> Action </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for company in companies %}
+                    <tr>
+                        <th scope="row"> {{ company.name }} </th>
+                        <td> {{ company.email }} </td>
+                        <td> {{ company.telephone }} </td>
+                        <td> {{ company.address }} </td>
+                        <td>
+                            {% if company.activated %}
+                            Publiée
+                        </td>
+                        <td> <a href="{{ path('companyState', {id: company.id}) }}" class="customButton"> Désactiver </a> </td>
+                        {% else %}
+                            Cachée
+                            </td>
+                            <td> <a href="{{ path('companyState', {id: company.id}) }}" class="customButton"> Activer </a> </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

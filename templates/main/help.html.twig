@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} En savoir plus {% endblock %}
+
+{% block body %}
+
+<div class="container-lg mt-5" >
+
+    <div class="display-4 mb-2"> Plus de 10 façons d’aider </div>
+    <div class="lead mb-5"> 
+        Ici nous listons à titre non exhaustif quelques initiatives solidaires qui nous inspirent. 
+        Plus de 400 initiatives sont référencées sur le site covid-initiatives.org.
+        Cette profusion illustre la multiplicité des besoins et la diversité des secteurs d'activité qui peuvent y répondre.
+    </div>
+
+
+
+    <!-- Categories  -->
+    {% for category_name, hash_initiatives in hash_categories %}
+        <!-- Category {{ category_name }}  -->
+        <div class="card">
+            <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse_category_{{loop.index0}}" aria-expanded="false" aria-controls="collapseOne">
+                <span class="chevron_custom" aria-hidden="true"></span>{{ category_name }}
+                </button>
+            </h5>
+            </div>
+
+            <div id="collapse_category_{{loop.index0}}" class="collapse hide" aria-labelledby="headingOne" >
+            <div class="card-body">
+                <!-- Initiatives -->
+                <ul>
+                {% for initiative_name, initiative in hash_initiatives %}
+                    <!-- Initiative: {{ initiative_name }}  -->
+                        <li><b>{{initiative_name}}</b> - <a href="{{ initiative["site"] }}" target="_blank">{{ initiative["site"] }}</a>
+                        <blockquote>{{ initiative["description"] }}</blockquote>
+                        </li>
+                {% endfor %}
+                </ul>
+            </div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

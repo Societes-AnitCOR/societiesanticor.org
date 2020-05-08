@@ -1,0 +1,241 @@
+<sidebar class="" style="width: 100%;">
+    <div class="w3-sidebar w3-bar-block">
+        <ul id="ul-menu-left" >
+            <div class="left_col scroll-view">
+                <div class="clearfix"></div>
+                <div class="profile clearfix">
+                    <div class="profile_pic">
+                        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') and app.user == user %}
+                            <img src="{{ asset('../assets/img/boy.png') }}" alt="" class="img-circle profile_img" style="width: 59px;height: 59px;">
+                        {% endif %}
+                    </div>
+                    <div class="profile_info">
+                        <span>{{ 'common.welcome' | trans}},</span>
+                        <h2>{{ app.user.username }}</h2>
+                    </div>
+                </div>
+                <br>
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <h3>{{ 'common.status' | trans}}</h3>
+                        <ul class="nav side-menu">
+
+                            <li>
+                                <a><i class="fa fa-home"></i>
+                                    {{ 'Liste des entreprises' | trans}}
+                                    <span class="fa fa-chevron-down"></span>
+                                </a>
+                                <ul class="nav child_menu">
+                                    <li>
+                                        <a href="{{ path('admin_companyList') }}" class="w3-bar-item w3-button">
+                                            {{ 'Liste des entreprises référencées 1' | trans}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-home"></i> {{ 'contenu' | trans}}<span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li>
+                                        <a href="{{ path('content_index') }}" class="w3-bar-item w3-button">
+                                            {{ 'Texte présentation homepage'  | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ ' MENU LIEN 2' | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ ' MENU LIEN 3' | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ ' MENU LIEN 4' | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ ' MENU LIEN 5' | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ ' MENU LIEN 6' | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ ' MENU LIEN 7' | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ ' MENU LIEN 8' | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ ' MENU LIEN 9' | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ ' MENU LIEN 10' | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ ' MENU LIEN 11' | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ ' MENU LIEN 12' | trans}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-envelope"></i>  {{ 'back-office.menu.mail' | trans}}
+                                    <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ 'back-office.menu.message' | trans}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-calendar"></i>     {{ 'back-office.menu.calendar' | trans}}
+                                    <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ 'back-office.menu.planing' | trans}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-bar-chart"></i>
+                                    {{ 'back-office.menu.statistiques' | trans}}
+                                    <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ 'back-office.menu.details' | trans}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-cogs"></i>
+                                    {{ 'back-office.menu.options' | trans}}
+                                    <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ 'back-office.menu.cropper' | trans}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-file-text-o"></i>
+                                    {{ 'back-office.menu.editorial' | trans}}
+                                    <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ 'back-office.menu.actualites' | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ 'back-office.menu.present' | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ 'back-office.menu.present-agency' | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ 'Qui sommes nous ?' | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ 'Ethique' | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ 'Nos métiers ' | trans}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="w3-bar-item w3-button">
+                                            {{ 'Nos partenaires' | trans}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <li><a><i class="fa fa-desktop"></i>
+                                        {{ 'common.users' | trans}}
+                                        <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>
+                                            <a href="" class="w3-bar-item w3-button">
+                                                {{ 'back-office.menu.users' | trans}}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-table"></i> {{ 'back-office.menu.technical-support' | trans}}
+                                        <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>
+                                            <a href="" class="w3-bar-item w3-button">
+                                                {{ 'back-office.menu.technical-support-contact' | trans}}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            {% endif %}
+                            <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i>
+                                    {{ 'common.landing-page' | trans}}
+                                    <span class="label label-success pull-right">
+                         {{ 'common.coming-soon' | trans}}
+                     </span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- /sidebar menu -->
+
+                <!-- /menu footer buttons -->
+                <div class="sidebar-footer hidden-small">
+                    <a data-toggle="tooltip" data-placement="top" title="Settings">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Lock">
+                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Logout" href="">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <!-- /menu footer buttons -->
+            </div>
+    </div>
+
+</sidebar>

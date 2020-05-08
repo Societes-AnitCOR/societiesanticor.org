@@ -1,0 +1,176 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ app.user.name }}{% endblock %}
+
+{% block body %}
+
+<div class="container-lg mt-5" style="margin-bottom: 50px;">
+
+    {% if is_granted('ROLE_COMPANY') %}
+
+    <div class="row">
+        <div class="col-sm-4">
+            <!--left col-->
+
+            {% if app.user.logo is not null %}
+                <div class="backgroundCard text-center" style="background-image:url({{ asset('uploads/logos/'~app.user.logo) }})"></div>
+            {% else %}
+                <div class="backgroundCard text-center"></div>
+            {% endif %}
+
+            <div class="">
+                <div class="card  my-3">
+                    <a class="btn btn-primary mb3" href="{{ path('companyUpdate') }}" role="button"> Mettre à jour les
+                        informations </a>
+                </div>
+
+                <div class="card  my-3">
+                    <div class="card-body">
+                        <a href="tel:{{ app.user.telephone }}"><span class="fas fa-phone-square"></span> : 
+                        {% if app.user.telephone is not null %}
+                            <span>{{ app.user.telephone }}</span>
+                        {% else %}
+                            <span class="placeholderExample"> 06 ... </span>
+                        {% endif %}
+                        
+                        </a><br>
+                        <a href="mailto:{{ app.user.emailContact }}">
+                            <span class="fas fa-envelope"></span> : 
+                            {% if app.user.emailContact is not null %}
+                                <span>{{ app.user.emailContact }}</span>
+                            {% else %}
+                                <span class="placeholderExample"> ...@mail.fr </span>
+                            {% endif %}</a><br>
+                    </div>
+                </div>
+
+                <div class="card  my-3">
+
+                    <div class="card-header">Secteur d'intervention </div>
+                    <div class="card-body">
+                        {% if app.user.sector is not null %}
+                            <span>{{ app.user.sector }}</span>
+                        {% else %}
+                            <span class="placeholderExample"> Région </span>
+                        {% endif %}
+                    </div>
+
+                </div>
+                <div class="card  my-3">
+                        <div class="card-header">Adresse</div>
+                        <div class="card-body">
+                            {% if app.user.address is not null %}
+                                <span>{{ app.user.address }}</span>
+                            {% else %}
+                                <span class="placeholderExample"> 10 rue du Lac </span>
+                            {% endif %}
+                        </div>
+                </div>
+                <div class="card  my-3">
+                        <div class="card-header">Code Postal</div>
+                        <div class="card-body">
+                            {% if app.user.postalCode is not null %}
+                                <span>{{ app.user.postalCode }}</span>
+                            {% else %}
+                                <span class="placeholderExample"> 75001 </span>
+                            {% endif %}
+                        </div>
+                </div>
+                <div class="card  my-3">
+                        <div class="card-header">Ville</div>
+                        <div class="card-body">
+                            {% if app.user.city is not null %}
+                                <span>{{ app.user.city }}</span>
+                            {% else %}
+                                <span class="placeholderExample"> Paris </span>
+                            {% endif %}
+                        </div>
+                </div>
+                <div class="card  my-3">
+                        <div class="card-header">Pays</div>
+                        <div class="card-body">
+                            {% if app.user.country is not null %}
+                                <span>{{ app.user.country }}</span>
+                            {% else %}
+                                <span class="placeholderExample"> France </span>
+                            {% endif %}
+                        </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!--/ Right Col-->
+        <div class="col-sm-8">
+            <div>
+                <h1 class="display-4">{{ app.user.name }}</h1>
+                <p class="lead"><span>{{ app.user.branch.name }}</span></p>
+            </div>
+
+            <div class="alert alert-warning" role="alert">
+                Votre Entreprise / Établissement a bien été enregistré(e) ! 
+                Pour apparaitre dans la liste des structures engagées de façon à être plus facilement visible par les autres utilisateur, 
+                vous pouvez maintenant ou à tout moment compléter vos informations en cliquant sur “mettre à jour mes informations
+            </div>
+
+
+            <div>
+                <div class="">
+                    <div class="">
+
+                        <div class=" companyInfos">
+                            <span class="h6">Détail de l'entreprise </span>
+                            {% if app.user.branchDetail is not null %}
+                                <p>{{ app.user.branchDetail }}</p>
+                            {% else %}
+                                <p class="placeholderExample"> Notre activité principale est... </p>
+                            {% endif %}
+
+                            <span class="h6">Stratégie d'engagement</span>
+                            {% if app.user.description is not null %}
+                                <p>{{ app.user.description }}</p>
+                            {% else %}
+                                <p class="placeholderExample"> Notre entreprise propose de distribuer des... </p>
+                            {% endif %}
+
+                            <span class="h6">Informations complémentaires</span>
+                            {% if app.user.complementaryInformations is not null %}
+                                <p>{{ app.user.complementaryInformations }}</p>
+                            {% else %}
+                                <p class="placeholderExample">Comment nous sommes engagés...</p>
+                            {% endif %} 
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+    {% else %}
+        <div class="jumbotron">
+            <h1 class="display-4">Espace entreprise</h1>
+            <p class="lead">Ceci est l'espace réservé aux entreprises solidaires.</p>
+            <hr class="my-4">
+            
+            <p>Si vous êtes déja inscrit, reconnectez vous ici :</p>
+            <a class="btn btn-primary btn-lg" href="{{ path('app_login') }}" role="button"> connexion </a>
+            
+            <hr class="my-4">
+            <p>Si vous représentez une entreprise, inscrivez vous ici :</p>
+            <a class="btn btn-primary btn-lg" href="{{ path('company_register') }}" role="button"> inscription </a>
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}
