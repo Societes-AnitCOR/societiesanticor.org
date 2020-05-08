@@ -37,9 +37,9 @@ class Company
     private $branch;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
-    private $branchDetail;
+    private $contribution;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -49,7 +49,7 @@ class Company
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $sector;
+    private $geographicPerimeter;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -74,7 +74,17 @@ class Company
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $publicMail;
+    private $email;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $urlWebsite;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $keywords;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -97,22 +107,25 @@ class Company
 
         return $this;
     }
-    
+
+
     public function arrayExport(): ?array
     {
         return [
             $this->name,
-            $this->publicMail,
+            $this->email,
             $this->telephone,
             $this->branch->getName(),
-            $this->branchDetail,
+            $this->contribution,
             $this->address,
             $this->city,
             $this->country,
             $this->postalCode,
-            $this->sector,
+            $this->geographicPerimeter,
             $this->description,
-            $this->complementaryInformations
+            $this->complementaryInformations,
+            $this->urlWebsite,
+            $this->keywords
         ];
     }
 
@@ -140,17 +153,6 @@ class Company
         return $this;
     }
 
-    public function getBranchDetail(): ?string
-    {
-        return $this->branchDetail;
-    }
-
-    public function setBranchDetail(?string $branchDetail): self
-    {
-        $this->branchDetail = $branchDetail;
-
-        return $this;
-    }
 
     public function getDescription(): ?string
     {
@@ -164,14 +166,14 @@ class Company
         return $this;
     }
 
-    public function getSector(): ?string
+    public function getGeographicPerimeter(): ?string
     {
-        return $this->sector;
+        return $this->geographicPerimeter;
     }
 
-    public function setSector(?string $sector): self
+    public function setGeographicPerimeter(?string $geographicPerimeter): self
     {
-        $this->sector = $sector;
+        $this->geographicPerimeter = $geographicPerimeter;
 
         return $this;
     }
@@ -224,14 +226,14 @@ class Company
         return $this;
     }
 
-    public function getPublicMail(): ?string
+    public function getEmail(): ?string
     {
-        return $this->publicMail;
+        return $this->email;
     }
 
-    public function setPublicMail(?string $publicMail): self
+    public function setPublicMail(?string $email): self
     {
-        $this->publicMail = $publicMail;
+        $this->email = $email;
 
         return $this;
     }
@@ -256,6 +258,49 @@ class Company
     public function setBranch(?Branch $branch): self
     {
         $this->branch = $branch;
+
+        return $this;
+    }
+
+    public function getContribution(): ?string
+    {
+        return $this->contribution;
+    }
+
+    public function setContribution(?string $contribution): self
+    {
+        $this->contribution = $contribution;
+
+        return $this;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getUrlWebsite(): ?string
+    {
+        return $this->urlWebsite;
+    }
+
+    public function setUrlWebsite(?string $urlWebsite): self
+    {
+        $this->urlWebsite = $urlWebsite;
+
+        return $this;
+    }
+
+    public function getKeywords(): ?string
+    {
+        return $this->keywords;
+    }
+
+    public function setKeywords(?string $keywords): self
+    {
+        $this->keywords = $keywords;
 
         return $this;
     }

@@ -20,7 +20,8 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $em)
     {
         $user = new User();
-        $user->setUsername('admin');
+        $user->setEmail('support@initiative.fr');
+        $user->setUsername('support@initiative.fr');
 
         $password = $this->encoder->encodePassword($user, 's0l1d41r3-1n1t14t1v3');
         $user->setPassword($password);

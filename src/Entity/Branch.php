@@ -28,6 +28,11 @@ class Branch
      */
     private $companies;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $position;
+
     public function __construct()
     {
         $this->companies = new ArrayCollection();
@@ -77,6 +82,18 @@ class Branch
                 $company->setBranch(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(int $position): self
+    {
+        $this->position = $position;
 
         return $this;
     }
