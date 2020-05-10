@@ -5,10 +5,10 @@
     <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            Dynamic SQL generator for table 'companies' 
+            Dynamic JSON generator for table 'companies' 
           </h1>
           <h2 class="subtitle">
-            Version: 1.4
+            Version: 1.5
           </h2>
           <div class="container">
             <a id="link" class="is-link" href="https://docs.google.com/spreadsheets/d/1yCxNTeeG1py5qqTf2cHgZbk4njSPtzhc5XaTt3LB510">
@@ -45,10 +45,12 @@
     document.getElementById('link').setAttribute('href', 'https://docs.google.com/spreadsheets/d/' + key);
 
     const mapping = {
+        _id : 'id',
         branch_name: "Secteur d'activite",
         name: 'Nom de la structure',
         telephone: 'Téléphone',
         logo: 'id',
+        _logo: 'URL logo',
         contribution: 'Contribution',
         description: 'Objet de la structure',
         geographic_perimeter: 'Code postal',
@@ -63,7 +65,6 @@
         keywords: 'Mot-cle Contribution',
         complementary_informations: 'Information complementaire',
         _kompass_id: 'Kompass ID',
-
     }
 
     var results = document.getElementById('results')
@@ -85,7 +86,12 @@
         sql = []
 
         const getField = (row, field) => {
-            return ((row[mapping[field]] || ' ') + ' ').trim()
+            const value = ((row[mapping[field]] || ' ') + ' ').trim()
+            if (field === 'logo') {
+                return 'auto_' + value + '.png'
+            } else {
+                return value ;
+            }
         }
 
         remapped = [];
