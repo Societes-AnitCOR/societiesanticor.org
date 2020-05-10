@@ -1,12 +1,42 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.1/css/bulma.min.css">
 
-<h3 class="title">SQL Generator of companies :</h3>
-<div class="lead">version: 1.4 </div>
-<div class="lead">
-    <a id="link" href="https://docs.google.com/spreadsheets/d/1yCxNTeeG1py5qqTf2cHgZbk4njSPtzhc5XaTt3LB510">Generated from a google sheet.</a>
-</div>
-<button onclick="copy_results()">Copy text</button>
-<div id='results'> </div>
+<script src="https://kit.fontawesome.com/e5a1c9ca3a.js" crossorigin="anonymous"></script>
+ 
+<section class="hero is-light is-bold">
+    <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Dynamic SQL generator for table 'companies'
+          </h1>
+          <h2 class="subtitle">
+            Version: 1.5
+          </h2>
+          <div class="container">
+            <a id="link" class="is-link" href="https://docs.google.com/spreadsheets/d/1yCxNTeeG1py5qqTf2cHgZbk4njSPtzhc5XaTt3LB510">
+                Generated dynamically from this google sheet.
+            </a>
+          </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <div class="column is-full  ">
+                <button  class="button is-pulled-left" onclick="copy_results()">
+                    <span>Copy text</span>     
+                    <span class="icon is-small">
+                    <i class="fas fa-copy"></i>
+                </span></button>
+            </div>  
+            <div class="column is-full ">
+                <div id='results' class="card is-loading"></div>
+            </div>  
+        </div>  
+
+    </div>
+</section>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 <script type='text/javascript'>
