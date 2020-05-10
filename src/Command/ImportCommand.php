@@ -109,10 +109,11 @@ class ImportCommand extends Command
             25 => 'Sciences - Maths - Physique',
             26 => 'Secrétariat - Accueil',
             27 => 'Social - Services à la personne',
-            28 => 'Soins - Esthétique - Coiffure',
+            28 => 'Soins - Esthétique - Coiffure - Entretien',
             29 => 'Sport et animation',
-            30 => 'Transport - Logistique',
-            31 => 'Autres secteurs',
+            30 => 'Textile',
+            31 => 'Transport - Logistique',
+            32 => 'Autres secteurs',
         ];
 
         foreach ($names as $position => $name) {
