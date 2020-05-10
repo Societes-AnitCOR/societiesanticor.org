@@ -28,6 +28,7 @@
                    <a class="btn btn-sm btn-outline-danger" href="{{ path('app_logout') }}"> Deconnexion </a>
                </li>
            {% else %}
+               {# is_granted #}
                <li class="nav-item mx-3 my-1">
                    <a class="btn btn-sm btn-outline-primary" href="{{ path('app_login') }}"> Connexion </a>
                </li>

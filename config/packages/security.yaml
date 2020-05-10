@@ -1,6 +1,6 @@
 security:
     encoders:
-        App\Entity\User:
+        App\Entity\Admin\User:
             algorithm: auto
         App\Entity\Company:
             algorithm: auto
@@ -11,11 +11,11 @@ security:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
-                class: App\Entity\User
+                class: App\Entity\Admin\User
                 property: email
         app_admin_provider:
             entity:
-                class: App\Entity\User
+                class: App\Entity\Admin\User
                 property: username
         # used to reload user from session & other features (e.g. switch_user)
     firewalls:
