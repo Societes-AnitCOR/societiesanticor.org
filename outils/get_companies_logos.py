@@ -13,9 +13,11 @@ OUTPUT="../public/uploads/logos"
 
 regex = r"^\s*data:([a-z]+\/[a-z]+(;[a-z\-]+\=[a-z\-]+)?)?(;base64)?,([a-z0-9\!\$\&\'\,\(\)\*\+\,\;\=\-\.\_\~\:\@\/\?\%\s]*\s*)$"
 
+# Detect if a url is actual a base64 image
 def isDataURL(s) :
     return re.search(regex, s, re.IGNORECASE)
 
+# Extract the file type and data from a base64 link
 def getData(s) :
     m = re.search(regex, s, re.IGNORECASE)
     return (m.group(1), base64.b64decode(m.group(4)))
@@ -55,40 +57,54 @@ count=0
 for d in data :
     count += 1
     print ("\t" + d['_id'] + "\t" + d['name'] + "\t" + d['_logo'])
+
+    # Save our file to temporary location so we can transform it
+    #   todo : find a neater way todo this without saving a file... 
+    tmp_img_name=""
+    img_data=bytearray()
+
+    # Process link
     if isDataURL(d['_logo']) :
-        t, data = getData(d['_logo'])
+        # Is a base64 url, no need to do a GET, we already have the data
+        t, img_data = getData(d['_logo'])
         ext = t.split('/')[-1]
-        fn = 'temp.' + ext
-        with open(fn, 'wb') as f:
-            f.write(data)
+
     else:  
-        r = requests.get(d['_logo'], stream=True, headers={'User-agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1941.0 Safari/537.36'})
-        if (r.status_code == 200) or (r.status_code == 304 ):
-            #ext=d['_logo'].split('/')[-1].split('.')[-1]
-            ext=r.headers['content-type'].split('/')[-1]
-            #ext = imghdr.what(None, h=r.raw)
-
-            tmp="" 
-            with tempfile.NamedTemporaryFile(suffix='.' + ext, delete=False) as t :
-                tmp = t.name
-                for chunk in r:
-                    t.write(chunk)
-            
-            with Image.open(tmp) as img :
-                img.save(   OUTPUT + '/' + d['logo'])
-
-            os.unlink(tmp)
-
-            print ("\t\tSaved to :" + OUTPUT + '/' + d['logo'])
-            success_count += 1
-        else :
+        # Is a regular URL, lets do a GET request
+        r = requests.get(d['_logo'], stream=True, 
+            # Pretend to be a real browser and not a robot
+            headers={'User-agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1941.0 Safari/537.36'})
+        
+        # Handle rejection like a gentleman..
+        if (r.status_code != 200) and (r.status_code != 304 ):
             failed.append(d)
             print ("\t\tFailed : " + str(r.status_code))
+            continue
+
+        # Extract file type from header information
+        ext=r.headers['content-type'].split('/')[-1]
+        for chunk in r:
+            img_data += chunk
+
+    # Save our file to temporary location so we can transform it
+    with tempfile.NamedTemporaryFile(suffix='.' + ext, delete=False) as t :
+        tmp_img_name = t.name
+        t.write(img_data)
+    
+    # create the new file in the format specified in the json file
+    with Image.open(tmp_img_name) as img :
+        img.save(   OUTPUT + '/' + d['logo'])
+
+    # delete the temporary file
+    os.unlink(tmp_img_name)
+
+    print ("\t\tSaved to :" + OUTPUT + '/' + d['logo'])
+    success_count += 1
 
 print("")
-print("Success : " + str(success_count ) + "/" + str(count))
-print("Failed : " + str(len(failed)) + "/" + str(count))
-
+print("Summary : ")
+print("\tSuccess : " + str(success_count ) + "/" + str(count))
+print("\tFailed : " + str(len(failed)) + "/" + str(count))
 for d in failed :
-    print ("\t" + d['_id'] + "\t" + d['name'] + "\t" + d['_logo'])
+    print ("\t\t" + d['_id'] + "\t" + d['name'] + "\t" + d['_logo'])
 
