@@ -1,0 +1,140 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.1/css/bulma.min.css">
+<script src="https://kit.fontawesome.com/e5a1c9ca3a.js" crossorigin="anonymous"></script>
+ 
+<section class="hero is-light is-bold">
+    <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Dynamic SQL generator for table 'companies' 
+          </h1>
+          <h2 class="subtitle">
+            Version: 1.4
+          </h2>
+          <div class="container">
+            <a id="link" class="is-link" href="https://docs.google.com/spreadsheets/d/1yCxNTeeG1py5qqTf2cHgZbk4njSPtzhc5XaTt3LB510">
+                Generated dynamically from this google sheet.
+            </a>
+          </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <div class="column is-full  ">
+                <button  class="button is-pulled-left" onclick="copy_results()">
+                    <span>Copy text</span>     
+                    <span class="icon is-small">
+                    <i class="fas fa-copy"></i>
+                </span></button>
+            </div>  
+            <div class="column is-full ">
+                <div id='results' class="card is-loading"></div>
+            </div>  
+        </div>  
+
+    </div>
+</section>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+<script type='text/javascript'>
+    var key = '1yCxNTeeG1py5qqTf2cHgZbk4njSPtzhc5XaTt3LB510'
+    var sheet_name = 'processed'
+
+    document.getElementById('link').setAttribute('href', 'https://docs.google.com/spreadsheets/d/' + key);
+
+    const mapping = {
+        branch_name: "Secteur d'activite",
+        name: 'Nom de la structure',
+        telephone: 'Téléphone',
+        logo: 'id',
+        contribution: 'Contribution',
+        description: 'Objet de la structure',
+        geographic_perimeter: 'Code postal',
+        address: 'Adresse',
+        postal_code: 'Code postal',
+        city: 'Ville',
+        geolat: '_lat',
+        geolong: '_long',
+        country: 'Pays',
+        email: 'Adresse mail de contact',
+        url_website: 'URL site',
+        keywords: 'Mot-cle Contribution',
+        complementary_informations: 'Information complementaire',
+        _kompass_id: 'Kompass ID',
+
+    }
+
+    var results = document.getElementById('results')
+    var tabletop = {}
+
+    function init_tabletop() {
+        Tabletop.init({
+            key: key,
+            simpleSheet: false,
+            callback: load_data
+        }
+        )
+    }
+
+    function load_data(sheets) {
+        console.log(sheets)
+        data = sheets[sheet_name].all()
+
+        sql = []
+
+        const getField = (row, field) => {
+            return ((row[mapping[field]] || ' ') + ' ').trim()
+        }
+
+        remapped = [];
+
+        data.forEach((row) => {
+
+            let company = {}
+            for (const field in mapping) {
+                company[field] = getField(row, field)
+            }
+            
+            remapped.push(company)
+        })
+
+        const pre = document.createElement('pre');
+        pre.innerHTML = JSON.stringify(remapped, null, '  ');
+        results.appendChild(pre)
+
+    }
+
+    function selectText(el){
+        var sel, range;
+        if (window.getSelection && document.createRange) { //Browser compatibility
+        sel = window.getSelection();
+        if(sel.toString() == ''){ //no text selection
+            window.setTimeout(function(){
+                range = document.createRange(); //range object
+                range.selectNodeContents(el); //sets Range
+                sel.removeAllRanges(); //remove all ranges from selection
+                sel.addRange(range);//add Range to a Selection.
+            },1);
+        }
+        }else if (document.selection) { //older ie
+            sel = document.selection.createRange();
+            if(sel.text == ''){ //no text selection
+                range = document.body.createTextRange();//Creates TextRange object
+                range.moveToElementText(el);//sets Range
+                range.select(); //make selection.
+            }
+        }
+    }
+
+    function copy_results() {
+        selectText(results)
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+
+    }
+
+    window.addEventListener('DOMContentLoaded', init_tabletop)
+</script>
