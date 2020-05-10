@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Security;
-use App\Entity\User;
+use App\Entity\Admin\User;
 use App\Entity\Company;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;

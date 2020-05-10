@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Admin\User;
+use App\Form\CompanyRegistrationFormType;
 use App\Security\CompanyAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -63,8 +65,9 @@ class SecurityController extends AbstractController
                              GuardAuthenticatorHandler $guardHandler,
                              CompanyAuthenticator $authenticator): Response
     {
-        $user = new Company();
-        $form = $this->createForm(CompanyRegistrationFormType::class, $user);
+        $user = new User();
+        $form = $this->createForm(CompanyRegistrationFormType
+        ::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -76,9 +79,9 @@ class SecurityController extends AbstractController
                 )
             );
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
 
             // do anything else you need here, like send an email
 
@@ -90,7 +93,7 @@ class SecurityController extends AbstractController
             );
         }
 
-        return $this->render('registration/companyRegister.html.twig', [
+        return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }

@@ -2,7 +2,7 @@
 {% block title %}Créer nouveau contenu {% endblock %}
 {% block stylesheets %}
 {{ parent() }}
-    <link href="{{ asset('../assets/components/summernote/css/summernote.css') }}" rel="stylesheet">
+    <link href="{{ asset('components/summernote/css/summernote.css') }}" rel="stylesheet">
     <style>
         .note-editable, .note-editor{
             min-height: 160px;
@@ -27,7 +27,7 @@
 {% endblock %}
 {% block javascripts %}
 {{ parent() }}
-    <script type="text/javascript" src="{{ asset('../assets/components/summernote/js/summernote.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('components/summernote/js/summernote.js')}}"></script>
     <script>
         $(".summernote").summernote();
     </script>
