@@ -6,7 +6,7 @@
                 <div class="profile clearfix">
                     <div class="profile_pic">
                         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') and app.user == user %}
-                            <img src="{{ asset('../assets/img/boy.png') }}" alt="" class="img-circle profile_img" style="width: 59px;height: 59px;">
+                            <img src="{{ asset('img/boy.png') }}" alt="" class="img-circle profile_img" style="width: 59px;height: 59px;">
                         {% endif %}
                     </div>
                     <div class="profile_info">

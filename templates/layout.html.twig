@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--[if lt IE 9]>
-    <script src="../assets/js/ie8-responsive-file-warning.js"></script>
+    <script src="js/ie8-responsive-file-warning.js"></script>
     <![endif]-->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -15,12 +15,12 @@
     <![endif]-->
     <meta name="robots" content="index, follow, all">
     {% block stylesheets %}
-        <link href="{{ asset('../assets/css/backoffice/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('../assets/css/backoffice/animate.css')}}" rel="stylesheet" />
-        <link href="{{ asset('../assets/css/backoffice/font-awesome.min.css') }}" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset('../assets/css/backoffice/style-bo.css') }}"  />
-        <link href="{{ asset('../assets/css/backoffice/nprogress.css') }}" rel="stylesheet">
-        <link href="{{ asset('../assets/css/backoffice/custom.min.css')}}" rel="stylesheet" />
+        <link href="{{ asset('css/backoffice/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/backoffice/animate.css')}}" rel="stylesheet" />
+        <link href="{{ asset('css/backoffice/font-awesome.min.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/backoffice/style-bo.css') }}"  />
+        <link href="{{ asset('css/backoffice/nprogress.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/backoffice/custom.min.css')}}" rel="stylesheet" />
     {% endblock %}
     <title>
         {% block title %}
@@ -37,11 +37,11 @@
   {% endblock %}
 </div>
 {% block javascripts %}
-    <script type="text/javascript" src="{{ asset('../assets/js/backoffice/jquery.min.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('../assets/js/backoffice/bootstrap.min.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('../assets/js/backoffice/nprogress.min.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('../assets/js/backoffice/custom.min.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('../assets/js/fontAwesomes.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/backoffice/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/backoffice/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/backoffice/nprogress.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/backoffice/custom.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/fontAwesomes.js')}}"></script>
     <script type="text/javascript">
         $('#dropdownMenuButton').click(function(){
             $('.dropdown-toggle').dropdown();

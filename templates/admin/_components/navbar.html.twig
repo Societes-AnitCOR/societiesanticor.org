@@ -59,7 +59,7 @@
 
                     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') and app.user == user %}
                         {# photo de ladmin user #}
-                            <img src="{{ asset('../assets/img/boy.png') }}" alt="">
+                            <img src="{{ asset('img/boy.png') }}" alt="">
                             {#  <img src="{{ asset(app.user.trombi.webpath) }}" alt="photo de profil" class="img-list-bo">#}
                     {% endif %}
                     {{ app.user.username }}
