@@ -143,9 +143,12 @@
         font-weight: normal;
         font-size: 1rem;
         line-height: 1.6rem;
-
+        
         color: #929292;
+    }
 
+    .companiesList .card .card-text:first-letter{
+        text-transform: capitalize
     }
 
     .companiesList .card .badges .badge {
@@ -167,7 +170,12 @@
 <section class="jumbotron jumbotron-custom ">
     <div class="container-xl">
         <h1 class="display-3">JSON Search Example :</h3>
-        <span class="lead">Version 0.3</span>
+        <span class="lead">Version 0.4</span>
+        <p>
+            <a id="link" class="is-link" href="https://docs.google.com/spreadsheets/d/1yCxNTeeG1py5qqTf2cHgZbk4njSPtzhc5XaTt3LB510" target="_blank">
+            Generated dynamically from this google sheet.
+            </a>
+        </p>
         <hr class="my-4">
         <div>
             <div class="title"><h1>Entreprises Engagés</h1></div> 
@@ -206,6 +214,9 @@
     // Google Sheets configuration
     var key = '1yCxNTeeG1py5qqTf2cHgZbk4njSPtzhc5XaTt3LB510'
     var sheet_name = 'processed'
+    document.getElementById('link').setAttribute('href', 'https://docs.google.com/spreadsheets/d/' + key);
+
+    var max_length = 200;
 
     // Map Google Sheets fields to the fields produced by symfony
     //  + should help make integration easier
@@ -350,13 +361,18 @@
             card.setAttribute('class', 'col ');
             card.setAttribute('id', 'card_'+ d['id']);
             d.card = card
+
+            small_contribution = d.contribution.length > max_length ? 
+                    d.contribution.substring(0, max_length - 3) + "..." : 
+                    d.contribution;
+
             card.innerHTML = `
                 <div class="card h-100" id="company-card-` + d.id + `">
                     <div class="backgroundCard card-img-top " style="background-image:url(` + d._logo + `); height:200px">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">` + d.name + `<span class="city"> <i class="fas fa-map-marker-alt"></i> ` + d.city + ` - ` + d.postalCode + `</span></h5>
-                        <p class="card-text">` + d.contribution + `</p>
+                        <p class="card-text">` + small_contribution + `</p>
                         <div class="badges"><span class="badge badge-branch">` + d._branchName + `</span><span class="badge badge-keyword">` + d.keywords + `</span></div>
                     </div>
                 </div>
