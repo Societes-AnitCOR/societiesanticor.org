@@ -1,36 +1,135 @@
 /**
- * Url from 
+ * Url from
 **/
 :root {
 	--bgc: #000000;
-	--color: #FFFFF;
+	--color-bg: #FFFFFF;
+	--container-footer-w: 1000px;
+	--container-main-w: 1200px;
+	--couleur-marrant: #38d2bd;
+	--couleur-rose: #f85091;
 }
 
 .wrapper {
 	color: var(--color);
 }
 
-.logo-wrapper {
-    padding-left: 42px;
-    padding-top: 9px;
-    padding-bottom: 9.67px;
+.marrant {
+	color: var(--couleur-marrant);
 }
 
-.wrapper .header{
-	background: var(--bgc);
+.rose {
+	color: var(--couleur-rose);
+}
 
+.logo-wrapper {
+  padding-left: 42px;
+  padding-top: 9px;
+  padding-bottom: 9.67px;
+}
+
+#navbarSupportedContent > ul {
+	margin: auto;
+}
+
+#navbarSupportedContent > ul li a:not(.dropdown-item) {
+	color: var(--color-bg);
+}
+
+.bg-noir {
+	background: var(--bgc);
 }
 
 .mylogo {
 	width: 88px;
 	height: 41.33px;
 }
-
-header > div > div.col.text-right.row.align-self-center
-{
-	padding-right: 0;
+.btn-connexion {
+	background: white;
+  margin-left: 15px;
+	color: var(--bgc);
 }
 
-body > div > header > div {
-	margin-right: 0;
+.m-auto.container-footer {
+  background: #495057;
+}
+.m-auto.container-footer .col a {
+	color: var(--color-bg, #fff);
+}
+
+.jumbotron.center-text {
+	background-color: var(--color-bg, transparent);
+}
+
+.after-jumbotron {
+
+}
+
+.after-jumbotron .card{
+	border: none;
+}
+
+.after-jumbotron .card img {
+	width: 200px;
+	height: 200px;
+}
+
+.width-mileu {
+  width: 750px;
+  margin: 0 auto;
+}
+
+#milieu > div.milieur-wrapper {
+	background-color: var(--couleur-marrant);
+}
+
+#milieu {
+	border: 2px solid var(--couleur-marrant);
+	/* padding: 0 50px; */
+}
+
+#mileu .btn-group {
+  box-shadow: 2px 5px 5px 2px;
+}
+
+#milieu .btn-group .btn-danger {
+	background-color: var(--color-bg);
+	border-color: var(--color-bg);
+	color: var(--bgc);
+	border: none;
+}
+
+.blog {
+  margin-left: 120px;
+  margin-top: 35px;
+}
+
+.width-mileu.milieu-content {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.width-mileu.tache-list-wrapper {
+    margin-top: 40px;
+}
+
+.header-blog h4 {
+	text-transform: uppercase;
+}
+
+div#before-footer .btn-participer {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#footerTop {
+  margin: auto;
+  width: 1000px;
+  border-bottom: 2px solid;
+  padding: 43px 0;
+}
+
+.footer-wrapper {
+	margin: auto;
+  width: var(--container-footer-w, 1000px);
 }
