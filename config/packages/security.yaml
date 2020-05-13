@@ -41,6 +41,7 @@ security:
                 entry_point: App\Security\CompanyAuthenticator
             logout:
                 path: app_logout
+                target: /
                 # where to redirect after logout
                 # target: app_any_route
 
