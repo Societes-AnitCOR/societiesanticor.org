@@ -1,0 +1,36 @@
+/**
+ * Url from 
+**/
+:root {
+	--bgc: #000000;
+	--color: #FFFFF;
+}
+
+.wrapper {
+	color: var(--color);
+}
+
+.logo-wrapper {
+    padding-left: 42px;
+    padding-top: 9px;
+    padding-bottom: 9.67px;
+}
+
+.wrapper .header{
+	background: var(--bgc);
+
+}
+
+.mylogo {
+	width: 88px;
+	height: 41.33px;
+}
+
+header > div > div.col.text-right.row.align-self-center
+{
+	padding-right: 0;
+}
+
+body > div > header > div {
+	margin-right: 0;
+}
