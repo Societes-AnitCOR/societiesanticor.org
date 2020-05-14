@@ -4,7 +4,6 @@ function get_json () {
         .done(load_data) 
 }
 
-window.addEventListener('DOMContentLoaded', get_json)
 
 // Max description length
 var max_length = 200;
@@ -32,7 +31,7 @@ function filter_company(company) {
         if (location === ''  // No location Filter is present
             || location_terms.every((term) => company.searchable_location.includes(term))) {
             // Make this card visible
-            company.card.classList.remove("company-none");
+            company.card.classList.remove("d-none");
             return
         }
     }
@@ -43,11 +42,11 @@ function update_filter() {
     // Normalise the next
     var text = normalise_text(search.value)
     // Break up the text into to "terms" that must all be present
-    search_terms = text.split(" ")
+    var search_terms = text.split(" ")
 
     // Do the same as above, but with the location filtre
     var location = normalise_text(search_location.value)
-    location_terms = location.split(" ")
+    var location_terms = location.split(" ")
 
     // Lets filter out the companies!
     companies.forEach(company => {
@@ -57,19 +56,20 @@ function update_filter() {
             if (location === ''  // No location Filter is present
                 || location_terms.every((term) => company.searchable_location.includes(term))) {
                 // Make this card visible
-                company.card.classList.remove("company-none");
+                company.card.classList.remove("d-none");
                 return
             }
         }
 
         // This company card is not wanted, hide it!
-        company.card.classList.add("company-none");
+        company.card.classList.add("d-none");
     })
 
 }
 
 // Data processing function called once the JSON has been loaded
 function load_data(data) {
+    
     console.log(data)
     companies = data;
 
@@ -96,7 +96,7 @@ function load_data(data) {
         // Create this companies card
         const card = document.createElement('div');
         card.setAttribute('class', 'col ');
-        card.setAttribute('id', '"company-cardcol-' + company['id']);
+        card.setAttribute('id', 'company-cardcol-' + company['id']);
         company.card = card
 
         small_contribution = company.contribution.length > max_length ?
@@ -119,3 +119,5 @@ function load_data(data) {
     });
 }
 
+
+window.addEventListener('DOMContentLoaded', get_json)
