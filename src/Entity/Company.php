@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Admin\User;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
@@ -92,6 +93,21 @@ class Company
      * @ORM\Column(type="text", nullable=true)
      */
     private $complementaryInformations;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="companies")
+     */
+    private $owner;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $updatedAt;
 
     public function getId(): ?int
     {
@@ -303,6 +319,42 @@ class Company
     public function setKeywords(?string $keywords): self
     {
         $this->keywords = $keywords;
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): self
+    {
+        $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?int
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(int $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?int
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(int $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
