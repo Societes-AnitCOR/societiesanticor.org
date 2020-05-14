@@ -2,14 +2,16 @@
 
 namespace App\Entity;
 
+use JsonSerializable;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CompanyRepository")
  * @UniqueEntity("name")
  */
-class Company
+class Company implements JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -110,6 +112,26 @@ class Company
         return $this;
     }
 
+    public function jsonSerialize() {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'email' => $this->email,
+            'telephone' => $this->telephone,
+            'logo' => $this->logo,
+            'branch_name' => $this->branch->getName(),
+            'contribution' => $this->contribution,
+            'address' => $this->address,
+            'city' => $this->city,
+            'country' => $this->country,
+            'postalCode' => $this->postalCode,
+            'geographicPerimeter' => $this->geographicPerimeter,
+            'description' => $this->description,
+            'complementaryInformations' => $this->complementaryInformations,
+            'urlWebsite' => $this->urlWebsite,
+            'keywords' => $this->keywords,
+        ];
+    }
 
     public function arrayExport(): ?array
     {
@@ -117,6 +139,7 @@ class Company
             $this->name,
             $this->email,
             $this->telephone,
+            $this->logo,
             $this->branch->getName(),
             $this->contribution,
             $this->address,
@@ -127,7 +150,7 @@ class Company
             $this->description,
             $this->complementaryInformations,
             $this->urlWebsite,
-            $this->keywords
+            $this->keywords,
         ];
     }
 

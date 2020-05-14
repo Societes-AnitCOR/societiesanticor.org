@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class CompanyController extends AbstractController
 {
@@ -59,17 +60,23 @@ class CompanyController extends AbstractController
     }
 
     /**
-     * @Route("/entreprises-engagees", name="companies")
+     * @Route("/entreprises-json", name="companiesJSON")
      */
-    public function companies()
+    public function companiesJSON()
     {
         $em = $this->getDoctrine()->getManager();
 
         $companies = $em->getRepository(Company::class)->findAll();
 
-        return $this->render('main/companies.html.twig', [
-            'companies' => $companies
-        ]);
+        return new JsonResponse($companies);
+    }
+
+    /**
+     * @Route("/entreprises-engagees", name="companies")
+     */
+    public function companies()
+    {
+        return $this->render('main/companies.html.twig');
     }
 
     /**
