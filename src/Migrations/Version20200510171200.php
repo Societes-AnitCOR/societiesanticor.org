@@ -22,7 +22,7 @@ final class Version20200510171200 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE company  CHANGE COLUMN `postal_code` `postal_code` VARCHAR(255) NULL DEFAULT NULL ');
-        $this->addSql('ALTER TABLE company  ADD UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE; ');
+        $this->addSql('ALTER TABLE company  ADD UNIQUE INDEX `name_UNIQUE` (`name` ASC)');
     }
 
     public function down(Schema $schema) : void
