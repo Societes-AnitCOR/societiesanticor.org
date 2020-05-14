@@ -1,0 +1,9 @@
+## YAML Template.
+---
+easy_admin:
+    design:
+        menu:        
+            -
+                label: Utilisateurs
+                icon: users
+                entity: User
