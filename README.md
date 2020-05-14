@@ -7,7 +7,7 @@ Table of content
 2. [Architecture](#architecture)
 3. [Installation](#installation)
     - [Development](#development)
-4. [Git Flow](#git Flow)
+4. [Git Flow](#git-flow)
 5. [Contributing](#contributing)
 6. [License](#license)
 
