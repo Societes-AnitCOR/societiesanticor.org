@@ -7,3 +7,7 @@ easy_admin:
                 label: Utilisateurs
                 icon: users
                 entity: User
+            -
+                label: Entreprises
+                icon: building
+                entity: Company

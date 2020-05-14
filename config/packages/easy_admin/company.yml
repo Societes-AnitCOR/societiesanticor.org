@@ -1,0 +1,8 @@
+## YAML Template.
+---
+easy_admin:
+    entities:
+        Company:
+            class: App\Entity\Company
+            list:
+                title: Toutes les entreprises
