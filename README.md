@@ -71,7 +71,7 @@ Usage for symfony cli:
  - Use `symfony serve` to start the project.
 
 #### Database
-if you are using _xampp-like database_, use **it's built-in database** (Windows & Linux), or use [install Mysql installer](https://www.liquidweb.com/kb/install-mysql-windows/) (Windows only).
+if you are using _xampp-like database_, use **its built-in database** (Windows & Linux), or use [install Mysql installer](https://www.liquidweb.com/kb/install-mysql-windows/) (Windows only).
 ##### Linux
 ```bash
 # assuming you use ubuntu
