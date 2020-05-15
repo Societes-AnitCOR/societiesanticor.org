@@ -42,11 +42,11 @@ Installation
 - Clone it on your local dev machine. [[Docs to do git]](https://www.linode.com/docs/development/version-control/how-to-install-git-on-linux-mac-and-windows/)
     - with https
     ```bash
-        git clone https://github.com/Societes-AnitCOR/societiesanticor.org.git
+        git clone https://github.com/YOUR USER NAME HERE/societiesanticor.org.git
     ```
     - with ssh
     ```bash
-        git clone git@github.com:Societes-AnitCOR/societiesanticor.org.git
+        git clone git@github.com:YOUR USER NAME HERE/societiesanticor.org.git
     ```
 
 ### Prerequisites 
