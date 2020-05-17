@@ -20,18 +20,16 @@ Architecture
 This project has been built on Symfony, it uses standard [Symfony 5 file structure](https://symfony.com/doc/current/index.html#gsc.tab=0).
 ```bash
 ├── README.md
-├── assets # Assets for the front-end (CSS/ IMAGES/ JS/ FONTS)
 ├── bin
 ├── composer.json
 ├── composer.lock
 ├── config
 ├── logo_societe_anticor.png
-├── outils // TODO 
+├── outils # Tools and utilities
 ├── phpunit.xml.dist
 ├── public  # Entry point for the project (contains assets ?)
 ├── src # source files 
 ├── symfony.lock
-├── symfony.tmp
 ├── templates # html templates built with twig
 ├── tests
 └── translations
@@ -73,7 +71,7 @@ Usage for symfony cli:
 #### Database
 if you are using _xampp-like database_, use **its built-in database** (Windows & Linux), or use [install Mysql installer](https://www.liquidweb.com/kb/install-mysql-windows/) (Windows only).
 ##### Linux
-```bash
+```shell
 # assuming you use ubuntu
 sudo apt install mysql-server
 ```
@@ -82,14 +80,14 @@ Usage:
  - At the root of the project copy the .env
  - Paste and rename it to `.env.local`
  - Change the line
-```dotenv
+```shell
 DATABASE_URL=mysql://USER_HERE:PASSWORD_HERE@127.0.0.1:3306/initiative?serverVersion=5.7 
 ```
  - Note: most basic install has `root` and no password for install. (If you need help for the install, open an issue with INSTALL HELP as title, we will be happy to help).
 
 If you've completed all the usage at each step, proceed with command-line below (at the root of the project):
  > Note: In case you have error like `The server requested authentication method unknown to the client` in Mysql 8, login into your mysql-cli, execute:
-```dotenv
+```sql
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';  
 ```
 
@@ -107,15 +105,15 @@ Usage:
 
 #### Setup
 - Create database:
-```bash
+```sql
 CREATE DATABASE initiative;
 ```
 - Create migration:
-```bash
+```shell
 php bin/console d:m:m
 ```
 - Load fixtures:
-```bash
+```shell
 php bin/console doctrine:fixtures:load
 php bin/console import:referentiels -dtrue
 ```
@@ -125,10 +123,24 @@ Development
 
 Git Flow
 ========
-- TODO
+![git flow](./gitflow.svg)
+
+#### Prinicpal Branches
+- master 
+    - production
+- validation 
+    - branch which holds the configuration being tested.
+    - pull request to master
+- develop
+    - intergration branch for incoming contributions
+    - pull request to validation
 
 Contributing
 ============
+Contributions should be made by pull request to the develop branch.  
+
+Pull requests are accepted once reviewed, which includes an intergration and **test** by a moderator as well as a code review.  
+
 Read our [Guidelines for contributing](CONTRIBUTING.md).
 
 Authors:
