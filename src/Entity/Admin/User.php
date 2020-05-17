@@ -63,6 +63,16 @@ class User implements UserInterface
      */
     private $companies;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $updatedAt;
+
     public function __construct()
     {
         $this->companies = new ArrayCollection();
@@ -227,6 +237,30 @@ class User implements UserInterface
     public function __toString()
     {
         return $this->getFullName();
+    }
+
+    public function getCreatedAt(): ?int
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(int $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?int
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(int $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
     }
 
 
