@@ -6,8 +6,21 @@ easy_admin:
             -
                 label: Utilisateurs
                 icon: users
-                entity: User
+                children:
+                    -
+                        label: Tous les utilisateurs
+                        entity: User
+                    -
+                        label: Administrateurs
+                        entity: Admin
+                    -
+                        label: Clients
+                        entity: Client
             -
                 label: Entreprises
                 icon: building
                 entity: Company
+            -
+                label: Branches
+                icon: folder-o
+                entity: Branch

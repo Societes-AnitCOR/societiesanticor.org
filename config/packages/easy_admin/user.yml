@@ -6,4 +6,4 @@ easy_admin:
             class: App\Entity\Admin\User
             list:
                 title: Liste des utilisateurs
-                actions: [ '-edit' ]
+                actions: [ '-edit', '-new' ]
