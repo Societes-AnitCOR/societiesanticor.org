@@ -39,6 +39,8 @@ class AdminController extends EasyAdminController
             $entity->setPassword($password);
         }
 
+        $entity->setUpdatedAt(time());
+
         parent::updateEntity($entity);
     }
 
@@ -56,6 +58,8 @@ class AdminController extends EasyAdminController
             $entity->setPassword($password);
         }
 
+        $entity->setUpdatedAt(time());
+
         parent::updateEntity($entity);
     }
 
@@ -66,5 +70,18 @@ class AdminController extends EasyAdminController
         $entity->setRoles(array("ROLE_ADMIN"));
 
         parent::persistEntity($entity);
+    }
+
+    public function persistCompanyEntity($entity) {
+        $entity->setCreatedAt(time());
+        $entity->setUpdatedAt(time());
+
+        parent::persistEntity($entity);
+    }
+
+    public function updateCompanyEntity($entity){
+        
+        $entity->setUpdatedAt(time());
+        parent::updateEntity($entity);
     }
 }
