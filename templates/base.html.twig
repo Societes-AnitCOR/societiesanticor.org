@@ -4,12 +4,14 @@
     <title>SOCIETE AntiCOR - {% block title %} {% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% block stylesheets %}
+            <!-- sylesheets -->
             <link href="{{ asset('css/components/bootstrap.css') }}" rel="stylesheet">
-            <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+
+            <!-- webfonts and icons -->
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
             <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@600&display=swap" rel="stylesheet">
-            <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
         {% endblock %}
     </head>
 
@@ -20,7 +22,7 @@
             {{ render(controller('App\\Controller\\MainController:getNavbar') )}} #}
             {% include '_components/navbar.html.twig' %}
         </header>
-        <main role="main" class="flex-shrink-0" >
+        <main role="main" >
             {% block body %}{% endblock %}
         </main>
 
@@ -58,9 +60,10 @@
         </footer>
 
         {% block javascripts %}
-            <script type="text/javascript" src="{{ asset('js/backoffice/jquery.min.js')}}">
+            <!-- scripts -->
+            <script type="text/javascript" src="{{ asset('js/backoffice/jquery.min.js')}}"></script> 
             <script type="text/javascript" src="{{ asset('js/backoffice/bootstrap.min.js')}}"></script>
-            </script> <script type="text/javascript" src="{{ asset('js/fontAwesomes.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('js/fontAwesomes.js')}}"></script>
         {% endblock %}
 
     </body>
