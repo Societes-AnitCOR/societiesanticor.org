@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Front page</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap-reboot.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link  rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap-reboot.min.css"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
   <!-- <link href="libs/bootstrap4/css/bootstrap-reboot.min.css" rel="stylesheet" />
   <link href="libs/bootstrap4/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
   <!-- <link rel="stylesheet" href="./libs/fontawesome/css/all.css"> -->
@@ -13,7 +13,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
     <header>
       <nav class="navbar navbar-dark navbar-expand-sm bg-noir">
         <a class="navbar-brand" href="#">
-          <img src="logo.svg" class="mylogo">
+          <img src="{{ asset('img/logo.svg') }}" class="mylogo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -84,7 +84,7 @@
         <div id="tree-cols" class="row after-jumbotron">
           <div class="col">
             <div class="card">
-              <img src="./images/Placeholder.svg" class="img-responsive" class="card-img-top" alt="...">
+              <img src="{{ asset('img/Placeholder.svg') }}" class="img-responsive" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Les entreprises engagées en France</h5>
                 <p class="card-text">
@@ -96,7 +96,7 @@
           </div>
           <div class="col">
             <div class="card">
-              <img src="./images/mockpage.svg" class="img-responsive" class="card-img-top" alt="...">
+              <img src="{{ asset('img/mockpage.svg') }}" class="img-responsive" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Je recherche un acteur engage</h5>
                 <p class="card-text">
@@ -109,7 +109,7 @@
           </div>
           <div class="col">
             <div class="card">
-              <img src="images/Features Middle.svg" class="img-responsive" class="card-img-top" alt="...">
+              <img src="{{ asset('img/Features Middle.svg') }}" class="img-responsive" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Solution face à la crise</h5>
                 <p class="card-text">
@@ -172,10 +172,10 @@
                   </div>
                   <div class="media-blog row">
                     <div class="col">
-                      <img src="images/Ellipse 4.png" class="img-responsive img-rounded" alt="ronded">
+                      <img src="{{ asset('img/Ellipse 4.png') }}" class="img-responsive img-rounded" alt="ronded">
                     </div>
                     <div class="col">
-                      <img src="images/Ellipse 4.png" class="img-responsive img-rounded" alt="">
+                      <img src="{{ asset('img/Ellipse 4.png') }}" class="img-responsive img-rounded" alt="">
                     </div>
                   </div>
                   <div class="last-el-blog">
@@ -209,7 +209,7 @@
             </div>
             <div class="col-sm-6 row align-items-center">
               <div class="col">
-                <img src="images/Rectangle.png"  alt="logo-covid">
+                <img src="{{ asset('img/Rectangle.png') }}"  alt="logo-covid">
               </div>
               <div class="col text-center">
                 <a target="_blank" class="link-dark" href="https://soutenonsnoshopitaux.fr">https://soutenonsnoshopitaux.fr</a>
