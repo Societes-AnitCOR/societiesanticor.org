@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Création de compte Entreprise {% endblock %}
+
+{% block body %}
+    <div class="container-lg">
+
+        <div class="jumbotron">
+            <h3>J’ajoute mon entreprise ou mon établissement à la liste des Structures Engagées</h3>
+            <p class="lead">Creez votre compte.</p>
+            <hr class="my-4">
+            <div class="alert alert-warning" role="alert">
+                Ces informations sont uniquement destinées à vous créer un espace personnel 
+                qui vous permet de mettre à jour quand vous le voulez et de la façon dont 
+                vous le souhaitez les informations relatives à votre Entreprise / Établissement.
+            </div>
+            <hr class="my-4">
+{{ form_start(form) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="row">
+        <div class="col">
+            {{ form_row(form.task) }}
+        </div>
+        <div class="col" id="some-custom-id">
+            {{ form_row(form.dueDate) }}
+        </div>
+    </div>
+{{ form_end(form) }}
+        </div>
+        
+    </div>
+{% endblock %}

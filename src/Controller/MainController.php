@@ -14,6 +14,7 @@ class MainController extends AbstractController
     {
         return $this->render('main/index.html.twig', [
         ]);
+
     }
 
     /**
@@ -22,6 +23,15 @@ class MainController extends AbstractController
     public function morePage()
     {
         return $this->render('main/morePage.html.twig', [
+        ]);
+    }
+
+    /**
+     * @Route("/insrciption-entreprise", name="inscription")
+     */
+    public function inscriptionEntreprise()
+    {
+        return $this->render('inscription/inscription.html.twig', [
         ]);
     }
 }
