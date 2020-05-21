@@ -105,7 +105,7 @@ function load_data(data) {
 
         card.innerHTML = `<!-- Card for company : ` + company.id + ` - ` + company.name + ` --> 
 <div class="card h-100" id="company-card-` + company.id + `">
-    <div class="card-img-top" style="background-image:url(/uploads/logos/` + company.logo + `)">
+    <div class="card-img-top" style="background-image:url(/uploads/companies/logos/` + company.logo + `)">
     </div>
     <div class="card-body">
         <h5 class="card-title">` + company.name + `<span class="city"> <i class="fas fa-map-marker-alt"></i> ` + company.city + ` - ` + company.postalCode + `</span></h5>

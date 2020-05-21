@@ -9,7 +9,7 @@ import tempfile
 from PIL import Image
 
 FILENAME="companies.json"
-OUTPUT="../public/uploads/logos"
+OUTPUT="../public/uploads/companies/logos"
 
 regex = r"^\s*data:([a-z]+\/[a-z]+(;[a-z\-]+\=[a-z\-]+)?)?(;base64)?,([a-z0-9\!\$\&\'\,\(\)\*\+\,\;\=\-\.\_\~\:\@\/\?\%\s]*\s*)$"
 
