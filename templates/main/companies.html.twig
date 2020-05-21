@@ -2,30 +2,46 @@
 
 {% block title %}Liste des entreprises engagées{% endblock %}
 
+{% block stylesheets %}
+    {{parent()}}
+    <link href="{{ asset('css/companies.css') }}" rel="stylesheet" />
+{% endblock %}
+
 {% block body %}
-<div id="backgroundCompanies">
-<div class="container">
-    <div class="row companiesList">
-        {% for company in companies %}
-        
-            <a href="{{ path('companyPageView', {name: company.name}) }}">
-            <div class="card companyCard" style="width: 20rem;">
-                {% if company.logo is not null %}
-                    <div class="backgroundCard card-img-top" style="background-image:url({{ asset('uploads/logos/'~company.logo) }})">
-                {% else %}
-                    <div class="backgroundCard card-img-top">
-                {% endif %}
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">{{ company.name }}</h5>
-                    <p class="card-text"> {{ company.description|length > 100 ? company.description|slice(0, 100) ~ '...' : company.description  }}</p>
-                    <span class="badge badge-primary">{{ company.branch.name }}</span>
-                    <span class="badge badge-secondary">{{ company.geographicPerimeter }}</span>
-                </div>
+<section class="jumbotron jumbotron-custom ">
+    <div class="container-xl">
+        <div class="title"><h1>Entreprises Engagés</h1></div> 
+        <div class="searchBar">
+            <div class="labels">
+                <label class="searchBar-left" for="search">Que recherchez-vous ?</label>
+                <label class="searchBar-right" for="search_location">Ou?</label>
             </div>
-            </a>
-        {% endfor %}
+            <div class="input-group">
+                <input class="form-control py-2 searchBar-left" type="search" id="search" placeholder="Gel, Blouses, Télémédecine, Développeur..." oninput="update_filter()">
+                <input class="form-control py-2 searchBar-right " type="search" id="search_location" placeholder="Adresse, Ville, code postal..." oninput="update_filter()">
+                <span class="input-group-append">
+                    <button class="btn" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+     </div>
+</section>
+
+<section class="container-xl">
+    <div class="companiesList row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" id='results' >
+        <div class="col-auto  ">
+            <div class="spinner-border " role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
     </div>
-</div>
-</div>
+</section>
+{% endblock %}
+
+
+{% block javascripts %}
+{{parent()}}
+<script type="text/javascript" src="{{ asset('js/companies.js')}}">
 {% endblock %}
