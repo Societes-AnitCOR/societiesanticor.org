@@ -118,6 +118,12 @@ class Company
      */
     private $updatedAt;
 
+    public function __construct()
+    {
+        $this->createdAt = time();
+        $this->updatedAt = time();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

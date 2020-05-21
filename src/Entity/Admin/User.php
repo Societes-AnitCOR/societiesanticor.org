@@ -76,6 +76,9 @@ class User implements UserInterface
     public function __construct()
     {
         $this->companies = new ArrayCollection();
+
+        $this->createdAt = time();
+        $this->updatedAt = time();
     }
 
     public function getId(): ?int
