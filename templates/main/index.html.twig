@@ -6,16 +6,16 @@
 {% endblock %}
 
 {% block body %}
-<div class="container">
+<div class="wrapper">
   <div class="jumbotron center-text">
     <h1 class="display-4 text-center">Rejoignez la <br>communauté solidaire</h1>
     <p class="lead text-center">
-      Entreprises, artisant, commercants, independants, associations, <br>
+      Entreprises, artisant, commercants, independants, associations,
       territoires, collectivites et benevoles combattent la crise ensemble
     </p>
   </div>
-  <div id="tree-cols" class="row after-jumbotron">
-    <div class="col">
+  <div class="row after-jumbotron">
+    <div class="col-sm-12 col-md-4">
       <div class="card">
         <img src="{{ asset('img/Placeholder.svg') }}" class="img-responsive" class="card-img-top" alt="...">
         <div class="card-body">
@@ -27,9 +27,9 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col-sm-12 col-md-4">
       <div class="card">
-        <img src="{{ asset('img/mockpage.svg') }}" class="img-responsive" class="card-img-top" alt="...">
+        <a href="{{ path('companies') }}"><img src="{{ asset('img/mockpage.svg') }}" class="img-responsive" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <h5 class="card-title">Je recherche un acteur engage</h5>
           <p class="card-text">
@@ -40,7 +40,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col-sm-12 col-md-4">
       <div class="card">
         <img src="{{ asset('img/Features Middle.svg') }}" class="img-responsive" class="card-img-top" alt="...">
         <div class="card-body">
@@ -53,7 +53,7 @@
       </div>
     </div>
     <div class="col-sm-12 text-center">
-      <a class="link-dark" href="javascript:void(0)">
+      <a class="link-dark" href="#milieu">
         QUELQUES EXEMPLES DE SOLIDARITE <br>
         <i class="fa fa-chevron-down"></i>
       </a>
@@ -61,10 +61,10 @@
   </div>
   <div class="mt-50" id="milieu">
     <div class="milieur-wrapper">
-      <div class="width-mileu milieu-content">
+      <div class="milieu-content">
         <h3>10 exemples de coopérations solidaires, +25 types d'acteurs impliques</h3>
         <div class="filling">
-          Chechez un exemple de solidarite par
+          <div>Chechez un exemple de solidarite par</div>
           <div class="btn-group">
             <button type="button" class="btn btn-danger">Type d'action</button>
             <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -94,7 +94,7 @@
         </div>
       </div>
     </div>
-    <div id="taches-lists">
+    <div class="taches-lists">
       <div class="width-mileu tache-list-wrapper">
         <div class="one-tache">
           <h3>#1 Equiper les soignants et les plus exposes</h3>
@@ -104,34 +104,153 @@
               <p><strong>S'unissent pour imprimer gratuitement</strong> des visieres de protection en 3D</p>
             </div>
             <div class="media-blog row">
-              <div class="col">
-                <img src="{{ asset('img/Ellipse 4.png') }}" class="img-responsive img-rounded" alt="ronded">
+              <div class="col-6">
+                <img src="{{ asset('img/landing/1_left.svg') }}" class="img-responsive img-rounded" alt="ronded">
               </div>
-              <div class="col">
-                <img src="{{ asset('img/Ellipse 4.png') }}" class="img-responsive img-rounded" alt="">
+              <div class="col-6">
+                <img src="{{ asset('img/landing/1_right.svg') }}" class="img-responsive img-rounded" alt="">
               </div>
             </div>
             <div class="last-el-blog">
-              Spécialisée dans la papeterie, fourniture de bureau et informatique,l'enseigne
-              Bureau Vallée a mis disposition un stock de pochettes plastifiées 200 microns
-              auprès des makers benevoles munis d'imprimantes 3D afin qu'ils puissent continuer
+              Spécialisée dans la papeterie, fourniture de bureau et informatique, l'enseigne
+              <strong>Bureau Vallée</strong> a mis disposition un stock de pochettes plastifiées 200 microns
+              auprès des <strong>makers benevoles munis d'imprimantes 3D</strong> afin qu'ils puissent continuer
               à fabriquer des visieres pour les soignants et les plus exposés.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="width-mileu tache-list-wrapper">
+        <div class="one-tache">
+          <h3>#2 Soutenir les soignants</h3>
+          <div class="blog">
+            <div class="header-blog">
+              <h4 class="marrant">Plateformes de financement & <span class="rose">Grandes surfaces</span></h4>
+              <p><strong>S’unissent pour financer</strong> des paniers repas pour les soignants</p>
+            </div>
+            <div class="media-blog row">
+              <div class="col-7">
+                <img src="{{ asset('img/landing/2_left.svg') }}" class="img-responsive  img-rounded" alt="">
+              </div>
+              <div class="col-5">
+                <img src="{{ asset('img/landing/2_right.svg') }}" class="img-responsive  img-rounded" alt="">
+              </div>
+            </div>
+            <div class="last-el-blog">
+              L'opération <strong>Paniers solidaires</strong> permet de livrer des paniers repas aux 
+              personnes vulnérables ainsi qu’aux soignants. La chaine de solidarité met en 
+              jeu l’identification des bénéficiaires par la <strong>Croix Rouge</strong> et <strong>l’APHP</strong> ainsi que la 
+              coopération de <strong>trois plateformes de financement participatif</strong>  qui s’unissent 
+              pour financer des paniers repas constitués par les <strong>enseignes de la grande 
+              distribution partenaires (Monoprix, Franprix)</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="width-mileu tache-list-wrapper">
+        <div class="one-tache">
+          <h3>#3  Lutter contre le décrochage scolaire</h3>
+          <div class="blog">
+            <div class="header-blog">
+              <h4 class="marrant">Collectifs de benevoles & <span class="rose">NUMERIQUE</span></h4>
+              <p><strong>S’unissent pour remotiver</strong> les élèves</p>
+            </div>
+            <div class="media-blog row">
+              <div class="col-6">
+                <img src="{{ asset('img/landing/3_left.svg') }}" class="img-responsive  img-rounded" alt="">
+              </div>
+              <div class="col-6">
+                <img src="{{ asset('img/landing/3_right.svg') }}" class="img-responsive  img-rounded" alt="">
+              </div>
+            </div>
+            <div class="last-el-blog">
+              Le décrochage scolaire atteint 10% des élèves pendant la période du 
+              confinement. Pour les remotiver, <strong>Konoha</strong> met à disposition des élèves de ZEP 
+              et ZUP des <strong>professeurs titulaires ou issus de grandes écoles</strong>, et récompense
+               élèves et professeurs par des avantages financés par des <strong>entreprises 
+               partenaires:</strong> abonnements <strong>Netflix</strong> , crédits Steam...
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="width-mileu tache-list-wrapper">
+        <div class="one-tache">
+          <h3>#4 Lutter contre les violences domestiques</h3>
+          <div class="blog">
+            <div class="header-blog">
+              <h4 class="marrant">Collectifs de benevoles & <span class="rose">Proprietaires</span></h4>
+              <p><strong>S’unissent pour preter</strong> un abri aux personnes victimes de violences conjugales </p>
+            </div>
+            <div class="media-blog row">
+              <div class="col-6">
+                <img src="{{ asset('img/landing/4_left.svg') }}" class="img-responsive  img-rounded" alt="">
+              </div>
+              <div class="col-6">
+                <img src="{{ asset('img/landing/4_right.svg') }}" class="img-responsive  img-rounded" alt="">
+              </div>
+            </div>
+            <div class="last-el-blog">
+              Face à l’augmentation de 32% de  violences conjugales durant la première 
+              semaine de confinement, <strong>Un abri qui sauve des des vies</strong> est une 
+              plateforme développée par quatre étudiants pendant la crise pour 
+              permettre aux <strong>propriétaires ou locataires</strong> d‘un logement vacant de le 
+              mettre à disposition d’une personne victime de violences conjugales, avec 
+              le soutien des <strong>association locales</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="width-mileu tache-list-wrapper">
+        <div class="one-tache">
+          <h3>#5 Lutter contre l’isolement</h3>
+          <div class="blog">
+            <div class="header-blog">
+              <h4 class="marrant">Collectifs de benevoles & <span class="rose">Professionels</span></h4>
+              <p><strong>S’unissent pour offir</strong> un soutien psychologique gratuit pendant le confinement</p>
+            </div>
+            <div class="media-blog row">
+              <div class="col-6">
+                <img src="{{ asset('img/landing/5_left.svg') }}" class="img-responsive  img-rounded" alt="">
+              </div>
+              <div class="col-6">
+                <img src="{{ asset('img/landing/5_right.svg') }}" class="img-responsive  img-rounded" alt="">
+              </div>
+            </div>
+            <div class="last-el-blog">
+              Avec le soutien de <strong>six partenaires principalement spécialisés dans la santé</strong>, 
+              la fondation <strong>Fondamental</strong> a lancé <strong>CovidEcoute</strong>, une plateforme d’accès 
+              gratuit à des téléconsultations d’écoute et de soutien psychologique pour 
+              les personnes en situation de stress pendant la période de confinement.
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+
   <div id="before-footer">
     <div class="btn-participer text-center">
-      <a class="btn btn-info" href="javascript:void(0)">Je veux participer</a>
+      <a class="btn btn-info" href="{{ path('company_register') }}">Je veux participer</a>
     </div>
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-8">
         <h3>Nous soutenons</h3>
+        <div class="row">
+            <div class="col">
+              <img src="{{ asset('img/Rectangle.png') }}"  alt="logo-covid">
+            </div>
+            <div class="col text-center">
+              <a target="_blank" class="link-dark" href="https://soutenonsnoshopitaux.fr">https://soutenonsnoshopitaux.fr</a>
+            </div>
+        </div>
       </div>
-      <div class="col-sm-6">
-        <p>— NOTRE EQUIPE</p>
+      <div class="col-sm-4 teamlist">
+        <p >— NOTRE EQUIPE</p>
         <ul class="list-unstyled">
           <li>Alexandre Parizot - Developpeur</li>
           <li>Cyril Delage - Developpeur</li>
@@ -139,14 +258,6 @@
           <li>Sophie Aflalo</li>
           <li>Pascal Tovohery - Developpeur</li>
         </ul>
-      </div>
-      <div class="col-sm-6 row align-items-center">
-        <div class="col">
-          <img src="{{ asset('img/Rectangle.png') }}"  alt="logo-covid">
-        </div>
-        <div class="col text-center">
-          <a target="_blank" class="link-dark" href="https://soutenonsnoshopitaux.fr">https://soutenonsnoshopitaux.fr</a>
-        </div>
       </div>
     </div>
   </div>

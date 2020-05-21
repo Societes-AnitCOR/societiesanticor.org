@@ -20,17 +20,17 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0)">
+            <a class="nav-link" href="{{ path('companies') }}">
             Entreprise engagées
             </a>
         </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
         <div class="btn-group ">
-            <a href="#" class="btn btn-info participer">Je veux participer</a>
+            <a href="{{ path('company_register') }}" class="btn btn-info participer">Je veux participer</a>
         </div>
         <div class="btn-group">
-            <a href="#" class="btn btn-default btn-connexion">Connexion</a>
+            <a href="{{ path('app_login') }}" class="btn btn-default btn-connexion">Connexion</a>
         </div>
         </form>
     </div>
