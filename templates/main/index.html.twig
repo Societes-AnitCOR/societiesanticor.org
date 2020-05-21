@@ -29,7 +29,7 @@
     </div>
     <div class="col">
       <div class="card">
-        <img src="{{ asset('img/mockpage.svg') }}" class="img-responsive" class="card-img-top" alt="...">
+        <a href="{{ path('companies') }}"><img src="{{ asset('img/mockpage.svg') }}" class="img-responsive" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <h5 class="card-title">Je recherche un acteur engage</h5>
           <p class="card-text">
@@ -53,7 +53,7 @@
       </div>
     </div>
     <div class="col-sm-12 text-center">
-      <a class="link-dark" href="javascript:void(0)">
+      <a class="link-dark" href="#milieu">
         QUELQUES EXEMPLES DE SOLIDARITE <br>
         <i class="fa fa-chevron-down"></i>
       </a>
@@ -124,7 +124,7 @@
   </div>
   <div id="before-footer">
     <div class="btn-participer text-center">
-      <a class="btn btn-info" href="javascript:void(0)">Je veux participer</a>
+      <a class="btn btn-info" href="{{ path('company_register') }}">Je veux participer</a>
     </div>
     <div class="row">
       <div class="col-sm-6">
