@@ -1,0 +1,43 @@
+## YAML Template.
+---
+easy_admin:
+    entities:
+        Admin:
+            class: App\Entity\Admin\User
+            label: Administrateurs
+            list:
+                dql_filter: "entity.roles LIKE '%%ROLE_ADMIN%'"
+                title: Liste des admins
+                fields:
+                    -
+                        property: id
+                    -
+                        property: username
+                    -
+                        property: firstname
+                    -
+                        property: email
+                    -
+                        property: activated
+                        type: toggle
+                    -
+                        property: createdAt
+                        type: datetime
+            form:
+                fields:
+                    -
+                        property: username
+                    -
+                        property: lastname
+                    -
+                        property: firstname
+                    -
+                        property: email
+                    -
+                        property: password
+                        type: password
+                        label: Mot de passe
+            edit:
+                fields:
+                    - '-roles'
+                    - '-password'

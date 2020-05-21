@@ -2,6 +2,9 @@
 
 namespace App\Entity\Admin;
 
+use App\Entity\Company;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -54,6 +57,29 @@ class User implements UserInterface
      * @ORM\Column(type="string", nullable=false)
      */
     private $password;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Company::class, mappedBy="owner")
+     */
+    private $companies;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $updatedAt;
+
+    public function __construct()
+    {
+        $this->companies = new ArrayCollection();
+
+        $this->createdAt = time();
+        $this->updatedAt = time();
+    }
 
     public function getId(): ?int
     {
@@ -172,6 +198,70 @@ class User implements UserInterface
     public function setActivated(bool $activated): self
     {
         $this->activated = $activated;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Company[]
+     */
+    public function getCompanies(): Collection
+    {
+        return $this->companies;
+    }
+
+    public function addCompany(Company $company): self
+    {
+        if (!$this->companies->contains($company)) {
+            $this->companies[] = $company;
+            $company->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCompany(Company $company): self
+    {
+        if ($this->companies->contains($company)) {
+            $this->companies->removeElement($company);
+            // set the owning side to null (unless already changed)
+            if ($company->getOwner() === $this) {
+                $company->setOwner(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getFullName(){
+        return $this->getFirstname().' '.$this->getLastname();
+    }
+
+    public function __toString()
+    {
+        return $this->getFullName();
+    }
+
+    public function getCreatedAt(): ?int
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(int $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?int
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(int $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
