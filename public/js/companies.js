@@ -6,7 +6,7 @@ function get_json () {
 
 
 // Max description length
-var max_length = 200;
+var max_length = 115;
 
 // We're going to put the companies data here after extraction
 var companies = [];
@@ -81,7 +81,7 @@ function load_data(data) {
 
         // Generate the searchable text
         searchable = company.name
-            + ' ' + company._branchName
+            + ' ' + company.branch_name
             + ' ' + company.description
             + ' ' + company.contribution
             + ' ' + company.complementaryInformations
@@ -103,6 +103,10 @@ function load_data(data) {
             company.contribution.substring(0, max_length - 3) + "..." :
             company.contribution;
 
+        keywords = ""
+
+        company.keywords.split(",").forEach(  (keyword) => { keywords+=`<span class="badge badge-keyword">` + keyword + `</span>` } )
+
         card.innerHTML = `<!-- Card for company : ` + company.id + ` - ` + company.name + ` --> 
 <div class="card h-100" id="company-card-` + company.id + `">
     <div class="card-img-top" style="background-image:url(/uploads/companies/logos/` + company.logo + `)">
@@ -110,7 +114,7 @@ function load_data(data) {
     <div class="card-body">
         <h5 class="card-title">` + company.name + `<span class="city"> <i class="fas fa-map-marker-alt"></i> ` + company.city + ` - ` + company.postalCode + `</span></h5>
         <p class="card-text">` + small_contribution + `</p>
-        <div class="badges"><span class="badge badge-branch">` + company._branchName + `</span><span class="badge badge-keyword">` + company.keywords + `</span></div>
+        <div class="badges"><span class="badge badge-branch">` + company.branch_name + `</span>` + keywords + `</div>
     </div>
 </div>
 `
