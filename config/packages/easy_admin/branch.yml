@@ -1,0 +1,22 @@
+## YAML Template.
+---
+easy_admin:
+    entities:
+        Branch:
+            class: App\Entity\Branch
+            list:
+                title: Les branches
+                sort: ['position', 'ASC']
+                fields:
+                    -
+                        property: name
+                    -
+                        property: position
+                    -
+                        property: companies
+            form:
+                fields:
+                    -
+                        property: name
+                    -
+                        property: position
