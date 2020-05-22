@@ -30,7 +30,13 @@
             <a href="{{ path('company_register') }}" class="btn btn-info participer">Je veux participer</a>
         </div>
         <div class="btn-group">
-            <a href="{{ path('app_login') }}" class="btn btn-default btn-connexion">Connexion</a>
+            {% if app.user %}
+                <a href="#" class="btn btn-default btn-connexion">{{ app.user.username }}</a>
+                <a href="{{ path('app_logout') }}" class="btn btn-default btn-connexion">Déconnexion</a>
+                {% else %}
+                <a href="{{ path('app_login') }}" class="btn btn-default btn-connexion">Connexion</a>
+            {% endif %}
+            
         </div>
         </form>
     </div>

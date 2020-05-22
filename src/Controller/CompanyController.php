@@ -27,34 +27,29 @@ class CompanyController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, CompanyAuthenticator $authenticator): Response
     {
-        $user = new Company();
-        $form = $this->createForm(CompanyRegistrationFormType::class, $user);
+        $company = new Company();
+        $form = $this->createForm(CompanyRegistrationFormType::class, $company);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
-            $user->setPassword(
-                $passwordEncoder->encodePassword(
-                    $user,
-                    $form->get('plainPassword')->getData()
-                )
-            );
-
+            $company->setOwner($this->getUser());
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
+            $entityManager->persist($company);
             $entityManager->flush();
 
             // do anything else you need here, like send an email
 
-            return $guardHandler->authenticateUserAndHandleSuccess(
-                $user,
-                $request,
-                $authenticator,
-                'main' // firewall name in security.yaml
-            );
+            // return $guardHandler->authenticateUserAndHandleSuccess(
+            //     $company,
+            //     $request,
+            //     $authenticator,
+            //     'main' // firewall name in security.yaml
+            // );
+
+            return $this->redirectToRoute('companyPageView', array('name' => $company->getName()));
         }
 
-        return $this->render('registration/companyRegister.html.twig', [
+        return $this->render('registration/company.register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }
