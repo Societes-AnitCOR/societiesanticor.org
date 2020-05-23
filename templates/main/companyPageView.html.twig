@@ -22,16 +22,16 @@
                         <a href="tel:{{ company.telephone }}"><span class="fas fa-phone-square"></span> : 
                             <span>{{ company.telephone }}</span>                        
                         </a><br>
-                        <a href="mailto:{{ company.emailContact }}">
+                        <a href="mailto:{{ company.email }}">
                             <span class="fas fa-envelope"></span> : 
-                            <span>{{ company.emailContact }}</span></a><br>
+                            <span>{{ company.email }}</span></a><br>
                     </div>
                 </div>
 
                 <div class="card  my-3">
                     <div class="card-header">Secteur d'intervention </div>
                     <div class="card-body">
-                        <span>{{ company.sector }}</span>
+                        <span>{{ company.branch }}</span>
                     </div>
 
                 </div>
@@ -77,8 +77,8 @@
                     <div class="">
 
                         <div class=" companyInfos">
-                            <span class="h6">Détail de l'entreprise </span>
-                                <p>{{ company.branchDetail }}</p>
+                            {# <span class="h6">Détail de l'entreprise </span>
+                                <p>{{ company.branchDetail }}</p> #}
                             <span class="h6">Stratégie d'engagement</span>
                                 <p>{{ company.description }}</p>
                             <span class="h6">Informations complémentaires</span>
