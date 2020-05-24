@@ -108,7 +108,17 @@ input.searchBar-right {
     background-repeat: no-repeat;
     background-image: url('/img/logo-generic.png');
     background-origin: content-box;
-    /*padding : 1rem;*/
+    padding : 10px;
+}
+
+.companiesList .card-img-top .image {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-origin: content-box;
 }
 
 .companiesList .card .card-body {

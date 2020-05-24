@@ -104,13 +104,13 @@ function load_data(data) {
             company.contribution;
 
         keywords = ""
-
         company.keywords.split(",").forEach(  (keyword) => { keywords+=`<span class="badge badge-keyword">` + keyword + `</span>` } )
+
+        image = company.logo.trim() === "" ? "" : `<div class="image" style="background-image:url(/uploads/companies/logos/` + company.logo + `)"></div>`
 
         card.innerHTML = `<!-- Card for company : ` + company.id + ` - ` + company.name + ` --> 
 <div class="card h-100" id="company-card-` + company.id + `">
-    <div class="card-img-top" style="background-image:url(/uploads/companies/logos/` + company.logo + `)">
-    </div>
+    <div class="card-img-top">` + image + `</div>
     <div class="card-body">
         <h5 class="card-title">` + company.name + `<span class="city"> <i class="fas fa-map-marker-alt"></i> ` + company.city + ` - ` + company.postalCode + `</span></h5>
         <p class="card-text">` + small_contribution + `</p>
