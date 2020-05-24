@@ -81,7 +81,7 @@ function load_data(data) {
 
         // Generate the searchable text
         searchable = company.name
-            + ' ' + company.branch_name
+            + ' ' + company.branch.name
             + ' ' + company.description
             + ' ' + company.contribution
             + ' ' + company.complementaryInformations
@@ -115,7 +115,7 @@ function load_data(data) {
     <div class="card-body">
         <h5 class="card-title">` + company.name + `<span class="city"> <i class="fas fa-map-marker-alt"></i> ` + company.city + ` - ` + company.postalCode + `</span></h5>
         <p class="card-text">` + small_contribution + `</p>
-        <div class="badges"><span class="badge badge-branch">` + company.branch_name + `</span>` + keywords + `</div>
+        <div class="badges"><span class="badge badge-branch">` + company.branch.name + `</span>` + keywords + `</div>
     </div>
 </div>
 <a>

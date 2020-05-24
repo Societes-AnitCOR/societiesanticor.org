@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use JsonSerializable;
 use App\Entity\Admin\User;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 
 /**
@@ -15,108 +15,128 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @UniqueEntity("name")
  * @Vich\Uploadable
  */
-class Company implements JsonSerializable
+class Company 
 {
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"json"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Groups({"json"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"json"})
      */
     private $telephone;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"json"})
      */
     private $logo;
 
     /**
      * @Vich\UploadableField(mapping="company_logos", fileNameProperty="logo")
+     * @Groups({"json"})
      * @var File
      */
     private $logoFile;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Branch", inversedBy="companies")
+     * @Groups({"json"})
      */
     private $branch;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"json"})
      */
     private $contribution;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"json"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"json"})
      */
     private $geographicPerimeter;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"json"})
      */
     private $address;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"json"})
      */
     private $postalCode;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"json"})
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"json"})
      */
     private $country;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"json"})
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"json"})
      */
     private $urlWebsite;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"json"})
      */
     private $keywords;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"json"})
      */
     private $complementaryInformations;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="companies")
+     * @Groups({"json"})
      */
     private $owner;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"json"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"json"})
      */
     private $updatedAt;
 
@@ -141,27 +161,6 @@ class Company implements JsonSerializable
         $this->name = $name;
 
         return $this;
-    }
-
-    public function jsonSerialize() {
-        return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'email' => $this->email,
-            'telephone' => $this->telephone,
-            'logo' => $this->logo,
-            'branch_name' => $this->branch->getName(),
-            'contribution' => $this->contribution,
-            'address' => $this->address,
-            'city' => $this->city,
-            'country' => $this->country,
-            'postalCode' => $this->postalCode,
-            'geographicPerimeter' => $this->geographicPerimeter,
-            'description' => $this->description,
-            'complementaryInformations' => $this->complementaryInformations,
-            'urlWebsite' => $this->urlWebsite,
-            'keywords' => $this->keywords,
-        ];
     }
 
     public function arrayExport(): ?array
