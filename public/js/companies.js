@@ -123,6 +123,12 @@ function load_data(data) {
         // Add this card to the Window DOM
         results.appendChild(card)
     });
+
+    // Fix alignment if not divisible by the number of cols
+    const lastcard = document.createElement('div');
+    lastcard.setAttribute('class', 'col m-auto');
+    lastcard.innerHTML = `<!-- Spacing Col --> `;
+    results.appendChild(lastcard);
 }
 
 
