@@ -8,7 +8,7 @@
             Dynamic JSON generator for table 'companies' 
           </h1>
           <h2 class="subtitle">
-            Version: 1.5
+            Version: 1.6
           </h2>
           <div class="container">
             <a id="link" class="is-link" href="https://docs.google.com/spreadsheets/d/1yCxNTeeG1py5qqTf2cHgZbk4njSPtzhc5XaTt3LB510">
@@ -55,11 +55,11 @@
         description: 'Objet de la structure',
         geographic_perimeter: 'Code postal',
         address: 'Adresse',
-        postal_code: 'Code postal',
-        city: 'Ville',
+        postal_code: ['Code postal', '_geo_postcode', '_postcode'],
+        city: ['Ville', '_geo_city', '_city'],
         geolat: '_lat',
         geolong: '_long',
-        country: 'Pays',
+        country: ['Pays', '_geo_country'],
         email: 'Adresse mail de contact',
         url_website: 'URL site',
         keywords: 'Mot-cle Contribution',
@@ -86,7 +86,28 @@
         sql = []
 
         const getField = (row, field) => {
-            const value = ((row[mapping[field]] || ' ') + ' ').trim()
+            var value = ""
+            if (Array.isArray(mapping[field])) 
+            {
+                const possible_fields = mapping[field]
+                for (let i = 0; i < possible_fields.length; i++) {
+                    const possible_value = row[possible_fields[i]]
+                    if (possible_value == null || possible_value.trim() === "")
+                    {
+                        continue;
+                    } else {
+                        value = possible_value;
+                        break;
+                    }
+                }
+            }
+            else 
+            {
+                value = row[mapping[field]] || ""
+            }
+
+            value = value.trim()
+
             if (field === 'logo') {
                 return 'auto_' + value + '.png'
             } else {
