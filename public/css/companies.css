@@ -99,6 +99,12 @@ input.searchBar-right {
     padding-bottom: 30px;
 }
 
+
+.companiesList a:hover .card {
+    box-shadow: 0px 0px 5px 1px #7de7c1;
+    border-color: #7de7c1;
+}
+
 .companiesList .card {
         /*border : 0px; */
 }

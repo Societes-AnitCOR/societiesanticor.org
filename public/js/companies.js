@@ -109,6 +109,7 @@ function load_data(data) {
         image = company.logo.trim() === "" ? "" : `<div class="image" style="background-image:url(/uploads/companies/logos/` + company.logo + `)"></div>`
 
         card.innerHTML = `<!-- Card for company : ` + company.id + ` - ` + company.name + ` --> 
+<a href="/espace-entreprise/` + encodeURIComponent(company.name) + `" target="_blank"/>
 <div class="card h-100" id="company-card-` + company.id + `">
     <div class="card-img-top">` + image + `</div>
     <div class="card-body">
@@ -117,6 +118,7 @@ function load_data(data) {
         <div class="badges"><span class="badge badge-branch">` + company.branch_name + `</span>` + keywords + `</div>
     </div>
 </div>
+<a>
 `
         // Add this card to the Window DOM
         results.appendChild(card)
