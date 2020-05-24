@@ -6,7 +6,7 @@
 	--color-bg: #FFFFFF;
 	--container-footer-w: 1000px;
 	--container-main-w: 1200px;
-	--couleur-marrant: #0AD1BD;
+	--couleur-marrant: #0ad1bd;
 	--couleur-rose: #f85091;
 	--roboto-sans: 'Roboto', sans-serif;
 	--fira-sans: 'Fira Sans', sans-serif;
@@ -21,6 +21,10 @@
 	max-width: 1360px;
 	margin: 0 auto;
 	padding: 20px;
+}
+
+.feature-divider {
+	margin-top: 2rem;
 }
 
 
@@ -87,10 +91,10 @@
 	color: var(--bgc);
 }
 
-.m-auto.container-footer {
-  background: #495057;
+.container-footer {
+  background: var(--couleur-marrant);
 }
-.m-auto.container-footer .col a {
+.container-footer .row a {
 	color: var(--color-bg, #fff);
 }
 
@@ -244,7 +248,7 @@
   padding-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  
+
 }
 
 .milieu-content h3 {
