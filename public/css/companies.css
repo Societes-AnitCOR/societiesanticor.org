@@ -95,9 +95,12 @@ input.searchBar-right {
         color:rgba(0, 0, 0, 0.7);
 }
 
+.companiesList .col {
+    padding-bottom: 30px;
+}
+
 .companiesList .card {
-        margin-bottom: 30px;
-        border : 0px;
+        /*border : 0px; */
 }
 
 .companiesList .card-img-top {
