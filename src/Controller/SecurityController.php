@@ -82,6 +82,8 @@ class SecurityController extends AbstractController
             );
             // set role
             $user->setRoles(array("ROLE_USER"));
+            $user->setCreatedAt(time());
+            $user->setUpdatedAt(time());
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);

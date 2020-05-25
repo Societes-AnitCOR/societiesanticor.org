@@ -27,6 +27,11 @@ class CompanyController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, CompanyAuthenticator $authenticator): Response
     {
+        // Redirige vers sa page entreprise s'il en a déjà un
+        if(!is_null($this->getUser()->getCompany())){
+            return $this->redirectToRoute('companyPageView', array('name' => $this->getUser()->getCompany()->getName()));
+        }
+
         $company = new Company();
         $form = $this->createForm(CompanyRegistrationFormType::class, $company);
         $form->handleRequest($request);

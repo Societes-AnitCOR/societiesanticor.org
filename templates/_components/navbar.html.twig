@@ -26,9 +26,11 @@
         </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
+        {% if app.user is null %}
         <div class="btn-group ">
             <a href="{{ path('company_register') }}" class="btn btn-info participer">Je veux participer</a>
         </div>
+        {% endif %}
         <div class="btn-group">
             {% if app.user %}
                 <a href="#" class="btn btn-default btn-connexion">{{ app.user.username }}</a>

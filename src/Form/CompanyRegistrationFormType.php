@@ -17,6 +17,8 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 use App\Entity\Branch;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class CompanyRegistrationFormType extends AbstractType
 {
@@ -47,41 +49,83 @@ class CompanyRegistrationFormType extends AbstractType
                     ]
                 ],
             ])
-            ->add('plainPassword', RepeatedType::class, [
-                'type' => PasswordType::class,
-                'invalid_message' => 'Vous devez renseigner un mot de passe valide et le confirmer dans le champ suivant.',
-                'mapped' => false,
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez renseigner un mot de passe',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Votre mot de passe doit contenir au minimum {{ limit }} caractères',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
-                'first_options'  => [
-                    'label' => 'Mot de passe',
-                    'attr' => ['class' => 'form-control'],
-                    'row_attr' => [
-                        'class' => 'form-group'
-                    ]
-                ],
-                'second_options' => [
-                    'label' => 'Confirmation du mot de passe',
-                    'attr' => ['class' => 'form-control'],
-                    'row_attr' => [
-                        'class' => 'form-group'
-                    ]
-                ],
+            // ->add('plainPassword', RepeatedType::class, [
+            //     'type' => PasswordType::class,
+            //     'invalid_message' => 'Vous devez renseigner un mot de passe valide et le confirmer dans le champ suivant.',
+            //     'mapped' => false,
+            //     'constraints' => [
+            //         new NotBlank([
+            //             'message' => 'Veuillez renseigner un mot de passe',
+            //         ]),
+            //         new Length([
+            //             'min' => 6,
+            //             'minMessage' => 'Votre mot de passe doit contenir au minimum {{ limit }} caractères',
+            //             // max length allowed by Symfony for security reasons
+            //             'max' => 4096,
+            //         ]),
+            //     ],
+            //     'first_options'  => [
+            //         'label' => 'Mot de passe',
+            //         'attr' => ['class' => 'form-control'],
+            //         'row_attr' => [
+            //             'class' => 'form-group'
+            //         ]
+            //     ],
+            //     'second_options' => [
+            //         'label' => 'Confirmation du mot de passe',
+            //         'attr' => ['class' => 'form-control'],
+            //         'row_attr' => [
+            //             'class' => 'form-group'
+            //         ]
+            //     ],
                 
+            // ])
+            // ->add('branch', EntityType::class, [
+            //     'class' => Branch::class,
+            //     'choice_label' => 'name',
+            //     'label' => 'secteur d\'activité',
+            //     'attr' => ['class' => 'form-control'],
+            //     'row_attr' => [
+            //         'class' => 'form-group'
+            //     ]
+            // ])
+            ->add('description', TextareaType::class, [
+                'attr' => ['class' => 'form-control'],
+                'required' => false,
+                'row_attr' => [
+                    'class' => 'form-group'
+                ]
             ])
-            ->add('branch', EntityType::class, [
-                'class' => Branch::class,
-                'choice_label' => 'name',
-                'label' => 'secteur d\'activité',
+            ->add('contribution', TextareaType::class, [
+                'attr' => ['class' => 'form-control'],
+                'required' => false,
+                'row_attr' => [
+                    'class' => 'form-group'
+                ]
+            ])
+            ->add('address', TextType::class, [
+                'label' => 'Nom de la rue',
+                'attr' => ['class' => 'form-control'],
+                'row_attr' => [
+                    'class' => 'form-group'
+                ]
+            ])
+            ->add('postalCode', TextType::class, [
+                'label' => 'Code postal',
+                'attr' => ['class' => 'form-control'],
+                'row_attr' => [
+                    'class' => 'form-group'
+                ]
+            ])
+            ->add('city', TextType::class, [
+                'label' => 'Ville',
+                'attr' => ['class' => 'form-control'],
+                'row_attr' => [
+                    'class' => 'form-group'
+                ]
+            ])
+            ->add('country', TextType::class, [
+                'label' => 'Pays',
                 'attr' => ['class' => 'form-control'],
                 'row_attr' => [
                     'class' => 'form-group'

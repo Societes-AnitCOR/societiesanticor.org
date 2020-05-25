@@ -106,7 +106,7 @@ class Company implements JsonSerializable
     private $complementaryInformations;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="companies")
+     * @ORM\OneToOne(targetEntity=User::class, inversedBy="company")
      */
     private $owner;
 

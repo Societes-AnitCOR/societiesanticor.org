@@ -59,9 +59,9 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\OneToMany(targetEntity=Company::class, mappedBy="owner")
+     * @ORM\OneToOne(targetEntity=Company::class, mappedBy="owner")
      */
-    private $companies;
+    private $company;
 
     /**
      * @ORM\Column(type="integer")
@@ -72,14 +72,6 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      */
     private $updatedAt;
-
-    public function __construct()
-    {
-        $this->companies = new ArrayCollection();
-
-        $this->createdAt = time();
-        $this->updatedAt = time();
-    }
 
     public function getId(): ?int
     {
@@ -202,33 +194,15 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Company[]
-     */
-    public function getCompanies(): Collection
+    
+    public function getCompany(): ?Company
     {
-        return $this->companies;
+        return $this->company;
     }
 
-    public function addCompany(Company $company): self
+    public function setCompany(Company $company): self
     {
-        if (!$this->companies->contains($company)) {
-            $this->companies[] = $company;
-            $company->setOwner($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCompany(Company $company): self
-    {
-        if ($this->companies->contains($company)) {
-            $this->companies->removeElement($company);
-            // set the owning side to null (unless already changed)
-            if ($company->getOwner() === $this) {
-                $company->setOwner(null);
-            }
-        }
+        $this->company = $company;
 
         return $this;
     }
