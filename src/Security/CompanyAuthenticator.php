@@ -135,7 +135,9 @@ class CompanyAuthenticator extends AbstractFormLoginAuthenticator implements Pas
 
         // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
         // Redirection vers la page entreprise
-        return new RedirectResponse($this->urlGenerator->generate('companyPageView', ['name' => $token->getUser()->getCompany()->getName()]));
+        if(!is_null($token->getUser()->getCompany()))
+            return new RedirectResponse($this->urlGenerator->generate('companyPageView', ['name' => $token->getUser()->getCompany()->getName()]));
+        return new RedirectResponse($this->urlGenerator->generate('company_register'));
     }
 
     /**
