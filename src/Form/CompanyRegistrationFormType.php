@@ -36,10 +36,10 @@ class CompanyRegistrationFormType extends AbstractType
                     'class' => 'form-group'
                 ]
             ])
-            ->add('email', EmailType::class, [
-                'label' => 'Email de l\'entreprise',
-                'attr' => ['class' => 'form-control'],
-            ])
+            // ->add('email', EmailType::class, [
+            //     'label' => 'Email de l\'entreprise',
+            //     'attr' => ['class' => 'form-control'],
+            // ])
             // ->add('plainPassword', RepeatedType::class, [
             //     'type' => PasswordType::class,
             //     'invalid_message' => 'Vous devez renseigner un mot de passe valide et le confirmer dans le champ suivant.',
@@ -122,11 +122,11 @@ class CompanyRegistrationFormType extends AbstractType
                     'class' => 'form-group'
                 ]
             ])
-            ->add('logoFile', VichImageType::class, [
-                'label' => 'logo',
-                'required' => false,
-                'attr' => ['class' => 'form-control'],
-            ])
+            // ->add('logoFile', VichImageType::class, [
+            //     'label' => 'logo',
+            //     'required' => false,
+            //     'attr' => ['class' => 'form-control'],
+            // ])
             ->add('add', SubmitType::class, [
                 'label' => 'Créer le compte',
                 'attr' => [
