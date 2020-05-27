@@ -17,14 +17,18 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 use App\Entity\Branch;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class CompanyRegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            
             ->add('name', null, [
                 'label' => 'Nom de la structure',
                 'attr' => ['class' => 'form-control'],
@@ -32,22 +36,9 @@ class CompanyRegistrationFormType extends AbstractType
                     'class' => 'form-group'
                 ]
             ])
-            ->add('email', RepeatedType::class, [
-                'invalid_message' => 'Vous devez renseigner une adresse mail valide et la confirmer dans le champ suivant.',
-                'first_options'  => [
-                    'label' => 'Adresse mail de l\'entreprise',
-                    'attr' => ['class' => 'form-control'],
-                    'row_attr' => [
-                        'class' => 'form-group'
-                    ]
-                ],
-                'second_options' => [
-                    'label' => 'Confirmation de l\'adresse mail ',
-                    'attr' => ['class' => 'form-control'],
-                    'row_attr' => [
-                        'class' => 'form-group'
-                    ]
-                ],
+            ->add('email', EmailType::class, [
+                'label' => 'Email de l\'entreprise',
+                'attr' => ['class' => 'form-control'],
             ])
             // ->add('plainPassword', RepeatedType::class, [
             //     'type' => PasswordType::class,
@@ -89,13 +80,13 @@ class CompanyRegistrationFormType extends AbstractType
             //         'class' => 'form-group'
             //     ]
             // ])
-            ->add('description', TextareaType::class, [
-                'attr' => ['class' => 'form-control'],
-                'required' => false,
-                'row_attr' => [
-                    'class' => 'form-group'
-                ]
-            ])
+            // ->add('description', TextareaType::class, [
+            //     'attr' => ['class' => 'form-control'],
+            //     'required' => false,
+            //     'row_attr' => [
+            //         'class' => 'form-group'
+            //     ]
+            // ])
             ->add('contribution', TextareaType::class, [
                 'attr' => ['class' => 'form-control'],
                 'required' => false,
@@ -130,6 +121,11 @@ class CompanyRegistrationFormType extends AbstractType
                 'row_attr' => [
                     'class' => 'form-group'
                 ]
+            ])
+            ->add('logoFile', VichImageType::class, [
+                'label' => 'logo',
+                'required' => false,
+                'attr' => ['class' => 'form-control'],
             ])
             ->add('add', SubmitType::class, [
                 'label' => 'Créer le compte',

@@ -2,6 +2,15 @@
 
 {% block title %}{{ company.name }}{% endblock %}
 
+{% block stylesheets %}
+{{parent()}}
+<style>
+    .backgroundCard.text-center {
+        height: 200px;
+    }
+</style>
+{% endblock %}
+
 {% block body %}
 
 <div class="container-lg mt-5" style="margin-bottom: 50px;">
@@ -11,7 +20,7 @@
             <!--left col-->
 
             {% if company.logo is not null %}
-                <div class="backgroundCard text-center" style="background-image:url({{ asset('uploads/logos/'~company.logo) }})"></div>
+                <div class="backgroundCard text-center" style="background-image:url({{ asset('uploads/companies/logos/'~ company.logo) }})"></div>
             {% else %}
                 <div class="backgroundCard text-center"></div>
             {% endif %}
@@ -28,13 +37,13 @@
                     </div>
                 </div>
 
-                <div class="card  my-3">
+                {# <div class="card  my-3">
                     <div class="card-header">Secteur d'intervention </div>
                     <div class="card-body">
                         <span>{{ company.branch }}</span>
                     </div>
 
-                </div>
+                </div> #}
                 <div class="card  my-3">
                         <div class="card-header">Adresse</div>
                         <div class="card-body">

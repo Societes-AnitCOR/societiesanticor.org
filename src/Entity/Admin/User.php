@@ -213,7 +213,7 @@ class User implements UserInterface
 
     public function __toString()
     {
-        return $this->getFullName();
+        return $this->getFirstname().' '.$this->getLastname();
     }
 
     public function getCreatedAt(): ?int
