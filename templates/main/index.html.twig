@@ -16,8 +16,8 @@
   </div>
   <div class="row after-jumbotron">
     <div class="col-sm-12 col-md-4">
-      <div class="card">
-        <img src="{{ asset('img/Placeholder.svg') }}" class="img-responsive" class="card-img-top" alt="...">
+      <a href="#map" rel="modal:open"><div class="card">
+       <img src="{{ asset('img/Placeholder.svg') }}" class="img-responsive" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Les entreprises engagées en France</h5>
           <p class="card-text">
@@ -25,11 +25,18 @@
             et la diversite des secteurs d'activités concernes
           </p>
         </div>
+        </a>
       </div>
     </div>
+    <!-- Start Modal Code -->
+    <div id="map" class="modal">
+     <iframe width="100%" height="100%" frameborder="0" allowfullscreen src="//umap.openstreetmap.fr/fr/map/entreprises-engages_446744?scaleControl=false&miniMap=true&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=false&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=none&captionBar=false&fbclid=IwAR1h4bQk7053N-j4qBntkWV8ARV2PKZFFjbDEFN7HZVArQTfQoeyIx29at0#6/47.033/2.109"></iframe>
+      <a href="#" rel="modal:close">Close</a>
+    </div>
+     <!-- End Modal Code -->
     <div class="col-sm-12 col-md-4">
-      <div class="card">
-        <a href="{{ path('companies') }}"><img src="{{ asset('img/mockpage.svg') }}" class="img-responsive" class="card-img-top" alt="..."></a>
+      <div class="card" onclick="location.href='{{ path('companies') }}';" style="cursor: pointer;">
+        <img src="{{ asset('img/mockpage.svg') }}" class="img-responsive" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Je recherche un acteur engage</h5>
           <p class="card-text">
@@ -41,7 +48,7 @@
       </div>
     </div>
     <div class="col-sm-12 col-md-4">
-      <div class="card">
+      <div class="card" onclick="location.href='#';" style="cursor: pointer;">
         <img src="{{ asset('img/Features Middle.svg') }}" class="img-responsive" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Solution face à la crise</h5>
@@ -63,35 +70,36 @@
     <div class="milieur-wrapper">
       <div class="milieu-content">
         <h3>10 exemples de coopérations solidaires, +25 types d'acteurs impliques</h3>
-        <div class="filling">
-          <div>Chechez un exemple de solidarite par</div>
-          <div class="btn-group">
-            <button type="button" class="btn btn-danger">Type d'action</button>
-            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-          </div>
-          <div class="btn-group">
-            <button type="button" class="btn btn-danger">Secteur d'activiter</button>
-            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-          </div>
-        </div>
+          {#  DISPONIBLE LORS DE LA V2 #}
+{#        <div class="filling">#}
+{#          <div>Chechez un exemple de solidarite par</div>#}
+{#          <div class="btn-group">#}
+{#            <button type="button" class="btn btn-danger">Type d'action</button>#}
+{#            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#              <span class="sr-only">Toggle Dropdown</span>#}
+{#            </button>#}
+{#            <div class="dropdown-menu">#}
+{#              <a class="dropdown-item" href="#">Action</a>#}
+{#              <a class="dropdown-item" href="#">Another action</a>#}
+{#              <a class="dropdown-item" href="#">Something else here</a>#}
+{#              <div class="dropdown-divider"></div>#}
+{#              <a class="dropdown-item" href="#">Separated link</a>#}
+{#            </div>#}
+{#          </div>#}
+{#          <div class="btn-group">#}
+{#            <button type="button" class="btn btn-danger">Secteur d'activiter</button>#}
+{#            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#              <span class="sr-only">Toggle Dropdown</span>#}
+{#            </button>#}
+{#            <div class="dropdown-menu">#}
+{#              <a class="dropdown-item" href="#">Action</a>#}
+{#              <a class="dropdown-item" href="#">Another action</a>#}
+{#              <a class="dropdown-item" href="#">Something else here</a>#}
+{#              <div class="dropdown-divider"></div>#}
+{#              <a class="dropdown-item" href="#">Separated link</a>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
       </div>
     </div>
     <div class="taches-lists">
@@ -238,25 +246,24 @@
       <a class="btn btn-info" href="{{ path('company_register') }}">Je veux participer</a>
     </div>
     <div class="row">
-      <div class="col-sm-8">
+      <div class="col-sm-6 text-center pb-4">
         <h3>Nous soutenons</h3>
         <div class="row">
             <div class="col">
               <img src="{{ asset('img/Rectangle.png') }}"  alt="logo-covid">
             </div>
-            <div class="col text-center">
-              <a target="_blank" class="link-dark" href="https://soutenonsnoshopitaux.fr">https://soutenonsnoshopitaux.fr</a>
-            </div>
         </div>
       </div>
-      <div class="col-sm-4 teamlist">
+      <div class="col-sm-6 teamlist text-center">
         <p >— NOTRE EQUIPE</p>
         <ul class="list-unstyled">
-          <li>Alexandre Parizot - Developpeur</li>
-          <li>Cyril Delage - Developpeur</li>
+          <li>Alexandre Parizot - Développeur</li>
+          <li>Cyril Delage - Développeur</li>
           <li>Josh Bradfield</li>
           <li>Sophie Aflalo</li>
-          <li>Pascal Tovohery - Developpeur</li>
+          <li>Pascal Tovohery - Développeur</li>
+          <li>Bruno Bernard - Développeur</li>
+          <li>Kévin Busty - Développeur</li>
         </ul>
       </div>
     </div>
