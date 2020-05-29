@@ -58,14 +58,14 @@ class SecurityController extends AbstractController
      * @param CompanyAuthenticator $authenticator
      * @return Response
      *
-     * @Route("/insrciption", name="company_register")
+     * @Route("/inscription", name="company_register")
      */
     public function register(Request $request,
                              UserPasswordEncoderInterface $passwordEncoder,
                              GuardAuthenticatorHandler $guardHandler,
                              CompanyAuthenticator $authenticator): Response
     {
-        $user = new User();
+        $user = new Company();
         $form = $this->createForm(CompanyRegistrationFormType
         ::class, $user);
         $form->handleRequest($request);
