@@ -2,65 +2,63 @@
  * Url from
 **/
 :root {
-	--bgc: #000000;
-	--color-bg: #FFFFFF;
-	--container-footer-w: 1000px;
-	--container-main-w: 1200px;
-	--couleur-marrant: #0ad1bd;
-	--couleur-rose: #f85091;
-	--roboto-sans: 'Roboto', sans-serif;
-	--fira-sans: 'Fira Sans', sans-serif;
+  --bgc: #000000;
+  --color-bg: #ffffff;
+  --container-footer-w: 1000px;
+  --container-main-w: 1200px;
+  --couleur-marrant: #0ad1bd;
+  --couleur-rose: #f85091;
+  --roboto-sans: "Roboto", sans-serif;
+  --fira-sans: "Fira Sans", sans-serif;
 }
 
 .container {
-	max-width: 1360px !important;
+  max-width: 1360px !important;
 }
 
 .wrapper {
-	color: var(--color);
-	max-width: 1360px;
-	margin: 0 auto;
-	padding: 20px;
+  color: var(--color);
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .feature-divider {
-	margin-top: 2rem;
+  margin-top: 2rem;
 }
 
-
 @media only screen and (max-width: 1366px) {
-	.wrapper {
-		max-width: 1024px;
-	}
+  .wrapper {
+    max-width: 1024px;
+  }
 }
 
 @media only screen and (max-width: 640px) {
-	.wrapper {
-		padding-left: auto;
-		padding-right: auto;
-	}
+  .wrapper {
+    padding-left: auto;
+    padding-right: auto;
+  }
 }
 
-
 * {
-	font-family: var(--roboto-sans);
+  font-family: var(--roboto-sans);
 }
 
 .marrant {
-	color: var(--couleur-marrant);
+  color: var(--couleur-marrant);
 }
 
 .link-dark {
-	font-family: Overpass, sans-serif;
-	color: #999999;
+  font-family: Overpass, sans-serif;
+  color: #999999;
 }
 
 .link-dark:hover {
-	color: #999999;
+  color: #999999;
 }
 
 .rose {
-	color: var(--couleur-rose);
+  color: var(--couleur-rose);
 }
 
 .logo-wrapper {
@@ -70,78 +68,80 @@
 }
 
 #navbarSupportedContent > ul {
-	margin: auto;
+  margin: auto;
 }
 
 #navbarSupportedContent > ul li a:not(.dropdown-item) {
-	color: var(--color-bg);
+  color: var(--color-bg);
 }
 
 .bg-noir {
-	background: var(--bgc);
+  background: var(--bgc);
 }
 
 .mylogo {
-	width: 88px;
-	height: 41.33px;
+  width: 88px;
+  height: 41.33px;
 }
+
 .btn-connexion {
-	background: white;
-    margin-left: 15px;
-	color: var(--bgc);
+  background: white;
+  margin-left: 15px;
+  color: var(--bgc);
 }
 
 .container-footer {
   background: var(--couleur-marrant);
 }
+
 .container-footer .row a {
-	color: var(--color-bg, #fff);
+  color: var(--color-bg, #fff);
 }
 
 .jumbotron h1 {
-	font-family: Fira Sans;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 60px;
-	line-height: 70px;
+  font-family: Fira Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 70px;
 }
 
 .jumbotron.center-text {
-	background-color: var(--color-bg, transparent);
+  background-color: var(--color-bg, transparent);
   padding-top: 140px;
 }
 
 .jumbotron.center-text p {
-	font-family: Fira Sans;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 18px;
-	line-height: 28px;
-	text-align: center;
-	color: #222222;
-	opacity: 0.7;
-	margin-top: 28px;
-	margin-bottom: 0;
+  font-family: Fira Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  color: #222222;
+  opacity: 0.7;
+  margin-top: 28px;
+  margin-bottom: 0;
 }
 
 .after-jumbotron {
-	max-width:  1176px; 
-	margin : auto;
+  max-width: 1176px;
+  margin: auto;
 }
 
-.after-jumbotron .card{
-	border: none;
-	margin-bottom: 42px;
+.after-jumbotron .card {
+  border: none;
+  margin-bottom: 42px;
 }
 
 .after-jumbotron .card .card-body {
-	padding: 0;
+  padding: 0;
   text-align: center;
   margin-top: 20px;
 }
 
 .after-jumbotron .card .card-title {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .after-jumbotron .col {
@@ -149,25 +149,24 @@
   padding-right: 25px;
 }
 
-.after-jumbotron .card .card-text{
-	text-align: justify;
-	font-family: Fira Sans;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 1rem;
-	line-height: 1.56rem;
-	/* or 156% */
+.after-jumbotron .card .card-text {
+  text-align: justify;
+  font-family: Fira Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.56rem;
+  /* or 156% */
 
-	/* Black */
+  /* Black */
 
-	color: #646464;
-	opacity: 0.7;
-
+  color: #646464;
+  opacity: 0.7;
 }
 
 .after-jumbotron .card img {
-	width: 100%;
-	height: 200px;
+  width: 100%;
+  height: 200px;
 }
 
 .width-mileu {
@@ -177,16 +176,16 @@
 
 .after-jumbotron .col-sm-12.text-center {
   margin-top: 17px;
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #milieu > div.milieur-wrapper {
-	background-color: var(--couleur-marrant);
+  background-color: var(--couleur-marrant);
 }
 
 #milieu {
-	border: 2px solid var(--couleur-marrant);
-	/* padding: 0 50px; */
+  border: 2px solid var(--couleur-marrant);
+  /* padding: 0 50px; */
 }
 
 #mileu .btn-group {
@@ -194,53 +193,51 @@
 }
 
 #milieu .btn-group .btn-danger {
-	background-color: var(--color-bg);
-	border-color: var(--color-bg);
-	color: var(--bgc);
-	border: none;
+  background-color: var(--color-bg);
+  border-color: var(--color-bg);
+  color: var(--bgc);
+  border: none;
 }
 
 .taches-lists {
-	padding: 20px;
+  padding: 20px;
 }
 
 .blog {
   margin-top: 35px;
-  
-  text-align: center;
 
+  text-align: center;
 }
 
 .header-blog {
-	margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .media-blog {
-	margin: auto;
-	max-width: 760px;
+  margin: auto;
+  max-width: 760px;
 }
 
 .media-blog img {
-	margin: auto;
-	width: 100%
+  margin: auto;
+  width: 100%;
 }
 
 .last-el-blog {
+  font-family: Fira Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 28px;
+  text-align: justify;
+  color: #222222;
+  opacity: 0.7;
 
-	font-family: Fira Sans;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 22px;
-    line-height: 28px;
-    text-align: justify;
-    color: #222222;
-	opacity: 0.7;
-	
-	max-width : 780px;
-	margin-top: 20px;
-	margin-bottom: 80px;
-	margin-left: auto;
-	margin-right: auto;
+  max-width: 780px;
+  margin-top: 20px;
+  margin-bottom: 80px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .milieu-content {
@@ -248,17 +245,16 @@
   padding-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
-
 }
 
 .milieu-content h3 {
-	font-family: Fira Sans;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 36px;
-	line-height: 32px;
-	color: #FDF4F4;
-	text-align: center;
+  font-family: Fira Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 32px;
+  color: #fdf4f4;
+  text-align: center;
 }
 
 .filling {
@@ -267,23 +263,20 @@
   text-align: center;
 
   font-family: Fira Sans;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 1.2rem;
-	line-height: 2rem;
-	/* identical to box height, or 145% */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  /* identical to box height, or 145% */
 
-
-	color: #0F0E0E;
-
+  color: #0f0e0e;
 }
 
 .filling .btn {
-	margin-left : 20px;
+  margin-left: 20px;
 }
 
 img.img-responsive.img-rounded {
-
 }
 
 .width-mileu.tache-list-wrapper {
@@ -292,45 +285,43 @@ img.img-responsive.img-rounded {
 }
 
 .header-blog h4 {
-	font-family: Fira Sans;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 28px;
-	line-height: 24px;
-	/* or 86% */
-	
-	letter-spacing: 4px;
-	text-transform: uppercase;
-	text-align: center;
+  font-family: Fira Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 24px;
+  /* or 86% */
+
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .header-blog p {
-	font-family: Fira Sans;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 21px;
-	line-height: 28px;
-	/* or 133% */
+  font-family: Fira Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 28px;
+  /* or 133% */
 
+  color: #000000;
 
-	color: #000000;
-
-	opacity: 0.7;
-	text-align: center;
+  opacity: 0.7;
+  text-align: center;
 }
 
-
 .one-tache h3 {
-	font-family: Fira Sans;
-	font-style: normal;
-	font-weight: 600;
-	font-size: 40px;
-	line-height: 50px;
-	/* or 125% */
+  font-family: Fira Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 50px;
+  /* or 125% */
 
-	letter-spacing: -1px;
+  letter-spacing: -1px;
 
-	color: #151515;
+  color: #151515;
 }
 
 div#before-footer {
@@ -352,41 +343,64 @@ div#before-footer .btn-participer {
   padding: 43px 0;
 }
 
-#footerTop+.row {
+#footerTop + .row {
   margin-top: 10px;
 }
 
 .list-inline-item:not(:last-child) {
-	margin-right: 30px;
+  margin-right: 30px;
 }
 
 .footer-wrapper {
-	margin: auto;
-  	width: var(--container-footer-w, 1000px);
+  margin: auto;
+  width: var(--container-footer-w, 1000px);
 }
-
 
 .teamlist p {
-	font-family: Fira Sans;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 1rem;
-	line-height: 1.7rem;
-	
-	letter-spacing: .2rem;
-	text-transform: uppercase;
-	
-	
-	color: #222222;
-}	
+  font-family: Fira Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.7rem;
 
-.teamlist ul li {
-	font-family: Fira Sans;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 1rem;
-	line-height: 1.5rem;
-	color: #646464;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+
+  color: #222222;
 }
 
+.teamlist ul li {
+  font-family: Fira Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #646464;
+}
 
+.after-jumbotron .card img {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.after-jumbotron .card:hover img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+a.close-modal {
+  margin: 20px;
+}
+
+div#map {
+  max-width: unset;
+}
+
+.after-jumbotron .card a {
+  text-decoration: none;
+  color: unset;
+}
+
+.after-jumbotron .card a:hover {
+  color: unset;
+}
