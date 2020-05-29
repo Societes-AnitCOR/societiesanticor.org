@@ -1,35 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
+    <head>
     <title>SOCIETE AntiCOR - {% block title %} {% endblock %}</title>
-    {% block stylesheets %}
-        <link href="{{ asset('css/components/bootstrap.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
-    {% endblock %}
-</head>
-<body>
-<header>
-    {# @odo : render controller make loose the routes attributes in the request...
-    {{ render(controller('App\\Controller\\MainController:getNavbar') )}} #}
-    {% include '_components/navbar.html.twig' %}
-</header>
-<main role="main" class="flex-shrink-0" >
-    {% block body %}{% endblock %}
-</main>
-{% block javascripts %}
-    <script type="text/javascript" src="{{ asset('js/backoffice/jquery.min.js')}}">
-    <script type="text/javascript" src="{{ asset('js/backoffice/bootstrap.min.js')}}"></script>
-    </script> <script type="text/javascript" src="{{ asset('js/fontAwesomes.js')}}"></script>
-{% endblock %}
-<footer class="footer mt-auto py-3 footer-light bg-dark">
-    <div class="container text-center">
-        <span class="text-muted">
-            <a class="text-muted" href="mailto:team@societes-anticor.fr">
-                Nous contacter
-            </a>
-        </span>
-    </div>
-</footer>
-</body>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block stylesheets %}
+            <!-- sylesheets -->
+            <link href="{{ asset('css/components/bootstrap.css') }}" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+
+            <!-- webfonts and icons -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Muli&display=swap" rel="stylesheet">
+        {% endblock %}
+    </head>
+
+    <body>
+        <header>
+            {# @odo : render controller make loose the routes attributes in the request...
+            {{ render(controller('App\\Controller\\MainController:getNavbar') )}} #}
+            {% include '_components/navbar.html.twig' %}
+        </header>
+        <main role="main" >
+            {% block body %}{% endblock %}
+        </main>
+
+        <footer>
+            <div class="m-auto container-footer">
+                <div class="footer-wrapper">
+                    <div id="footerTop" class="row text-center">
+                        <div class="col">
+                        <a href="#">Tous le monde peut aider</a>
+                        </div>
+                        <div class="col">
+                        <a href="#">Entreprise engagées</a>
+                        </div>
+                        <div class="col">
+                        <a href="#">FAQ</a>
+                        </div>
+                        <div class="col">
+                        <a href="#">Nous contacter</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="#">Terms</a>
+                        </div>
+                    <div class="col">
+                        <ul class="list-inline text-right">
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-google"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        {% block javascripts %}
+            <!-- scripts -->
+            <script type="text/javascript" src="{{ asset('js/backoffice/jquery.min.js')}}"></script> 
+            <script type="text/javascript" src="{{ asset('js/backoffice/bootstrap.min.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('js/fontAwesomes.js')}}"></script>
+        {% endblock %}
+
+    </body>
 </html>

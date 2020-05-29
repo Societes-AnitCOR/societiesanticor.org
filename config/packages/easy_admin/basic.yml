@@ -1,0 +1,10 @@
+## YAML Template.
+---
+easy_admin:
+    site_name: Admin
+    formats:
+        datetime:   'd/m/Y à H\hi e'
+        date:       'd/m/Y'
+        time:       'H\hi e'
+    list:
+        max_results: 15

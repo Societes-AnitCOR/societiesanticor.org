@@ -1,0 +1,70 @@
+## YAML Template.
+---
+easy_admin:
+    entities:
+        Company:
+            class: App\Entity\Company
+            list:
+                title: Toutes les entreprises
+                sort: ['name', 'ASC']
+                fields:
+                    -
+                        property: id
+                    -
+                        property: logo
+                        type: image
+                        base_path: /uploads/companies/logos
+                    -
+                        property: name
+                    -
+                        property: telephone
+                    -
+                        property: address
+                    -
+                        property: city
+                    -
+                        property: country
+                    -
+                        property: owner
+                    -
+                        property: createdAt
+                        type: datetime
+                        label: Enregistré le
+            form:
+                fields:
+                    -
+                        property: name
+                    -
+                        property: telephone
+                    -
+                        property: logoFile
+                        type: vich_image
+                    -
+                        property: contribution
+                        type: fos_ckeditor
+                    -
+                        property: description
+                        type: fos_ckeditor
+                    -
+                        property: geographicPerimeter
+                    -
+                        property: address
+                    -
+                        property: postalCode
+                    -
+                        property: city
+                    -
+                        property: country
+                    -
+                        property: email
+                    -
+                        property: urlWebsite
+                    -
+                        property: keywords
+                    -
+                        property: complementaryInformations
+                        type: fos_ckeditor
+                    -
+                        property: branch
+                    -
+                        property: owner

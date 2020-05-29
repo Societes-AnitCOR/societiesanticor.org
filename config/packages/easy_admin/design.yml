@@ -1,0 +1,29 @@
+## YAML Template.
+---
+easy_admin:
+    design:
+        form_theme:
+            - '@EasyAdmin/form/bootstrap_4.html.twig'
+            - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+        menu:        
+            -
+                label: Utilisateurs
+                icon: users
+                children:
+                    -
+                        label: Tous les utilisateurs
+                        entity: User
+                    -
+                        label: Administrateurs
+                        entity: Admin
+                    -
+                        label: Clients
+                        entity: Client
+            -
+                label: Entreprises
+                icon: building
+                entity: Company
+            -
+                label: Branches
+                icon: folder-o
+                entity: Branch

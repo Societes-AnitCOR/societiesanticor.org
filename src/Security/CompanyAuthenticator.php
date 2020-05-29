@@ -91,7 +91,7 @@ class CompanyAuthenticator extends AbstractFormLoginAuthenticator implements Pas
             throw new InvalidCsrfTokenException();
         }
 
-        $user = $this->entityManager->getRepository(Company::class)->findOneBy(['email' => $credentials['email']]);
+        $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $credentials['email']]);
 
         if (!$user) {
             // fail authentication with a custom error
@@ -133,13 +133,8 @@ class CompanyAuthenticator extends AbstractFormLoginAuthenticator implements Pas
             return new RedirectResponse($targetPath);
         }
 
-        $user = $token->getUser();
-
-        if (in_array('ROLE_COMPANY', $user->getRoles())) {
-            return new RedirectResponse($this->urlGenerator->generate('companyPage'));
-        } else {
-            return new RedirectResponse($this->urlGenerator->generate('landing'));
-        }
+        // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
+        return new RedirectResponse($this->urlGenerator->generate('landing'));
     }
 
     /**

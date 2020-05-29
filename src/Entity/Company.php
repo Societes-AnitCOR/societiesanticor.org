@@ -2,14 +2,20 @@
 
 namespace App\Entity;
 
+use JsonSerializable;
+use App\Entity\Admin\User;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CompanyRepository")
  * @UniqueEntity("name")
+ * @Vich\Uploadable
  */
-class Company
+class Company implements JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -32,6 +38,12 @@ class Company
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $logo;
+
+    /**
+     * @Vich\UploadableField(mapping="company_logos", fileNameProperty="logo")
+     * @var File
+     */
+    private $logoFile;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Branch", inversedBy="companies")
@@ -93,6 +105,27 @@ class Company
      */
     private $complementaryInformations;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="companies")
+     */
+    private $owner;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $updatedAt;
+
+    public function __construct()
+    {
+        $this->createdAt = time();
+        $this->updatedAt = time();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -110,6 +143,26 @@ class Company
         return $this;
     }
 
+    public function jsonSerialize() {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'email' => $this->email,
+            'telephone' => $this->telephone,
+            'logo' => $this->logo,
+            'branch_name' => $this->branch->getName(),
+            'contribution' => $this->contribution,
+            'address' => $this->address,
+            'city' => $this->city,
+            'country' => $this->country,
+            'postalCode' => $this->postalCode,
+            'geographicPerimeter' => $this->geographicPerimeter,
+            'description' => $this->description,
+            'complementaryInformations' => $this->complementaryInformations,
+            'urlWebsite' => $this->urlWebsite,
+            'keywords' => $this->keywords,
+        ];
+    }
 
     public function arrayExport(): ?array
     {
@@ -117,6 +170,7 @@ class Company
             $this->name,
             $this->email,
             $this->telephone,
+            $this->logo,
             $this->branch->getName(),
             $this->contribution,
             $this->address,
@@ -127,7 +181,7 @@ class Company
             $this->description,
             $this->complementaryInformations,
             $this->urlWebsite,
-            $this->keywords
+            $this->keywords,
         ];
     }
 
@@ -305,5 +359,64 @@ class Company
         $this->keywords = $keywords;
 
         return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): self
+    {
+        $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?int
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(int $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?int
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(int $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
+    public function setLogoFile(File $logo = null)
+    {
+        $this->logoFile = $logo;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($logo) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = time();
+        }
+    }
+
+    public function getLogoFile()
+    {
+        return $this->logoFile;
     }
 }

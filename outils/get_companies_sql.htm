@@ -95,7 +95,7 @@
             }  else if (field === 'logo') {
                 return '"' + 'auto_' + value + '.png' + '"'
             } else {
-                return '"' + value + '"'
+                return ' ' + JSON.stringify(value) + ' '
             }
         }
 

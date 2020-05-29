@@ -1,38 +1,37 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="{{ path('landing') }}">
-        <img id="brand-logo" src="{{ asset('img/logo.png') }}" />
+<nav class="navbar navbar-dark navbar-expand-sm bg-noir">
+    <a class="navbar-brand" href="#">
+        <img src="{{ asset('img/logo.svg') }}" class="mylogo">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item {{ app.request.get('_route') == 'companies' ? 'active' }}">
-                <a class="nav-link" href="{{ path('companies') }}"> Entreprises engagées </a>
-            </li>
-            <li class="nav-item dropdown {{ app.request.get('_route')  matches '/^help_*/' ? 'active'  }}">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Tout le monde peut aider
-                </a>
-            </li>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto center-block">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Tous le monde peut aider !
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('companies') }}">
+            Entreprise engagées
+            </a>
+        </li>
         </ul>
-       <ul class="navbar-nav  mt-2 mt-md-0">
-           {% if app.user %}
-               <li class="nav-item">
-                   <a class="nav-link {{ app.request.get('_route') == 'companyPage' ? 'active' }}"
-                      href="{{ path('companyPage') }}"> Espace entreprise
-                   </a>
-               </li>
-               <li class="nav-item mx-3 my-1">
-                   <a class="btn btn-sm btn-outline-danger" href="{{ path('app_logout') }}"> Deconnexion </a>
-               </li>
-           {% else %}
-               {# is_granted #}
-               <li class="nav-item mx-3 my-1">
-                   <a class="btn btn-sm btn-outline-primary" href="{{ path('app_login') }}"> Connexion </a>
-               </li>
-           {% endif %}
-       </ul>
+        <form class="form-inline my-2 my-lg-0">
+        <div class="btn-group ">
+            <a href="{{ path('company_register') }}" class="btn btn-info participer">Je veux participer</a>
+        </div>
+        <div class="btn-group">
+            <a href="{{ path('app_login') }}" class="btn btn-default btn-connexion">Connexion</a>
+        </div>
+        </form>
     </div>
 </nav>
