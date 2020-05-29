@@ -393,7 +393,7 @@ a.close-modal {
 }
 
 div#map {
-  max-width: unset;
+  max-width: unset !important;
 }
 
 .after-jumbotron .card a {
