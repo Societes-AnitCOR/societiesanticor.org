@@ -65,10 +65,6 @@ class Company implements JsonSerializable
      */
     private $geographicPerimeter;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $address;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -119,6 +115,11 @@ class Company implements JsonSerializable
      * @ORM\Column(type="integer")
      */
     private $updatedAt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Nom_de_la_rue;
 
     public function __construct()
     {
@@ -234,17 +235,7 @@ class Company implements JsonSerializable
         return $this;
     }
 
-    public function getAddress(): ?string
-    {
-        return $this->address;
-    }
 
-    public function setAddress(?string $address): self
-    {
-        $this->address = $address;
-
-        return $this;
-    }
 
     public function getPostalCode(): ?string
     {
@@ -418,5 +409,17 @@ class Company implements JsonSerializable
     public function getLogoFile()
     {
         return $this->logoFile;
+    }
+
+    public function getNomDeLaRue(): ?string
+    {
+        return $this->Nom_de_la_rue;
+    }
+
+    public function setNomDeLaRue(?string $Nom_de_la_rue): self
+    {
+        $this->Nom_de_la_rue = $Nom_de_la_rue;
+
+        return $this;
     }
 }
