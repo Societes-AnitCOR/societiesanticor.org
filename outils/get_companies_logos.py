@@ -26,7 +26,7 @@ def getData(s) :
 print ("#######################################################################")
 print ("#                   Company logo download script                      #")
 print ("# ------------------------------------------------------------------- #")
-print ("# Version : 1.0 ")
+print ("# Version : 1.1 ")
 print ("# Requirements : " + FILENAME + "  (from get_companies_json.html)")
 print ("# Output : " + OUTPUT + "/")
 print ("#######################################################################")
@@ -51,6 +51,7 @@ print ("Starting download ...")
 print ("")
 
 failed=[]
+skipped=[]
 success_count = 0
 count=0
 
@@ -63,47 +64,57 @@ for d in data :
     tmp_img_name=""
     img_data=bytearray()
 
-    # Process link
-    if isDataURL(d['_logo']) :
-        # Is a base64 url, no need to do a GET, we already have the data
-        t, img_data = getData(d['_logo'])
-        ext = t.split('/')[-1]
-
-    else:  
-        # Is a regular URL, lets do a GET request
-        r = requests.get(d['_logo'], stream=True, 
-            # Pretend to be a real browser and not a robot
-            headers={'User-agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1941.0 Safari/537.36'})
-        
-        # Handle rejection like a gentleman..
-        if (r.status_code != 200) and (r.status_code != 304 ):
-            failed.append(d)
-            print ("\t\tFailed : " + str(r.status_code))
+    try: 
+        # Process link
+        if d['_logo'] == "" :
+            skipped.append(d)
             continue
+        elif isDataURL(d['_logo']) :
+            # Is a base64 url, no need to do a GET, we already have the data
+            t, img_data = getData(d['_logo'])
+            ext = t.split('/')[-1]
 
-        # Extract file type from header information
-        ext=r.headers['content-type'].split('/')[-1]
-        for chunk in r:
-            img_data += chunk
+        else:  
+            # Is a regular URL, lets do a GET request
+            r = requests.get(d['_logo'], stream=True, 
+                # Pretend to be a real browser and not a robot
+                headers={'User-agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1941.0 Safari/537.36'})
+            
+            # Handle rejection like a gentleman..
+            if (r.status_code != 200) and (r.status_code != 304 ):
+                failed.append(d)
+                print ("\t\tFailed : " + str(r.status_code))
+                continue
 
-    # Save our file to temporary location so we can transform it
-    with tempfile.NamedTemporaryFile(suffix='.' + ext, delete=False) as t :
-        tmp_img_name = t.name
-        t.write(img_data)
-    
-    # create the new file in the format specified in the json file
-    with Image.open(tmp_img_name) as img :
-        img.save(   OUTPUT + '/' + d['logo'])
+            # Extract file type from header information
+            ext=r.headers['content-type'].split('/')[-1]
+            for chunk in r:
+                img_data += chunk
 
-    # delete the temporary file
-    os.unlink(tmp_img_name)
+        # Save our file to temporary location so we can transform it
+        with tempfile.NamedTemporaryFile(suffix='.' + ext, delete=False) as t :
+            tmp_img_name = t.name
+            t.write(img_data)
+        
+        # create the new file in the format specified in the json file
+        with Image.open(tmp_img_name) as img :
+            img.save(   OUTPUT + '/' + d['logo'])
 
-    print ("\t\tSaved to :" + OUTPUT + '/' + d['logo'])
-    success_count += 1
+        # delete the temporary file
+        os.unlink(tmp_img_name)
+
+        print ("\t\tSaved to :" + OUTPUT + '/' + d['logo'])
+        success_count += 1
+    except :
+        failed.append(d)
+        print ("\t\tFailed with python exception !! ")
+        continue
+
 
 print("")
 print("Summary : ")
 print("\tSuccess : " + str(success_count ) + "/" + str(count))
+print("\tNull : " + str(len(skipped)) + "/" + str(count))
 print("\tFailed : " + str(len(failed)) + "/" + str(count))
 for d in failed :
     print ("\t\t" + d['_id'] + "\t" + d['name'] + "\t" + d['_logo'])

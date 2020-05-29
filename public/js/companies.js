@@ -81,7 +81,7 @@ function load_data(data) {
 
         // Generate the searchable text
         searchable = company.name
-            + ' ' + company.branch_name
+            + ' ' + company.branch.name
             + ' ' + company.description
             + ' ' + company.contribution
             + ' ' + company.complementaryInformations
@@ -104,23 +104,31 @@ function load_data(data) {
             company.contribution;
 
         keywords = ""
-
         company.keywords.split(",").forEach(  (keyword) => { keywords+=`<span class="badge badge-keyword">` + keyword + `</span>` } )
 
+        image = company.logo.trim() === "" ? "" : `<div class="image" style="background-image:url(/uploads/companies/logos/` + company.logo + `)"></div>`
+
         card.innerHTML = `<!-- Card for company : ` + company.id + ` - ` + company.name + ` --> 
+<a href="/espace-entreprise/` + encodeURIComponent(company.name) + `" target="_blank"/>
 <div class="card h-100" id="company-card-` + company.id + `">
-    <div class="card-img-top" style="background-image:url(/uploads/companies/logos/` + company.logo + `)">
-    </div>
+    <div class="card-img-top">` + image + `</div>
     <div class="card-body">
         <h5 class="card-title">` + company.name + `<span class="city"> <i class="fas fa-map-marker-alt"></i> ` + company.city + ` - ` + company.postalCode + `</span></h5>
         <p class="card-text">` + small_contribution + `</p>
-        <div class="badges"><span class="badge badge-branch">` + company.branch_name + `</span>` + keywords + `</div>
+        <div class="badges"><span class="badge badge-branch">` + company.branch.name + `</span>` + keywords + `</div>
     </div>
 </div>
+<a>
 `
         // Add this card to the Window DOM
         results.appendChild(card)
     });
+
+    // Fix alignment if not divisible by the number of cols
+    const lastcard = document.createElement('div');
+    lastcard.setAttribute('class', 'col m-auto');
+    lastcard.innerHTML = `<!-- Spacing Col --> `;
+    results.appendChild(lastcard);
 }
 
 

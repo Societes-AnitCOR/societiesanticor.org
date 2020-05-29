@@ -9,7 +9,7 @@
             Dynamic SQL generator for table 'companies'
           </h1>
           <h2 class="subtitle">
-            Version: 1.5
+            Version: 1.6
           </h2>
           <div class="container">
             <a id="link" class="is-link" href="https://docs.google.com/spreadsheets/d/1yCxNTeeG1py5qqTf2cHgZbk4njSPtzhc5XaTt3LB510">
@@ -50,15 +50,16 @@
         name: 'Nom de la structure',
         telephone: 'Téléphone',
         logo: 'id',
+        //_logo: 'URL logo',
         contribution: 'Contribution',
         description: 'Objet de la structure',
         geographic_perimeter: 'Code postal',
         address: 'Adresse',
-        postal_code: 'Code postal',
-        city: 'Ville',
+        postal_code: ['Code postal', '_geo_postcode', '_postcode'],
+        city: ['Ville', '_geo_city', '_city'],
         // geolat: '_lat',
         // geolong: '_long',
-        country: 'Pays',
+        country: ['Pays', '_geo_country'],
         email: 'Adresse mail de contact',
         url_website: 'URL site',
         keywords: 'Mot-cle Contribution',
@@ -85,7 +86,29 @@
         sql = []
 
         const getField = (row, field) => {
-            const value = ((row[mapping[field]] || ' ') + ' ').trim()
+            
+            var value = ""
+            if (Array.isArray(mapping[field])) 
+            {
+                const possible_fields = mapping[field]
+                for (let i = 0; i < possible_fields.length; i++) {
+                    const possible_value = row[possible_fields[i]]
+                    if (possible_value == null || possible_value.trim() === "")
+                    {
+                        continue;
+                    } else {
+                        value = possible_value;
+                        break;
+                    }
+                }
+            }
+            else 
+            {
+                value = row[mapping[field]] || ""
+            }
+
+            value = value.trim()
+
             if (field === 'branch_id') {
                 return '( SELECT id FROM branch WHERE name = "' + value + '" )'
             } else if (field === 'roles') {
@@ -93,13 +116,24 @@
             } else if (field === 'activated') {
                 return '1'
             }  else if (field === 'logo') {
-                return '"' + 'auto_' + value + '.png' + '"'
+                if (row['URL logo'] === "") {
+                    return '""'
+                }
+                else 
+                {
+                    return '"' + 'auto_' + value + '.png' + '"'
+                }
             } else {
                 return ' ' + JSON.stringify(value) + ' '
             }
         }
 
         data.forEach((row) => {
+            if (  ( (row[mapping.branch_id] || "").trim() === "") 
+                || (row[mapping.branch_id].includes("??"))) {
+                    return  // branch empty, skip
+            }
+
             let s = 'INSERT INTO company ( '
 
             for (const field in mapping) {
@@ -134,8 +168,10 @@
             str += s + '\n\n'
         });
 
+        str += '\n\n delete from company where branch_id is null; \n\n' 
+
         const pre = document.createElement('pre');
-        pre.innerHTML = str
+        pre.innerHTML = str 
         results.appendChild(pre)
 
     }
