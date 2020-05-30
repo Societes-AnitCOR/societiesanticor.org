@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Form\CompanyType;
 use App\Entity\Company;
 use App\Form\CompanyRegistrationFormType;
+use App\Form\CompanyUpdateRegistrationFormType;
 use App\Security\CompanyAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,24 +22,33 @@ class CompanyController extends AbstractController
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param GuardAuthenticatorHandler $guardHandler
      * @param CompanyAuthenticator $authenticator
+     * @param integer|null $id Company's ID
      * @return Response
      *
-     * @Route("/insrciption-entreprise", name="company_register")
+     * @Route("/insrciption-entreprise/{id?}", name="company_register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, CompanyAuthenticator $authenticator): Response
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, CompanyAuthenticator $authenticator, $id = null): Response
     {
+        $entityManager = $this->getDoctrine()->getManager();
+
         // Redirige vers sa page entreprise s'il en a déjà un
-        if(!is_null($this->getUser()->getCompany())){
+        if(!is_null($this->getUser()->getCompany()) && is_null($id)){
             return $this->redirectToRoute('companyPageView', array('name' => $this->getUser()->getCompany()->getName()));
+        }elseif($id){
+            $company = $entityManager->getRepository(Company::class)->find($id);
+            $form = $this->createForm(CompanyUpdateRegistrationFormType::class, $company);
+        }else{
+            $company = new Company();
+            $form = $this->createForm(CompanyRegistrationFormType::class, $company);
         }
 
-        $company = new Company();
-        $form = $this->createForm(CompanyRegistrationFormType::class, $company);
+        
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $company->setOwner($this->getUser());
-            $entityManager = $this->getDoctrine()->getManager();
+            if(!is_null($id))
+                $company->setOwner($this->getUser());
+            
             $entityManager->persist($company);
             $entityManager->flush();
 
