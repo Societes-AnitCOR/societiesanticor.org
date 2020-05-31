@@ -61,7 +61,7 @@ class SecurityController extends AbstractController
      * @return Response
      *
 
-     * @Route("/utilisateurs/insrciption", name="customer_register")
+     * @Route("/utilisateurs/inscription", name="customer_register")
 
      */
     public function register(Request $request,

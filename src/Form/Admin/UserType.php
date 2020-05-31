@@ -43,7 +43,7 @@ class UserType extends AbstractType
             ])
             ->add('email', EmailType::class, [
                 'attr' => ['class' => 'form-control'],
-                'label' => 'Votre email'
+                'label' => 'Adresse email'
             ])
             #->add('roles')
             #->add('activated')
@@ -76,12 +76,12 @@ class UserType extends AbstractType
                         'class' => 'form-group'
                     ]
                 ],
-                
+
             ])
             ->add('add', SubmitType::class, [
-                'label' => 'Créer le compte',
+                'label' => 'Suivant',
                 'attr' => [
-                    'class' => 'btn waves-effect btn-success waves-light'
+                    'class' => 'btn waves-effect btn-primary waves-light'
                 ]
             ])
         ;
