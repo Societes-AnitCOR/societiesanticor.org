@@ -119,7 +119,8 @@ class Company implements JsonSerializable
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $Nom_de_la_rue;
+    private $nomDeLaRue;
+
 
     public function __construct()
     {
@@ -235,7 +236,7 @@ class Company implements JsonSerializable
         return $this;
     }
 
-  
+
 
     public function getPostalCode(): ?string
     {
@@ -413,13 +414,15 @@ class Company implements JsonSerializable
 
     public function getNomDeLaRue(): ?string
     {
-        return $this->Nom_de_la_rue;
+        return $this->nomDeLaRue;
     }
 
-    public function setNomDeLaRue(?string $Nom_de_la_rue): self
+    public function setNomDeLaRue(string $nomDeLaRue): self
     {
-        $this->Nom_de_la_rue = $Nom_de_la_rue;
+        $this->nomDeLaRue = $nomDeLaRue;
 
         return $this;
     }
+
+
 }
