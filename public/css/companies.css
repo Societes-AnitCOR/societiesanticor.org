@@ -167,7 +167,7 @@ input.searchBar-right {
     padding-right: 0;
 }
 
-.companyAddress.col-sm-5 {
+.companyAddress.col-sm-4 {
     padding-left: 0;
 }
 
@@ -187,4 +187,14 @@ label.searchBar-left,
 label.searchBar-right {
     margin-left: 10px;
     font-weight: 600;
+}
+
+.ajouterStructure .btn {
+    position: absolute;
+    margin-left: 17px;
+}
+
+.ajouterStructure {
+    position: relative;
+    width: 238px;
 }

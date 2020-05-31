@@ -2,7 +2,11 @@
 
 @media (max-width: 1200px) {}
 
-@media (max-width: 1024px) {}
+@media (max-width: 1024px) {
+    .ajouterStructure {
+        margin-top: 60px;
+    }
+}
 
 @media (max-width: 991px) {}
 
@@ -13,7 +17,7 @@
 @media (max-width: 600px) {}
 
 @media (max-width: 575px) {
-    .companyAddress.col-sm-5 {
+    .companyAddress.col-sm-4 {
         padding-left: 15px;
     }
 
@@ -35,6 +39,11 @@
 
     .companyName {
         margin-bottom: 20px;
+    }
+
+    .ajouterStructure .btn {
+        margin-top: 20px;
+        float: left;
     }
 }
 
