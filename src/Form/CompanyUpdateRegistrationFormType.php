@@ -23,7 +23,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class CompanyRegistrationFormType extends AbstractType
+class CompanyUpdateRegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -36,10 +36,10 @@ class CompanyRegistrationFormType extends AbstractType
                     'class' => 'form-group'
                 ]
             ])
-            // ->add('email', EmailType::class, [
-            //     'label' => 'Email de l\'entreprise',
-            //     'attr' => ['class' => 'form-control'],
-            // ])
+            ->add('email', EmailType::class, [
+                'label' => 'Email de l\'entreprise',
+                'attr' => ['class' => 'form-control'],
+            ])
             // ->add('plainPassword', RepeatedType::class, [
             //     'type' => PasswordType::class,
             //     'invalid_message' => 'Vous devez renseigner un mot de passe valide et le confirmer dans le champ suivant.',
@@ -71,22 +71,22 @@ class CompanyRegistrationFormType extends AbstractType
             //     ],
                 
             // ])
-            // ->add('branch', EntityType::class, [
-            //     'class' => Branch::class,
-            //     'choice_label' => 'name',
-            //     'label' => 'secteur d\'activité',
-            //     'attr' => ['class' => 'form-control'],
-            //     'row_attr' => [
-            //         'class' => 'form-group'
-            //     ]
-            // ])
-            // ->add('description', TextareaType::class, [
-            //     'attr' => ['class' => 'form-control'],
-            //     'required' => false,
-            //     'row_attr' => [
-            //         'class' => 'form-group'
-            //     ]
-            // ])
+            ->add('branch', EntityType::class, [
+                'class' => Branch::class,
+                'choice_label' => 'name',
+                'label' => 'secteur d\'activité',
+                'attr' => ['class' => 'form-control'],
+                'row_attr' => [
+                    'class' => 'form-group'
+                ]
+            ])
+            ->add('description', TextareaType::class, [
+                'attr' => ['class' => 'form-control'],
+                'required' => false,
+                'row_attr' => [
+                    'class' => 'form-group'
+                ]
+            ])
             ->add('contribution', TextareaType::class, [
                 'attr' => ['class' => 'form-control'],
                 'required' => false,
@@ -122,13 +122,13 @@ class CompanyRegistrationFormType extends AbstractType
                     'class' => 'form-group'
                 ]
             ])
-            // ->add('logoFile', VichImageType::class, [
-            //     'label' => 'logo',
-            //     'required' => false,
-            //     'attr' => ['class' => 'form-control'],
-            // ])
+            ->add('logoFile', VichImageType::class, [
+                'label' => 'logo',
+                'required' => false,
+                'attr' => ['class' => 'form-control'],
+            ])
             ->add('add', SubmitType::class, [
-                'label' => 'Créer le compte',
+                'label' => 'Mettre à jour les infos',
                 'attr' => [
                     'class' => 'btn waves-effect btn-success waves-light'
                 ]

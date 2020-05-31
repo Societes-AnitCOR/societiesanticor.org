@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Admin\User;
+use App\Entity\Company;
 use App\Form\CompanyRegistrationFormType;
+use App\Form\Admin\UserType;
 use App\Security\CompanyAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -58,7 +60,7 @@ class SecurityController extends AbstractController
      * @param CompanyAuthenticator $authenticator
      * @return Response
      *
-     * @Route("/insrciption", name="company_register")
+     * @Route("/utilisateurs/insrciption", name="customer_register")
      */
     public function register(Request $request,
                              UserPasswordEncoderInterface $passwordEncoder,
@@ -66,8 +68,7 @@ class SecurityController extends AbstractController
                              CompanyAuthenticator $authenticator): Response
     {
         $user = new User();
-        $form = $this->createForm(CompanyRegistrationFormType
-        ::class, $user);
+        $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -75,9 +76,13 @@ class SecurityController extends AbstractController
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
-                    $form->get('plainPassword')->getData()
+                    $form->get('password')->getData()
                 )
             );
+            // set role
+            $user->setRoles(array("ROLE_USER"));
+            $user->setCreatedAt(time());
+            $user->setUpdatedAt(time());
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
@@ -93,7 +98,7 @@ class SecurityController extends AbstractController
             );
         }
 
-        return $this->render('registration/register.html.twig', [
+        return $this->render('registration/user.form.signup.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }

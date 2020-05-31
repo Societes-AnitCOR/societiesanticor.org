@@ -123,6 +123,7 @@ class Company
     private $complementaryInformations;
 
     /**
+     * @ORM\OneToOne(targetEntity=User::class, inversedBy="company")
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="companies")
      * @Groups({"json"})
      */
