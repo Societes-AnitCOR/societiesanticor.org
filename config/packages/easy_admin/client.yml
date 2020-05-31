@@ -21,7 +21,7 @@ easy_admin:
                         property: activated
                         type: toggle
                     -
-                        property: companies
+                        property: company
                     -
                         property: createdAt
                         type: datetime

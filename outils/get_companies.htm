@@ -111,9 +111,20 @@
         background-size: contain;
         background-position: center center;
         background-repeat: no-repeat;
-        background-image: url('../img/logo-generic.png');
+        background-image: url('../public/img/logo-generic.png');
         background-origin: content-box;
         padding : 1rem;
+    }
+
+    
+    .companiesList .card-img-top .image {
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: #fff;
+        background-origin: content-box;
     }
 
     .companiesList .card .card-title {
@@ -170,7 +181,7 @@
 <section class="jumbotron jumbotron-custom ">
     <div class="container-xl">
         <h1 class="display-3">JSON Search Example :</h3>
-        <span class="lead">Version 0.4</span>
+        <span class="lead">Version 0.5</span>
         <p>
             <a id="link" class="is-link" href="https://docs.google.com/spreadsheets/d/1yCxNTeeG1py5qqTf2cHgZbk4njSPtzhc5XaTt3LB510" target="_blank">
             Generated dynamically from this google sheet.
@@ -224,7 +235,7 @@
     const mapping = {
         // "symfony" : Google Sheets
             id : 'id',
-            _branchName: "Secteur d'activite",
+            branchName: "Secteur d'activite",
             name: 'Nom de la structure',
             telephone: 'Téléphone',
             logo: 'id',
@@ -233,13 +244,13 @@
             description: 'Objet de la structure',
             geographicPerimeter: 'Code postal',
             address: 'Adresse',
-            postalCode: 'Code postal',
-            city: 'Ville',
-            _geolat: '_lat',
-            _geolong: '_long',
-            country: 'Pays',
+            postalCode: ['Code postal', '_geo_postcode', '_postcode'],
+            city: ['Ville', '_geo_city', '_city'],
+            geolat: '_lat',
+            geolong: '_long',
+            country: ['Pays', '_geo_country'],
             email: 'Adresse mail de contact',
-            url_website: 'URL site',
+            urlWebsite: 'URL site',
             keywords: 'Mot-cle Contribution',
             complementaryInformations: 'Information complementaire',
             _kompass_id: 'Kompass ID',
@@ -317,9 +328,36 @@
         data = [];
 
         const getField = (row, field) => {
-            const value = ((row[mapping[field]] || ' ') + ' ').trim()
+            
+            var value = ""
+            if (Array.isArray(mapping[field])) 
+            {
+                const possible_fields = mapping[field]
+                for (let i = 0; i < possible_fields.length; i++) {
+                    const possible_value = row[possible_fields[i]]
+                    if (possible_value == null || possible_value.trim() === "")
+                    {
+                        continue;
+                    } else {
+                        value = possible_value;
+                        break;
+                    }
+                }
+            }
+            else 
+            {
+                value = row[mapping[field]] || ""
+            }
+
+            value = value.trim()
             if (field === 'logo') {
-                return 'auto_' + value + '.png'
+                if (getField(row, "_logo") === "") {
+                    return '""'
+                }
+                else 
+                {
+                    return '"' + 'auto_' + value + '.png' + '"'
+                }
             } else {
                 return value ;
             }
@@ -344,7 +382,7 @@
 
             // Generate the searchable text
             searchable =    d.name 
-                    + ' ' + d._branchName 
+                    + ' ' + d.branchName 
                     + ' ' + d.description
                     + ' ' + d.contribution
                     + ' ' + d.complementaryInformations
@@ -365,15 +403,19 @@
             small_contribution = d.contribution.length > max_length ? 
                     d.contribution.substring(0, max_length - 3) + "..." : 
                     d.contribution;
-
+            
+            image = d._logo.trim() === "" ? "" : `<div class="image" style="background-image:url(` + d._logo + `); "></div>`
+            
+            keywords = ""
+            d.keywords.split(",").forEach(  (keyword) => { keywords+=`<span class="badge badge-keyword">` + keyword + `</span>` } )
+            
             card.innerHTML = `
                 <div class="card h-100" id="company-card-` + d.id + `">
-                    <div class="backgroundCard card-img-top " style="background-image:url(` + d._logo + `); height:200px">
-                    </div>
+                    <div class="card-img-top " >` + image + `</div>
                     <div class="card-body">
                         <h5 class="card-title">` + d.name + `<span class="city"> <i class="fas fa-map-marker-alt"></i> ` + d.city + ` - ` + d.postalCode + `</span></h5>
                         <p class="card-text">` + small_contribution + `</p>
-                        <div class="badges"><span class="badge badge-branch">` + d._branchName + `</span><span class="badge badge-keyword">` + d.keywords + `</span></div>
+                        <div class="badges"><span class="badge badge-branch">` + d.branchName + `</span>` + keywords + `</div>
                     </div>
                 </div>
                 `
