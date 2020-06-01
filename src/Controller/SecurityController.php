@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Admin\User;
 use App\Entity\Company;
-use App\Form\CompanyRegistrationFormType;
 use App\Form\Admin\UserType;
 use App\Security\CompanyAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -47,9 +46,9 @@ class SecurityController extends AbstractController
         $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render('security/adminLogin.html.twig', [
-                'last_username' => $lastUsername,
-                'error' => $error
-            ]
+            'last_username' => $lastUsername,
+            'error' => $error,
+        ]
         );
     }
 
@@ -60,13 +59,12 @@ class SecurityController extends AbstractController
      * @param CompanyAuthenticator $authenticator
      * @return Response
      *
-     * @Route("/utilisateurs/insrciption", name="customer_register")
+     * @Route("/utilisateurs/inscription", name="customer_register")
      */
     public function register(Request $request,
-                             UserPasswordEncoderInterface $passwordEncoder,
-                             GuardAuthenticatorHandler $guardHandler,
-                             CompanyAuthenticator $authenticator): Response
-    {
+        UserPasswordEncoderInterface $passwordEncoder,
+        GuardAuthenticatorHandler $guardHandler,
+        CompanyAuthenticator $authenticator): Response {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -102,9 +100,6 @@ class SecurityController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
-
-
-
 
     /**
      * @Route("/deconnexion", name="app_logout")

@@ -1,47 +1,60 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des entreprises engagées{% endblock %}
+{% block title %}Liste des entreprises engagées
+{% endblock %}
 
 {% block stylesheets %}
-    {{parent()}}
-    <link href="{{ asset('css/companies.css') }}" rel="stylesheet" />
+	{{parent()}}
+	<link href="{{ asset('css/companies.css') }}" rel="stylesheet"/>
+	<link href="{{ asset('css/responsive.css') }}" rel="stylesheet"/>
 {% endblock %}
 
 {% block body %}
-<section class="jumbotron jumbotron-custom ">
-    <div class="container-xl">
-        <div class="title"><h1>Entreprises Engagés</h1></div> 
-        <div class="searchBar">
-            <div class="labels">
-                <label class="searchBar-left" for="search">Que recherchez-vous ?</label>
-                <label class="searchBar-right" for="search_location">Ou?</label>
-            </div>
-            <div class="input-group">
-                <input class="form-control py-2 searchBar-left" type="search" id="search" placeholder="Gel, Blouses, Télémédecine, Développeur..." oninput="update_filter()">
-                <input class="form-control py-2 searchBar-right " type="search" id="search_location" placeholder="Adresse, Ville, code postal..." oninput="update_filter()">
-                <span class="input-group-append">
-                    <button class="btn" type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </span>
-            </div>
-        </div>
-     </div>
-</section>
+	<section class="jumbotron jumbotron-custom ">
+		<div class="container-xl">
+			<div class="title">
+				<h1>Entreprises Engagés</h1>
+			</div>
 
-<section class="container-xl">
-    <div class="companiesList row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" id='results' >
-        <div class="col-auto  ">
-            <div class="spinner-border " role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-    </div>
-</section>
-{% endblock %}
+			<div class="row companySearch">
+				<div class="companyName col-sm-5">
+					<label class="searchBar-left" for="search">Que recherchez-vous ?</label>
+					<div class="input-group">
+						<input class="form-control py-2 searchBar-left" type="search" id="search" placeholder="Gel, Blouses, Télémédecine, Développeur..." oninput="update_filter()">
+					</div>
+				</div>
+				<div class="companyAddress col-sm-4">
+					<label class="searchBar-right" for="search_location">Ou?</label>
+					<div class="input-group">
+						<input class="form-control py-2 searchBar-right " type="search" id="search_location" placeholder="Adresse, Ville, code postal..." oninput="update_filter()">
+					</div>
+					<button class="btn" type="button">
+						<i class="fa fa-search"></i>
+					</button>
+				</div>
+				<div class="ajouterStructure">
+					<button class=" btn" type="button" onclick="location.href='{{ path('customer_register') }}'">
+						<i class="fa fa-plus">
+							<span>AJOUTER MA STRUCTURE</span>
+						</i>
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<section class="container-xl">
+			<div class="companiesList row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" id='results'>
+				<div class="col-auto  ">
+					<div class="spinner-border " role="status">
+						<span class="sr-only">Loading...</span>
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endblock %}
 
 
-{% block javascripts %}
-{{parent()}}
-<script type="text/javascript" src="{{ asset('js/companies.js')}}"></script>
-{% endblock %}
+	{% block javascripts %}
+		{{parent()}}
+		<script type="text/javascript" src="{{ asset('js/companies.js')}}"></script>
+	{% endblock %}
