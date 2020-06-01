@@ -180,6 +180,10 @@ button.search.btn {
     min-width: 50px;
 }
 
+button.search.btn i {
+    vertical-align: text-top;
+}
+
 label.searchBar-left,
 label.searchBar-right {
     margin-left: 10px;
@@ -201,6 +205,8 @@ label.searchBar-right {
     background-color: #0AD1BD !important;
     border-radius: 50rem !important;
     border: 3px solid #0AD1BD !important;
+    min-width: 250px;
+    box-shadow: unset !important;
 }
 .ajouterStructure .btn i {
     margin-left:15px;
