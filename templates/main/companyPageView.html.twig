@@ -24,25 +24,25 @@
     <div class="main col-md-8 col-lg-8">
         <div class="company-element">
             <div class="header">Contribution</div>
-            <div class="body">{{ company.contribution }}</div>
+            <div class="body">{% if ( company.contribution is not null) and ( (company.contribution) != "" )   %}{{ company.contribution }}{% else %}<span class="empty">Pas d’information à montrer.</span>{% endif %}</div>
         </div>
         <div class="company-element">
             <div class="header">Mot clé contribution</div>
-            <div class="body">{{ company.keywords }}</div>
+            <div class="body">{% if ( company.keywords is not null) and ( (company.keywords) != "" )   %}{{ company.keywords }}{% else %}<span class="empty">Pas d’information à montrer.</span>{% endif %}</div>
         </div>
         <div class="company-element">
             <div class="header">Coordoonnées</div>
             <div class="body">
                 <ul>
                     <li><i class="fas fa-map-marker-alt"></i> {{ company.nomDeLaRue }} {{ company.city }} {{ company.postalCode }}, {{ company.country }}</li>
-                    <li><i class="fas fa-envelope-open"></i> <a href="mailto:{{ company.email }}" target="_blank"> {{ company.email }}</a></li>
-                    <li><i class="fas fa-globe"></i><a href="{{ company.urlWebsite }}" target="_blank"> {{ company.urlWebsite }}</a></li>
+                    <li><i class="fas fa-envelope-open"></i>{% if ( company.email is not null) and ( company.email != "" ) %} <a href="mailto:{{ company.email }}" target="_blank"> {{ company.email }}</a>{% else %}<span class="empty">Pas d’information à montrer.</span>{% endif %}</li>
+                    <li><i class="fas fa-globe"></i>{% if ( company.urlWebsite is not null) and ( company.urlWebsite!= "" ) %}<a href="{{ company.urlWebsite }}" target="_blank"> {{ company.urlWebsite }}</a>{% else %}<span class="empty">Pas d’information à montrer.</span>{% endif %}</li>
                 </ul>
             </div>
         </div>
         <div class="company-element">
             <div class="header">Informations complémentaires</div>
-            <div class="body">{{ company.complementaryInformations }}</div>
+            <div class="body">{% if ( company.complementaryInformations is not null) and ( company.complementaryInformations!= "" ) %}{{ company.complementaryInformations }}{% else %}<span class="empty">Pas d’information à montrer.</span>{% endif %}</div>
         </div>
     </div>
         
