@@ -69,7 +69,7 @@ function update_filter() {
 
 // Data processing function called once the JSON has been loaded
 function load_data(data) {
-    
+
     companies = data;
 
     // Clear the DOM 
@@ -111,7 +111,9 @@ function load_data(data) {
     <div class="card-body">
         <h5 class="card-title">` + company.name + `<span class="city"> 
         <i class="fas fa-map-marker-alt"></i> ` + company.city + ` - ` + company.postalCode + `</span></h5>
-        <p class="card-text">` + small_contribution + `</p>` 
+        <p class="card-text">` + small_contribution + `</p>
+    </div>
+    <div class="card-footer">`
         + ( company.branch ?  `
         <div class="branch">
             <span class="branch-label">Secteur d'activé habituel : </span> `+ company.branch.name + `

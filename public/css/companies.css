@@ -168,6 +168,11 @@ input.searchBar-right {
     background-color: #8BE3FF;
 }
 
+.companiesList .card .card-footer {
+    background-color: white;
+    border: 0;
+}
+
 button.search.btn {
     float: right;
     position: relative;
