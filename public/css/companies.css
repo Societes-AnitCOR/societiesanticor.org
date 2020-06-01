@@ -190,11 +190,10 @@ label.searchBar-right {
 }
 
 .ajouterStructure .btn {
-    position: absolute;
-    margin-left: 17px;
+.branch, .keywords {
+    font-size : 0.8rem;
 }
 
-.ajouterStructure {
-    position: relative;
-    width: 238px;
+.branch-label, .keywords-label {
+    font-weight: bold;
 }
