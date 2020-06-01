@@ -28,7 +28,28 @@ class CompanyRegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            
+            ->add('postalCode', TextType::class, [
+                'label' => 'Code postal',
+                'attr' => ['class' => 'form-control'],
+                'row_attr' => [
+                    'class' => 'form-group'
+                ]
+            ])
+            ->add('city', TextType::class, [
+                'label' => 'Ville',
+                'attr' => ['class' => 'form-control'],
+                'row_attr' => [
+                    'class' => 'form-group'
+                ]
+            ])
+            ->add('country', TextType::class, [
+                'label' => 'Pays',
+                'attr' => ['class' => 'form-control'],
+                'row_attr' => [
+                    'class' => 'form-group'
+                ]
+            ])
+
             ->add('name', null, [
                 'label' => 'Nom de la structure',
                 'attr' => ['class' => 'form-control'],
@@ -69,7 +90,7 @@ class CompanyRegistrationFormType extends AbstractType
             //             'class' => 'form-group'
             //         ]
             //     ],
-                
+
             // ])
             // ->add('branch', EntityType::class, [
             //     'class' => Branch::class,
@@ -94,43 +115,23 @@ class CompanyRegistrationFormType extends AbstractType
                     'class' => 'form-group'
                 ]
             ])
-            ->add('address', TextType::class, [
+            ->add('nomDeLaRue', TextType::class, [
                 'label' => 'Nom de la rue',
                 'attr' => ['class' => 'form-control'],
                 'row_attr' => [
                     'class' => 'form-group'
                 ]
             ])
-            ->add('postalCode', TextType::class, [
-                'label' => 'Code postal',
-                'attr' => ['class' => 'form-control'],
-                'row_attr' => [
-                    'class' => 'form-group'
-                ]
-            ])
-            ->add('city', TextType::class, [
-                'label' => 'Ville',
-                'attr' => ['class' => 'form-control'],
-                'row_attr' => [
-                    'class' => 'form-group'
-                ]
-            ])
-            ->add('country', TextType::class, [
-                'label' => 'Pays',
-                'attr' => ['class' => 'form-control'],
-                'row_attr' => [
-                    'class' => 'form-group'
-                ]
-            ])
+
             // ->add('logoFile', VichImageType::class, [
             //     'label' => 'logo',
             //     'required' => false,
             //     'attr' => ['class' => 'form-control'],
             // ])
             ->add('add', SubmitType::class, [
-                'label' => 'Créer le compte',
+                'label' => 'Valider',
                 'attr' => [
-                    'class' => 'btn waves-effect btn-success waves-light'
+                    'class' => 'btn waves-effect btn-primary waves-light'
                 ]
             ])
         ;

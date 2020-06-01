@@ -15,7 +15,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @UniqueEntity("name")
  * @Vich\Uploadable
  */
-class Company 
+class Company
 {
     /**
      * @ORM\Id()
@@ -73,13 +73,6 @@ class Company
      * @Groups({"json"})
      */
     private $geographicPerimeter;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"json"})
-     */
-    private $address;
-
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups({"json"})
@@ -140,6 +133,12 @@ class Company
      * @Groups({"json"})
      */
     private $updatedAt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nomDeLaRue;
+
 
     public function __construct()
     {
@@ -234,17 +233,7 @@ class Company
         return $this;
     }
 
-    public function getAddress(): ?string
-    {
-        return $this->address;
-    }
 
-    public function setAddress(?string $address): self
-    {
-        $this->address = $address;
-
-        return $this;
-    }
 
     public function getPostalCode(): ?string
     {
@@ -419,4 +408,18 @@ class Company
     {
         return $this->logoFile;
     }
+
+    public function getNomDeLaRue(): ?string
+    {
+        return $this->nomDeLaRue;
+    }
+
+    public function setNomDeLaRue(string $nomDeLaRue): self
+    {
+        $this->nomDeLaRue = $nomDeLaRue;
+
+        return $this;
+    }
+
+
 }

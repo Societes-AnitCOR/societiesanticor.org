@@ -24,7 +24,7 @@ class CompanyController extends AbstractController
      * @param integer|null $id Company's ID
      * @return Response
      *
-     * @Route("/insrciption-entreprise/{id?}", name="company_register")
+     * @Route("/inscription-entreprise/{id?}", name="company_register")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, CompanyAuthenticator $authenticator, $id = null): Response
     {
@@ -41,13 +41,13 @@ class CompanyController extends AbstractController
             $form = $this->createForm(CompanyRegistrationFormType::class, $company);
         }
 
-        
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             if(!is_null($id))
                 $company->setOwner($this->getUser());
-            
+
             $entityManager->persist($company);
             $entityManager->flush();
 
