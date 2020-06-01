@@ -70,7 +70,6 @@ function update_filter() {
 // Data processing function called once the JSON has been loaded
 function load_data(data) {
     
-    console.log(data)
     companies = data;
 
     // Clear the DOM 
@@ -81,7 +80,7 @@ function load_data(data) {
 
         // Generate the searchable text
         searchable = company.name
-            + ' ' + company.branch.name
+            + ' ' + (company.branch ? company.branch.name : '')
             + ' ' + company.description
             + ' ' + company.contribution
             + ' ' + company.complementaryInformations
@@ -103,7 +102,7 @@ function load_data(data) {
             company.contribution.substring(0, max_length - 3) + "..." :
             company.contribution;
 
-        image = company.logo.trim() === "" ? "" : `<div class="image" style="background-image:url(/uploads/companies/logos/` + company.logo + `)"></div>`
+        image = ((!company.logo) || company.logo.trim() === "") ? "" : `<div class="image" style="background-image:url(/uploads/companies/logos/` + company.logo + `)"></div>`
 
         card.innerHTML = `<!-- Card for company : ` + company.id + ` - ` + company.name + ` --> 
 <a href="/espace-entreprise/` + encodeURIComponent(company.name) + `" target="_blank"/>
