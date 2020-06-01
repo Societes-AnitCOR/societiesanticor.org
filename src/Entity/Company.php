@@ -136,6 +136,7 @@ class Company
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"json"})
      */
     private $nomDeLaRue;
 
@@ -172,7 +173,7 @@ class Company
             $this->logo,
             $this->branch->getName(),
             $this->contribution,
-            $this->address,
+            $this->nomDeLaRue,
             $this->city,
             $this->country,
             $this->postalCode,
