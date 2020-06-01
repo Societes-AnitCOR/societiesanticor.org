@@ -104,7 +104,7 @@ function load_data(data) {
             company.contribution;
 
         keywords = ""
-        company.keywords.split(",").forEach(  (keyword) => { keywords+=`<span class="badge badge-keyword">` + keyword + `</span>` } )
+        company.keywords && company.keywords.split(",").forEach(  (keyword) => { keywords+=`<span class="badge badge-keyword">` + keyword + `</span>` } )
 
         image = company.logo.trim() === "" ? "" : `<div class="image" style="background-image:url(/uploads/companies/logos/` + company.logo + `)"></div>`
 
