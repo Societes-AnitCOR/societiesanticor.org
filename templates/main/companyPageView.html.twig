@@ -4,82 +4,48 @@
 
 {% block stylesheets %}
 {{parent()}}
-<style>
-    .backgroundCard.text-center {
-        height: 200px;
-    }
-</style>
+<link href="{{ asset('css/companyPage.css') }}" rel="stylesheet"/>
 {% endblock %}
 
 {% block body %}
 
-<div class="container-lg mt-5" style="margin-bottom: 50px;">
-
-    <div class="row">
-        <div class="col-sm-4">
-            <!--left col-->
-
+<div class="company row" >
+    <div class="side-bar col-md-4 col-lg-4">
+        <!--left col-->
+        <div class="company-logo">
             {% if company.logo is not null %}
-                <div class="backgroundCard text-center" style="background-image:url({{ asset('uploads/companies/logos/'~ company.logo) }})"></div>
-            {% else %}
-                <div class="backgroundCard text-center"></div>
+                <div class="image" style="background-image:url({{ asset('uploads/companies/logos/'~ company.logo) }})"></div>
             {% endif %}
-
-            <div class="">
-                <div class="card  my-3">
-                    <div class="card-body">
-                        <a href="tel:{{ company.telephone }}"><span class="fas fa-phone-square"></span> : 
-                            <span>{{ company.telephone }}</span>                        
-                        </a><br>
-                        <a href="mailto:{{ company.email }}">
-                            <span class="fas fa-envelope"></span> : 
-                            <span>{{ company.email }}</span></a><br>
-                    </div>
-                </div>
-
-                {# <div class="card  my-3">
-                    <div class="card-header">Secteur d'intervention </div>
-                    <div class="card-body">
-                        <span>{{ company.branch }}</span>
-                    </div>
-
-                </div> #}
-                <div class="card  my-3">
-                        <div class="card-header">Adresse</div>
-                        <div class="card-body">
-                            <span>{{ company.nomDeLaRue }} {{ company.city }} {{ company.postalCode }} {{ company.country }}</span>
-                        </div>
-                </div>
-            </div>
-
         </div>
-
-        <!--/ Right Col-->
-        <div class="col-sm-8">
-            <div>
-                <h1 class="display-4">{{ company.name }}</h1>
-                <p class="lead"><span>{{ company.branch ? company.branch.name : '' }}</span></p>
-            </div>
-
-            <div>
-                <div class="">
-                    <div class="">
-
-                        <div class=" companyInfos">
-                            {# <span class="h6">Détail de l'entreprise </span>
-                                <p>{{ company.branchDetail }}</p> #}
-                            <span class="h6">Stratégie d'engagement</span>
-                                <p>{{ company.description }}</p>
-                            <span class="h6">Informations complémentaires</span>
-                                <p>{{ company.complementaryInformations }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <a href="{{path('company_register', {'id': company.id})}}">Modifier les infos</a>
-        </div>
-
+        <div class="company-name">{{ company.name }}</div>
+        <div class="company-branch">{{ company.branch ? company.branch.name : '' }}</div>
     </div>
+        <!--/ Main Col-->
+    <div class="main col-md-8 col-lg-8">
+        <div class="company-element">
+            <div class="header">Contribution</div>
+            <div class="body">{% if ( company.contribution is not null) and ( (company.contribution) != "" )   %}{{ company.contribution }}{% else %}<span class="empty">Pas d’information à montrer.</span>{% endif %}</div>
+        </div>
+        <div class="company-element">
+            <div class="header">Mot clé contribution</div>
+            <div class="body">{% if ( company.keywords is not null) and ( (company.keywords) != "" )   %}{{ company.keywords }}{% else %}<span class="empty">Pas d’information à montrer.</span>{% endif %}</div>
+        </div>
+        <div class="company-element">
+            <div class="header">Coordoonnées</div>
+            <div class="body">
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> {{ company.nomDeLaRue }} {{ company.city }} {{ company.postalCode }}, {{ company.country }}</li>
+                    <li><i class="fas fa-envelope-open"></i>{% if ( company.email is not null) and ( company.email != "" ) %} <a href="mailto:{{ company.email }}" target="_blank"> {{ company.email }}</a>{% else %}<span class="empty">Pas d’information à montrer.</span>{% endif %}</li>
+                    <li><i class="fas fa-globe"></i>{% if ( company.urlWebsite is not null) and ( company.urlWebsite!= "" ) %}<a href="{{ company.urlWebsite }}" target="_blank"> {{ company.urlWebsite }}</a>{% else %}<span class="empty">Pas d’information à montrer.</span>{% endif %}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="company-element">
+            <div class="header">Informations complémentaires</div>
+            <div class="body">{% if ( company.complementaryInformations is not null) and ( company.complementaryInformations!= "" ) %}{{ company.complementaryInformations }}{% else %}<span class="empty">Pas d’information à montrer.</span>{% endif %}</div>
+        </div>
+    </div>
+        
+    <div class="floater"><a href="{{path('company_register', {'id': company.id})}}"><i class="fas fa-pencil-alt"></i>Modifier les infos</a></div>
 </div>
 {% endblock %}
