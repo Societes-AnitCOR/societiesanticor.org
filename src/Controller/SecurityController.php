@@ -62,11 +62,14 @@ class SecurityController extends AbstractController
      * @Route("/utilisateurs/inscription", name="customer_register")
      */
     public function register(Request $request,
-        UserPasswordEncoderInterface $passwordEncoder,
-        GuardAuthenticatorHandler $guardHandler,
-        CompanyAuthenticator $authenticator): Response {
+                             UserPasswordEncoderInterface $passwordEncoder,
+                             GuardAuthenticatorHandler $guardHandler,
+                             CompanyAuthenticator $authenticator): Response
+    {
+
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

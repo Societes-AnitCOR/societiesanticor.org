@@ -19,7 +19,7 @@ easy_admin:
                     -
                         property: telephone
                     -
-                        property: address
+                        property: nomDeLaRue
                     -
                         property: city
                     -
@@ -48,7 +48,7 @@ easy_admin:
                     -
                         property: geographicPerimeter
                     -
-                        property: address
+                        property: nomDeLaRue
                     -
                         property: postalCode
                     -

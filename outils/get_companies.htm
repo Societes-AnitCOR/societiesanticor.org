@@ -243,7 +243,7 @@
             contribution: 'Contribution',
             description: 'Objet de la structure',
             geographicPerimeter: 'Code postal',
-            address: 'Adresse',
+            nomDeLaRue: ['_geo_street', '_street'],
             postalCode: ['Code postal', '_geo_postcode', '_postcode'],
             city: ['Ville', '_geo_city', '_city'],
             geolat: '_lat',
@@ -389,7 +389,7 @@
             d.searchable = normalise_text(searchable)
 
             // Generate the searchable location text
-            searchable_location =   d.address
+            searchable_location =   d.nomDeLaRue
                             + ' ' + d.postalCode 
                             + ' ' + d.city
             d.searchable_location = normalise_text(searchable_location)

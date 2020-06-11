@@ -41,8 +41,7 @@ class CompanyFixtures extends Fixture implements DependentFixtureInterface
               'contribution' => 'Don de blouses TTS et combinaisons de peinture à une clinique locale',
               'description' => 'Fabrication de structures métalliques et de parties de structures',
               'geographicPerimeter' => '64240',
-              'address' => 'RTE DE CAMBO
-          64240 HASPARREN',
+              'nomDeLaRue' => 'RTE DE CAMBO',
               'postalCode' => '64240',
               'city' => 'Hasparren',
               'geolat' => '43,3829226',
@@ -65,7 +64,7 @@ class CompanyFixtures extends Fixture implements DependentFixtureInterface
               'contribution' => 'Production des gels hydroalcooliques à destination des pharmacies d’officine',
               'description' => 'Fabrication de parfums et de produits pour la toilette',
               'geographicPerimeter' => '81580',
-              'address' => 'Route de Cambounet sur Sor, 81580 Soual',
+              'nomDeLaRue' => 'Route de Cambounet sur Sor',
               'postalCode' => '81580',
               'city' => 'Soual',
               'geolat' => '43,56796',
@@ -88,9 +87,7 @@ class CompanyFixtures extends Fixture implements DependentFixtureInterface
               'contribution' => 'Production de flacons de gel hydroalcoolique (production x4 en 1 semaine)',
               'description' => 'Fabrication d\'emballages en matières plastiques',
               'geographicPerimeter' => '1100',
-              'address' => '247 RUE DE CHAMBOURG
-          PLASTICS VALLEE VEYZIAT
-          01100 OYONNAX',
+              'nomDeLaRue' => '247 RUE DE CHAMBOURG',
               'postalCode' => '1100',
               'city' => 'Oyonnax',
               'geolat' => '46,2678148',
@@ -113,8 +110,7 @@ class CompanyFixtures extends Fixture implements DependentFixtureInterface
               'contribution' => 'don au laboratoire Cooper de 70000 litres d’alcool pour fabriquer environ 1,8 million de flacons individuels de 50 ml de gel hydroalcoolique.',
               'description' => 'Commercialisation et distribution de vins et spiritueux',
               'geographicPerimeter' => '75116',
-              'address' => '12 PL DES ETATS UNIS
-          75116 PARIS 16',
+              'nomDeLaRue' => '12 PL DES ETATS UNIS',
               'postalCode' => '75116',
               'city' => 'PARIS',
               'geolat' => '48,8683424',
@@ -137,7 +133,7 @@ class CompanyFixtures extends Fixture implements DependentFixtureInterface
               'contribution' => 'Production de 11000l/semaine (groupe Tereos entier) de gels hydroalcooliques pour les Agences régionales de santé et les hôpitaux des régions proches',
               'description' => 'Fabrication de sucre',
               'geographicPerimeter' => '45410',
-              'address' => 'RTE DE PARIS 4510 ARTENAY',
+              'nomDeLaRue' => 'RTE DE PARIS',
               'postalCode' => '45410',
               'city' => 'Artenay',
               'geolat' => '48,0912703',
@@ -160,7 +156,7 @@ class CompanyFixtures extends Fixture implements DependentFixtureInterface
               'contribution' => 'Production de 11000l/semaine (groupe Tereos entier) de gels hydroalcooliques pour les Agences régionales de santé et les hôpitaux des régions proches',
               'description' => 'Fabrication de sucre',
               'geographicPerimeter' => '2390',
-              'address' => '11 RUE PASTEUR 02390 ORIGNY-SAINTE-BENOITE',
+              'nomDeLaRue' => '11 RUE PASTEUR',
               'postalCode' => '2390',
               'city' => 'Origny-Sainte-Benoite',
               'geolat' => '49,8396748',
@@ -183,7 +179,7 @@ class CompanyFixtures extends Fixture implements DependentFixtureInterface
               'contribution' => 'Production de 11000l/semaine (groupe Tereos entier) de gels hydroalcooliques pour les Agences régionales de santé et les hôpitaux des régions proches',
               'description' => 'Fabrication de sucre',
               'geographicPerimeter' => '62190',
-              'address' => '100 RUE DE VERDUN 62190 LILLERS',
+              'nomDeLaRue' => '100 RUE DE VERDUN',
               'postalCode' => '62190',
               'city' => 'Lillers',
               'geolat' => '50,5599997',
@@ -206,7 +202,7 @@ class CompanyFixtures extends Fixture implements DependentFixtureInterface
               'contribution' => 'Production de 11000l/semaine (groupe Tereos entier) de gels hydroalcooliques pour les Agences régionales de santé et les hôpitaux des régions proches',
               'description' => 'Fabrication de sucre',
               'geographicPerimeter' => '51130',
-              'address' => '27 Rue du Tuilet, 51130 Val-des-Marais',
+              'nomDeLaRue' => '27 Rue du Tuilet',
               'postalCode' => '51130',
               'city' => 'Val-des-Marais',
               'geolat' => '48,8160478',
@@ -229,7 +225,7 @@ class CompanyFixtures extends Fixture implements DependentFixtureInterface
               'contribution' => 'Production de 11000l/semaine (groupe Tereos entier) de gels hydroalcooliques pour les Agences régionales de santé et les hôpitaux des régions proches',
               'description' => 'Fabrication de sucre',
               'geographicPerimeter' => '80190',
-              'address' => '46 Rue de Nesle, 80190 Mesnil-Saint-Nicaise',
+              'nomDeLaRue' => '46 Rue de Nesle',
               'postalCode' => '80190',
               'city' => 'Mesnil-Saint-Nicaise',
               'geolat' => '49,7689481',
@@ -252,7 +248,7 @@ class CompanyFixtures extends Fixture implements DependentFixtureInterface
               'contribution' => 'Livraison à l’AP-HP à partir du 17/03/20',
               'description' => 'Fabrication de parfums et de produits pour la toilette',
               'geographicPerimeter' => '45800',
-              'address' => '185 Avenue de Verdun, 45800 Saint-Jean-de-Braye',
+              'nomDeLaRue' => '185 Avenue de Verdun',
               'postalCode' => '45800',
               'city' => 'Saint Jean de Braye',
               'geolat' => '47,9265941',
@@ -281,7 +277,7 @@ class CompanyFixtures extends Fixture implements DependentFixtureInterface
             $company->setLogo (  $company_data['logo']  );
             $company->setBranch (  $branch  );
             $company->setContribution (  $company_data['contribution']  );
-            $company->setAddress (  $company_data['address']  );
+            $company->setNomDeLaRue (  $company_data['nomDeLaRue']  );
             $company->setCity (  $company_data['city']  );
             $company->setCountry (  $company_data['country']  );
             $company->setPostalCode (  $company_data['postalCode']  );

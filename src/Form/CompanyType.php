@@ -52,8 +52,8 @@ class CompanyType extends AbstractType
                     ])
                 ]
             ])
-            ->add('address', null, [
-                'label' => 'Adresse',
+            ->add('nomDeLaRue', null, [
+                'label' => 'Rue',
                 'attr' => ['class' => 'form-control'],
                 'row_attr' => [
                     'class' => 'form-group'

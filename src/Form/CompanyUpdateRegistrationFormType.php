@@ -39,6 +39,7 @@ class CompanyUpdateRegistrationFormType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => 'Email de l\'entreprise',
                 'attr' => ['class' => 'form-control'],
+                'required' => false,
             ])
             // ->add('plainPassword', RepeatedType::class, [
             //     'type' => PasswordType::class,
@@ -94,7 +95,7 @@ class CompanyUpdateRegistrationFormType extends AbstractType
                     'class' => 'form-group'
                 ]
             ])
-            ->add('address', TextType::class, [
+            ->add('nomDeLaRue', TextType::class, [
                 'label' => 'Nom de la rue',
                 'attr' => ['class' => 'form-control'],
                 'row_attr' => [

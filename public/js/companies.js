@@ -88,7 +88,7 @@ function load_data(data) {
         company.searchable = normalise_text(searchable)
 
         // Generate the searchable location text
-        searchable_location = company.address
+        searchable_location = company.nomDeLaRue
             + ' ' + company.postalCode
             + ' ' + company.city
         company.searchable_location = normalise_text(searchable_location)
