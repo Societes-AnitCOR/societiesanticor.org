@@ -16,27 +16,26 @@
 				<h1>Entreprises Engagés</h1>
 			</div>
 
-			<div class="row companySearch">
-				<div class="companyName col-sm-5">
+			<div class="companySearch">
+				<div class="companyName col-xs-12 col-sm-6 col-lg">
 					<label class="searchBar-left" for="search">Que recherchez-vous ?</label>
 					<div class="input-group">
 						<input class="form-control py-2 searchBar-left" type="search" id="search" placeholder="Gel, Blouses, Télémédecine, Développeur..." oninput="update_filter()">
 					</div>
 				</div>
-				<div class="companyAddress col-sm-4">
+				<div class="companyAddress col-xs-12 col-sm-6  col-lg">
 					<label class="searchBar-right" for="search_location">Ou?</label>
 					<div class="input-group">
 						<input class="form-control py-2 searchBar-right " type="search" id="search_location" placeholder="Adresse, Ville, code postal..." oninput="update_filter()">
+					
+						<button class="btn search" type="button">
+							<i class="fa fa-search"></i>
+						</button>
 					</div>
-					<button class="btn" type="button">
-						<i class="fa fa-search"></i>
-					</button>
 				</div>
-				<div class="ajouterStructure">
-					<button class=" btn" type="button" onclick="location.href='{{ path('customer_register') }}'">
-						<i class="fa fa-plus">
-							<span>AJOUTER MA STRUCTURE</span>
-						</i>
+				<div class="ajouterStructure  col-md-12 ">
+					<button class="btn" type="button" onclick="location.href='{{ path('customer_register') }}'">
+						<div class="row"><div class="col-*"><i class="fa fa-plus"></i></div> <div class="col" >AJOUTER MA STRUCTURE</div></div>
 					</button>
 				</div>
 			</div>

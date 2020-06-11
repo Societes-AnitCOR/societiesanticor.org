@@ -2,28 +2,26 @@
 
 @media (max-width: 1200px) {}
 
-@media (max-width: 1024px) {
-    .ajouterStructure {
-        margin-top: 60px;
+@media (max-width: 1024px) {}
+
+@media (max-width: 991px) {
+    
+    .ajouterStructure  {
+        margin-top: 20px;
+        padding-left : 0px;
     }
 }
 
-@media (max-width: 991px) {}
+@media (max-width: 800px) {
+}
 
-@media (max-width: 800px) {}
-
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+    
+}
 
 @media (max-width: 600px) {}
 
 @media (max-width: 575px) {
-    .companyAddress.col-sm-4 {
-        padding-left: 15px;
-    }
-
-    .companyName.col-sm-5 {
-        padding-right: 15px;
-    }
 
     input.searchBar-right {
         border-top-left-radius: 50rem !important;
@@ -37,13 +35,8 @@
         border-top-right-radius: 50rem !important;
     }
 
-    .companyName {
-        margin-bottom: 20px;
-    }
-
-    .ajouterStructure .btn {
-        margin-top: 20px;
-        float: left;
+    .companyAddress {
+        margin-top: 10px;
     }
 }
 
@@ -56,3 +49,12 @@
 @media (max-width: 360px) {}
 
 @media (max-width: 320px) {}
+
+
+@media (min-width: 991px) {
+    .ajouterStructure   {
+        -ms-flex: 0 0 300px;
+        flex: 0 0 300px;
+        max-width: 300px;
+    }
+}

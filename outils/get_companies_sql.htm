@@ -64,8 +64,13 @@
         url_website: 'URL site',
         keywords: 'Mot-cle Contribution',
         complementary_informations: 'Information complementaire',
+        created_at: () => Math.round(new Date().getTime()/1000),
+        updated_at: () => Math.round(new Date().getTime()/1000)
         //activated: ''
     }
+
+    const onlyCreation = [ 'created_at']
+
 
     var results = document.getElementById('results')
     var tabletop = {}
@@ -101,13 +106,17 @@
                         break;
                     }
                 }
+            } else if (typeof mapping[field] === "function") {
+                value =  mapping[field](row)
             }
             else 
             {
                 value = row[mapping[field]] || ""
             }
 
-            value = value.trim()
+            if (typeof value !== "number") {
+                value = value.trim()
+            }
 
             if (field === 'branch_id') {
                 return '( SELECT id FROM branch WHERE name = "' + value + '" )'
@@ -123,6 +132,8 @@
                 {
                     return '"' + 'auto_' + value + '.png' + '"'
                 }
+            } else if (typeof value === "number") {
+                return ' ' + value + ' '
             } else {
                 return ' ' + JSON.stringify(value) + ' '
             }
@@ -151,6 +162,7 @@
             s += ' ) ON DUPLICATE KEY UPDATE '
 
             for (const field in mapping) {
+                if (onlyCreation.includes(field)) continue
                 s += ' ' + field + '=' + getField(row, field) + ','
             }
             s = s.slice(0, -1)
