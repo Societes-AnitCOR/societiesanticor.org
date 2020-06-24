@@ -15,7 +15,7 @@
 }
 
 
-.searchBar {
+.companySearch {
     font-family: 'Muli', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -23,9 +23,14 @@
     line-height: 1.5rem;
 
     color: #30384C;
+
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
-.searchBar input[type="search"]:focus {
+.companySearch input[type="search"]:focus {
     border-color: rgba(10, 209, 189, 0.8);
     box-shadow: 0 1px 1px rgba(10, 209, 189, 0.075) inset, 0 0 8px rgba(10, 209, 189, 0.6);
 }
@@ -39,14 +44,14 @@ input.searchBar-left {
     border-right: 0px;
 }
 
-.searchBar .labels {
+.companySearch .labels {
     position: relative;
     display: inline-block;
     width: 100%;
     height: 2rem;
 }
 
-.searchBar label {
+.companySearch label {
     padding-left: 0.5rem;
     font-family: 'Muli', sans-serif;
     font-style: normal;
@@ -163,24 +168,25 @@ input.searchBar-right {
     background-color: #8BE3FF;
 }
 
-.companyName.col-sm-5 {
-    padding-right: 0;
+.companiesList .card .card-footer {
+    background-color: white;
+    border: 0;
 }
 
-.companyAddress.col-sm-4 {
-    padding-left: 0;
-}
-
-button.btn {
+button.search.btn {
     float: right;
-    bottom: 40px;
     position: relative;
     background-color: #0AD1BD !important;
     border-radius: 50rem !important;
     border: 3px solid #0AD1BD !important;
     margin-left: -2.7rem;
     z-index: 4;
+    height: calc(1.5em + .75rem + 2px);
+    min-width: 50px;
+}
 
+button.search.btn i {
+    vertical-align: text-top;
 }
 
 label.searchBar-left,
@@ -189,12 +195,37 @@ label.searchBar-right {
     font-weight: 600;
 }
 
+.ajouterStructure {
+    display: flex;
+    padding-left : 10px;
+    padding-right : 0px;
+    font-size: smaller;
+}
 .ajouterStructure .btn {
-    position: absolute;
-    margin-left: 17px;
+    margin: auto;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+    height: calc(1.5rem + .75rem + 2px);
+    background-color: #0AD1BD !important;
+    border-radius: 50rem !important;
+    border: 3px solid #0AD1BD !important;
+    min-width: 250px;
+    box-shadow: unset !important;
+}
+.ajouterStructure .btn i {
+    margin-left:15px;
 }
 
-.ajouterStructure {
-    position: relative;
-    width: 238px;
+
+.companyName, .companyAddress {
+    padding: 0 !important;
+}
+
+.branch, .keywords {
+    font-size : 0.8rem;
+}
+
+.branch-label, .keywords-label {
+    font-weight: bold;
 }

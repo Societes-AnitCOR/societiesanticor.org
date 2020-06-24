@@ -69,8 +69,7 @@ function update_filter() {
 
 // Data processing function called once the JSON has been loaded
 function load_data(data) {
-    
-    console.log(data)
+
     companies = data;
 
     // Clear the DOM 
@@ -81,7 +80,7 @@ function load_data(data) {
 
         // Generate the searchable text
         searchable = company.name
-            + ' ' + company.branch.name
+            + ' ' + (company.branch ? company.branch.name : '')
             + ' ' + company.description
             + ' ' + company.contribution
             + ' ' + company.complementaryInformations
@@ -103,19 +102,27 @@ function load_data(data) {
             company.contribution.substring(0, max_length - 3) + "..." :
             company.contribution;
 
-        keywords = ""
-        company.keywords.split(",").forEach(  (keyword) => { keywords+=`<span class="badge badge-keyword">` + keyword + `</span>` } )
-
-        image = company.logo.trim() === "" ? "" : `<div class="image" style="background-image:url(/uploads/companies/logos/` + company.logo + `)"></div>`
+        image = ((!company.logo) || company.logo.trim() === "") ? "" : `<div class="image" style="background-image:url(/uploads/companies/logos/` + company.logo + `)"></div>`
 
         card.innerHTML = `<!-- Card for company : ` + company.id + ` - ` + company.name + ` --> 
 <a href="/espace-entreprise/` + encodeURIComponent(company.name) + `" target="_blank"/>
 <div class="card h-100" id="company-card-` + company.id + `">
     <div class="card-img-top">` + image + `</div>
     <div class="card-body">
-        <h5 class="card-title">` + company.name + `<span class="city"> <i class="fas fa-map-marker-alt"></i> ` + company.city + ` - ` + company.postalCode + `</span></h5>
+        <h5 class="card-title">` + company.name + `<span class="city"> 
+        <i class="fas fa-map-marker-alt"></i> ` + company.city + ` - ` + company.postalCode + `</span></h5>
         <p class="card-text">` + small_contribution + `</p>
-        <div class="badges"><span class="badge badge-branch">` + company.branch.name + `</span>` + keywords + `</div>
+    </div>
+    <div class="card-footer">`
+        + ( company.branch ?  `
+        <div class="branch">
+            <span class="branch-label">Secteur d'activé habituel : </span> `+ company.branch.name + `
+        </div>` : ``)
+        + ( company.keywords ?  `
+        <div class="keywords">
+            <span class="keywords-label">Môt clés : </span>` + company.keywords + `
+        </div> ` : ``)
+        + `
     </div>
 </div>
 <a>
