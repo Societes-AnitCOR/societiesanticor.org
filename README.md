@@ -136,9 +136,6 @@ php bin/console d:m:m
 php bin/console doctrine:fixtures:load
 php bin/console import:referentiels -dtrue
 ```
-Development
-===========
-- TODO
 
 Git Flow
 ========
@@ -162,13 +159,7 @@ Pull requests are accepted once reviewed, which includes an intergration and **t
 
 Read our [Guidelines for contributing](CONTRIBUTING.md).
 
-Authors:
-- TODO
 
-Contributors:
-- TODO
-
- 
 License
 ====== 
 Copyright (c) "Société AntiCOR" 2020
