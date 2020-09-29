@@ -1,4 +1,4 @@
-# Société AntiCOR
+# Sociétés AntiCOR
 ![logo](./logo_societe_anticor.png)
 
 Table of content
