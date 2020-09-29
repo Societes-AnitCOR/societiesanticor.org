@@ -32,7 +32,7 @@ Concrètement ça pourrait par exemple permettre à un Hôpital qui connaît une
 Mais les solutions sont bien plus variées et vont des repas solidaires pour les soignants à une aide de trésorerie pour les petits commerces en passant par des logiciels d'aide au diagnostic pour les medecins ou encore par la mise à disposition de capacités de calcul pour la recherche.
 
 ### Pourquoi "sociétés anticor"?
-Le principe est un peu le même que pour le système immunitaire adaptatif et la protection de l'organisme par des anticorps : garder la mémoire de la première exposition à un pathogène pour avoir une ligne de réponse prête la deuxième fois.
+Le principe est un peu le même que pour le système immunitaire adaptatif et la protection de l'organisme par des anticorps : garder la mémoire de la première exposition à un pathogène pour avoir une ligne de réponse prête en cas d'une éventuelle deuxième fois. Etre dans l'anticipation plustôt que la réaction.
 
 Architecture
 ============
