@@ -65,6 +65,21 @@ Add an issue with a [Enhancement] at the beginning of the issue.
 - Make your changes **in your own repository**.
 - When you are ready, submit a Pull Request
 
+### Git Flow
+========
+![git flow](./gitflow.svg)
+
+#### Prinicpal Branches
+- master 
+    - production
+- validation 
+    - branch which holds the configuration being tested.
+    - pull request to master
+- develop
+    - intergration branch for incoming contributions
+    - pull request to validation
+
+
 ### Recognition
 
 - After your first pull request has been approved,
