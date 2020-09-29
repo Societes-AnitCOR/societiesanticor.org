@@ -29,10 +29,10 @@ Un annuaire en ligne cherchable et intuitif qui répertorie les sociétés qui o
 ### Exemples d'applications
 Concrètement ça pourrait par exemple permettre à un Hôpital qui connaît une forte augmentation de cas de voir qu'une société de conseil en logiciels informatiques propose gratuitement une expertise en optimisation des tournées et planification des opérations pour optimiser l'organisation de soins à domicile. Une association qui fait des livraisons à domicile pour les personnes vulnérables pourrait chercher à bénéficier de la même offre pour optimiser les tournées.
 
-Mais les solutions sont bien plus variées, et vont des repas solidaires pour les soignants à une aide de trésorerie pour les petits commerce en passant par des logiciels d'aide au diagnostic pour les medecins et une mise à disposition de capacités de calcul pour la recherche.
+Mais les solutions sont bien plus variées et vont des repas solidaires pour les soignants à une aide de trésorerie pour les petits commerces en passant par des logiciels d'aide au diagnostic pour les medecins ou encore par la mise à disposition de capacités de calcul pour la recherche.
 
 ### Pourquoi "sociétés anticor"?
-Le principe est un peu le même que le système immunitaire adaptatif qui utilise notamment des anticorps : garder la mémoire de la première exposition à un pathogène pour avoir une ligne de réponse prête la deuxième fois.
+Le principe est un peu le même que pour le système immunitaire adaptatif et la protection de l'organisme par des anticorps : garder la mémoire de la première exposition à un pathogène pour avoir une ligne de réponse prête la deuxième fois.
 
 Architecture
 ============
