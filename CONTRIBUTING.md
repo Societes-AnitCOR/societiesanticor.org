@@ -31,7 +31,7 @@ The following is a set of guidelines for contributing to Société AntiCOR. Thes
 
 ## I don't want to read this whole thing I just have a question!!!
 
-Open An issue starting with [Question] in the title.
+Open An issue starting with [Question] in the title. Else, join the conversation on slack : https://join.slack.com/t/societesanticor/shared_invite/zt-hpaqwfh2-BH1q9l9iterYMkcrrxUuxw .
 
 ## What should I know before I get started?
 
