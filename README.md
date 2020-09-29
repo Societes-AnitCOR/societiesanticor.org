@@ -13,24 +13,26 @@ Table of content
 
 Description
 ===========
-## Objectif général
+### Objectif général
 
-Ce projet est destiné à tirer des leçons de la première vague de l'épidémie liée au covid-19 afin de réagir de façon plus efficace et plus rapide dans l'hypothèse d'une deuxième vague. Tirer les leçons de la première vague implique au minimum de connaître les solutions qui ont pu être mises en place pendant cette période afin d'être en mesure de les redeployer plus rapidement si une deuxième vague se présentait. Cela implique également de se doter d'un outil pour faciliter la mise en place de nouvelles solutions en fonction des nouveaux besoins. 
+Ce projet est destiné à tirer des leçons de la première vague de l'épidémie liée au covid-19 afin de réagir de façon plus efficace et plus rapide dans l'hypothèse d'une deuxième vague. Tirer les leçons de la première vague implique au minimum : 
+1) de connaître les solutions qui ont pu être mises en place pendant cette période afin d'être en mesure de les redeployer plus rapidement si une deuxième vague se présentait
+2) de se doter d'un outil pour faciliter la mise en place de nouvelles solutions en fonction des nouveaux besoins. 
 
-## Concrètement, le projet ? 
+### Concrètement, le projet ? 
 Un annuaire en ligne cherchable et intuitif qui répertorie les sociétés qui ont déjà proposé ou qui proposent actuellement une aide face au covid-19, en leur permettant de modifier leur contribution et indiquer si celle-ci est toujours valable. 
 
 1er objectif : faire connaître les acteurs solidaires de la première vague pour permettre, si le besoin venait à se représenter, de recréer une chaîne de solidarité plus rapidement et plus efficacement. Pour cela, pendant la période de mars à juin 2020, nous avons repertorié dans notre base de données plus de 300 actions solidaires recouvrant 5 thèmes: Fabriquer du matériel, Accompagner les hôpitaux et la recherche, Soutenir les soignants, Aider la communauté, Aider les entreprises.
 
 2ème objectif : inviter de nouveaux acteurs à faire connaître leur contribution en s'inscrivant sur le site de façon à pouvoir actualiser et modifier leur contribution (et indiquer si celle-ci est toujours valable), car les besoins de la première vague ne seront pas nécessairement ou uniquement ceux de la deuxième vague.
 
-## Exemples d'applications
+### Exemples d'applications
 Concrètement ça pourrait par exemple permettre à un Hôpital qui connaît une forte augmentation de cas de voir qu'une société de conseil en logiciels informatiques propose gratuitement une expertise en optimisation des tournées et planification des opérations pour optimiser l'organisation de soins à domicile. Une association qui fait des livraisons à domicile pour les personnes vulnérables pourrait chercher à bénéficier de la même offre pour optimiser les tournées.
 
 Mais les solutions sont bien plus variées, et vont des repas solidaires pour les soignants à une aide de trésorerie pour les petits commerce en passant par des logiciels d'aide au diagnostic pour les medecins et une mise à disposition de capacités de calcul pour la recherche.
 
-## Pourquoi "sociétés anticor"?
-Le principe est un peu le même que le système immunitaire adaptatif et des anticorps : garder la mémoire de la première exposition pour avoir une ligne de réponse prète la deuxième fois.
+### Pourquoi "sociétés anticor"?
+Le principe est un peu le même que le système immunitaire adaptatif qui utilise notamment des anticorps : garder la mémoire de la première exposition à un pathogène pour avoir une ligne de réponse prête la deuxième fois.
 
 Architecture
 ============
