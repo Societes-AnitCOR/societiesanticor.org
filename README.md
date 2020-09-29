@@ -6,7 +6,6 @@ Table of content
 1. [Description](#description)
 2. [Architecture](#architecture)
 3. [Installation](#installation)
-    - [Development](#development)
 4. [Contributing](#contributing)
 5. [License](#license)
 
