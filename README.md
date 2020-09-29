@@ -23,7 +23,7 @@ Un annuaire en ligne cherchable et intuitif qui répertorie les sociétés qui o
 * 2ème objectif : inviter de nouveaux acteurs à faire connaître leur contribution en s'inscrivant sur le site de façon à pouvoir actualiser et modifier leur contribution (et indiquer si celle-ci est toujours valable), car les besoins de la première vague ne seront pas nécessairement ou uniquement ceux de la deuxième vague.
 
 ### Exemples d'applications
-Concrètement ça pourrait par exemple permettre à un Hôpital qui connaît une forte augmentation de cas de voir qu'une société propose gratuitement une expertise et un logiciel en planification des opérations pour optimiser l'organisation de soins à domicile. Une association qui fait des livraisons à domicile pour les personnes vulnérables pourrait chercher à bénéficier de la même offre pour optimiser les tournées.
+Concrètement ça pourrait par exemple permettre à un Hôpital qui connaît une forte augmentation de cas de voir qu'une société propose gratuitement une expertise et un logiciel pour optimiser l'organisation de soins à domicile. Une association qui fait des livraisons à domicile pour les personnes vulnérables pourrait chercher à bénéficier de la même offre pour optimiser les tournées.
 
 Mais les solutions sont bien plus variées et vont des repas solidaires pour les soignants à une aide de trésorerie pour les petits commerces en passant par des logiciels d'aide au diagnostic pour les medecins ou encore par la mise à disposition de capacités de calcul pour la recherche.
 
