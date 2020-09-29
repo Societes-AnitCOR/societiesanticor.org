@@ -20,11 +20,11 @@ Ce projet est destiné à tirer des leçons de la première vague de l'épidémi
 2) de se doter d'un outil pour faciliter la mise en place de nouvelles solutions en fonction des nouveaux besoins. 
 
 ### Concrètement, le projet ? 
-Un annuaire en ligne cherchable et intuitif qui répertorie les sociétés qui ont déjà proposé ou qui proposent actuellement une aide face au covid-19, en leur permettant de modifier leur contribution et indiquer si celle-ci est toujours valable. 
+Un annuaire en ligne cherchable et intuitif qui répertorie les sociétés qui ont déjà proposé ou qui proposent actuellement une aide face au covid-19, avec la possibilité de modifier une contribution et indiquer si celle-ci est toujours valable. 
 
-1er objectif : faire connaître les acteurs solidaires de la première vague pour permettre, si le besoin venait à se représenter, de recréer une chaîne de solidarité plus rapidement et plus efficacement. Pour cela, pendant la période de mars à juin 2020, nous avons repertorié dans notre base de données plus de 300 actions solidaires recouvrant 5 thèmes: Fabriquer du matériel, Accompagner les hôpitaux et la recherche, Soutenir les soignants, Aider la communauté, Aider les entreprises.
+* 1er objectif : faire connaître les acteurs solidaires de la première vague pour permettre, si le besoin venait à se représenter, de recréer une chaîne de solidarité plus rapidement et plus efficacement. Pour cela, pendant la période de mars à juin 2020, nous avons repertorié dans notre base de données plus de 300 actions solidaires recouvrant 5 thèmes: Fabriquer du matériel, Accompagner les hôpitaux et la recherche, Soutenir les soignants, Aider la communauté, Aider les entreprises.
 
-2ème objectif : inviter de nouveaux acteurs à faire connaître leur contribution en s'inscrivant sur le site de façon à pouvoir actualiser et modifier leur contribution (et indiquer si celle-ci est toujours valable), car les besoins de la première vague ne seront pas nécessairement ou uniquement ceux de la deuxième vague.
+* 2ème objectif : inviter de nouveaux acteurs à faire connaître leur contribution en s'inscrivant sur le site de façon à pouvoir actualiser et modifier leur contribution (et indiquer si celle-ci est toujours valable), car les besoins de la première vague ne seront pas nécessairement ou uniquement ceux de la deuxième vague.
 
 ### Exemples d'applications
 Concrètement ça pourrait par exemple permettre à un Hôpital qui connaît une forte augmentation de cas de voir qu'une société de conseil en logiciels informatiques propose gratuitement une expertise en optimisation des tournées et planification des opérations pour optimiser l'organisation de soins à domicile. Une association qui fait des livraisons à domicile pour les personnes vulnérables pourrait chercher à bénéficier de la même offre pour optimiser les tournées.
