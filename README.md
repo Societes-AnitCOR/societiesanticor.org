@@ -15,9 +15,7 @@ Description
 ===========
 ### Objectif général
 
-Ce projet est destiné à tirer des leçons de la première vague de l'épidémie liée au covid-19 afin de réagir de façon plus efficace et plus rapide dans l'hypothèse d'une deuxième vague. Tirer les leçons de la première vague implique au minimum : 
-1) de connaître les solutions qui ont pu être mises en place pendant cette période afin d'être en mesure de les redeployer plus rapidement si une deuxième vague se présentait
-2) de se doter d'un outil pour faciliter la mise en place de nouvelles solutions en fonction des nouveaux besoins. 
+Ce projet est destiné à tirer des leçons de la première vague de l'épidémie liée au covid-19 afin de réagir de façon plus efficace et plus rapide dans l'hypothèse d'une deuxième vague.
 
 ### Concrètement, le projet ? 
 Un annuaire en ligne cherchable et intuitif qui répertorie les sociétés qui ont déjà proposé ou qui proposent actuellement une aide face au covid-19, avec la possibilité de modifier une contribution et indiquer si celle-ci est toujours valable. 
