@@ -137,20 +137,6 @@ php bin/console doctrine:fixtures:load
 php bin/console import:referentiels -dtrue
 ```
 
-Git Flow
-========
-![git flow](./gitflow.svg)
-
-#### Prinicpal Branches
-- master 
-    - production
-- validation 
-    - branch which holds the configuration being tested.
-    - pull request to master
-- develop
-    - intergration branch for incoming contributions
-    - pull request to validation
-
 Contributing
 ============
 Contributions should be made by pull request to the develop branch.  
