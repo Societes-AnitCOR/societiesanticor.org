@@ -16,6 +16,7 @@ The following is a set of guidelines for contributing to Société AntiCOR. Thes
   * [Reporting Bugs](#reporting-bugs)
   * [Suggesting Enhancements](#suggesting-enhancements)
   * [Pull Requests](#pull-requests)
+  * [Git Flow](#git-flow)
   * [Recognition](#recognition)
 
 
