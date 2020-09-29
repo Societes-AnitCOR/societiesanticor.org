@@ -17,7 +17,6 @@ The following is a set of guidelines for contributing to Société AntiCOR. Thes
   * [Suggesting Enhancements](#suggesting-enhancements)
   * [Pull Requests](#pull-requests)
   * [Git Flow](#git-flow)
-  * [Recognition](#recognition)
 
 
 [Styleguides](#styleguides)
@@ -79,12 +78,6 @@ Add an issue with a [Enhancement] at the beginning of the issue.
 - develop
     - intergration branch for incoming contributions
     - pull request to validation
-
-
-### Recognition
-
-- After your first pull request has been approved,
-- You can submit another pull request to update the README.md in the CONTRIBUTING section to add your name.
 
 ## Styleguides
 
