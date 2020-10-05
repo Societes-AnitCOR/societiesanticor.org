@@ -21,7 +21,7 @@ Developping an intuitive and searchable database to find the companies that are 
 
 - But solutions are even more varied ang go from making free lunches for healthcare professionals to supporting small buisnesses, as well as providing calculus power for reasearch and softwares that assists doctors for diagnosis.
 
-- The searchable database is aimed at covering 5 themes : Making equipment, Support Hospitals and Research, Support helpers, Helping the community, Helping companies.
+- The searchable database is aimed at covering 5 themes : Making equipment, Supporting Hospitals and Research, Supporting helpers, Helping the community, Helping companies.
 
 
 Architecture
