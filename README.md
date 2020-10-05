@@ -11,21 +11,17 @@ Table of content
 
 Description
 ===========
-### Objectif général
+### General objective.
 
-Ce projet est destiné à tirer des leçons de la première vague de l'épidémie liée au covid-19 afin de réagir de façon plus efficace et plus rapide dans l'hypothèse d'une deuxième vague.
+Developping an intuitive and searchable database to find the companies that are or have been involved in the fight against covid-19, with the possibility for users to mention the scope of the help offered (local, national, international) and whether or not the offer is still relevant, shoud help to recreate (if needed) a chain of solidarity in a way that is faster and more efficent than during the first wave of the pandemic.
 
-### Concrètement, le projet ? 
-Un annuaire en ligne cherchable et intuitif qui répertorie les sociétés qui ont déjà proposé ou qui proposent actuellement une aide face au covid-19, avec la possibilité de modifier une contribution et indiquer si celle-ci est toujours valable. 
 
-* 1er objectif : faire connaître les acteurs solidaires de la première vague pour permettre, si le besoin venait à se représenter, de recréer une chaîne de solidarité plus rapidement et plus efficacement. Pour cela, pendant la période de mars à juin 2020, nous avons repertorié dans notre base de données plus de 300 actions solidaires recouvrant 5 thèmes: Fabriquer du matériel, Accompagner les hôpitaux et la recherche, Soutenir les soignants, Aider la communauté, Aider les entreprises.
+### How it could help : examples
+ - A Hospital using the website could see that a software company specialized in planification offers its software and expertise for free in order to help optimize the organization of home care. An association which delivers food for vulnerable people at home could benefit from the same offer to optimize their delivery ininerary.
 
-* 2ème objectif : inviter de nouveaux acteurs à faire connaître leur contribution en s'inscrivant sur le site de façon à pouvoir actualiser et modifier leur contribution (et indiquer si celle-ci est toujours valable), car les besoins de la première vague ne seront pas nécessairement ou uniquement ceux de la deuxième vague.
+- But solutions are even more varied ang go from making free lunches for healthcare professionals to supporting small buisnesses, as well as providing calculus power for reasearch and softwares that assists doctors for diagnosis.
 
-### Exemples d'applications
-Concrètement ça pourrait par exemple permettre à un Hôpital qui connaît une forte augmentation de cas de voir qu'une société propose gratuitement une expertise et un logiciel pour optimiser l'organisation de soins à domicile. Une association qui fait des livraisons à domicile pour les personnes vulnérables pourrait chercher à bénéficier de la même offre pour optimiser les tournées.
-
-Mais les solutions sont bien plus variées et vont des repas solidaires pour les soignants à une aide de trésorerie pour les petits commerces en passant par des logiciels d'aide au diagnostic pour les medecins ou encore par la mise à disposition de capacités de calcul pour la recherche.
+- The searchable database is aimed at covering 5 themes : Making equipment, Support Hospitals and Research, Support helpers, Helping the community, Helping companies.
 
 
 Architecture
