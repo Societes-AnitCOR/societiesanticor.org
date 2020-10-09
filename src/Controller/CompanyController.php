@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Admin\User;
 use App\Form\CompanyType;
 use App\Entity\Company;
 use App\Form\CompanyRegistrationFormType;
 use App\Form\CompanyUpdateRegistrationFormType;
+use App\Notification\NotificationManager;
 use App\Security\CompanyAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,6 +18,17 @@ use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 
 class CompanyController extends AbstractController
 {
+
+    /**
+     * @var NotificationManager
+     */
+    private $notificationManager;
+
+    public function __construct(NotificationManager $notificationManager)
+    {
+        $this->notificationManager = $notificationManager;
+    }
+
     /**
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder
@@ -59,6 +72,9 @@ class CompanyController extends AbstractController
             //     $authenticator,
             //     'main' // firewall name in security.yaml
             // );
+            /** @var User $user */
+            $user = $this->getUser();
+            $this->notificationManager->notifyRegistrationCompanyPage($user);
 
             return $this->redirectToRoute('companyPageView', array('name' => $company->getName()));
         }
